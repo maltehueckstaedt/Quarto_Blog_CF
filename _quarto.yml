@@ -7,9 +7,16 @@ website:
   navbar:
     right:
       - about.qmd
+      - index.qmd
+      - publications.qmd
+      - skills.qmd
+      - acomplishments.qmd
+      - experience.qmd
+      - talks.qmd
+      - contact.qmd
       - icon: github
         href: https://github.com/
-      - icon: twitter
+      - icon: instagram
         href: https://twitter.com
 format:
   html:

@@ -25,7 +25,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.\nFrom November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the German Centre for Science and Higher Education Research (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the Governance in Science and Higher Education department in the project Determinants and Effects of Collaboration in Research Collaborations (DEKiF). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project."
+    "text": "About me\nMalte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.\nFrom November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the German Centre for Science and Higher Education Research (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the Governance in Science and Higher Education department in the project Determinants and Effects of Collaboration in Research Collaborations (DEKiF). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project.\n\n\nAbout the blog\nThe blog “Chernoff faces” documents knowledge that is more or less loosely connected to my research activities or PhD. These can be both methodological and purely technical. The main purpose of the documentation is to briefly and clearly document knowledge elements that have already been developed for me personally. A very welcome side effect would be if this documentation of mine made it easier for third parties to work with R, Python, SQL etc. or to understand the application of specific methods. To this purpose, tutorials written in Rmarkdown are regularly published on the blog, in which various data science technics and software packages are applied. To illustrate this, simple questions are practically worked on methods from frequentist and Bayesian statistics.\n\n\nInterests\n\nProgramming with R and Python\nComputational social science\nResearch collaborations\nInterdisciplinarity\nSociology of art and culture"
   },
   {
     "objectID": "about.html#section",
@@ -61,5 +61,61 @@
     "title": "About",
     "section": "2018",
     "text": "2018\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7\nWeinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: https://doi.org/10.3389/frma.2023.1106482\nHückstädt, M., Leisten, L.M. (2023). Input, process, output - inhibitors and promoters of collaboration Problems (under Review)."
+  },
+  {
+    "objectID": "publications.html#section-1",
+    "href": "publications.html#section-1",
+    "title": "Publications",
+    "section": "2022",
+    "text": "2022\nHückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: https://doi.org/10.1007/s11192-022-04472-w"
+  },
+  {
+    "objectID": "publications.html#section-2",
+    "href": "publications.html#section-2",
+    "title": "Publications",
+    "section": "2021",
+    "text": "2021\nKleimann, B., & Hückstädt, M. (2021). Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences.Quality in Higher Education (online first). https://doi.org/10.1080/13538322.2021.1889760"
+  },
+  {
+    "objectID": "publications.html#section-3",
+    "href": "publications.html#section-3",
+    "title": "Publications",
+    "section": "2019",
+    "text": "2019\nKleimann, B., İkiz-Akıncı, D., & Hückstädt, M. (2019). Leistungsbewertung in Berufungsverfahren. Traditionswandel in der akademischen Personalselektion. Daten- und Methodenbericht zur qualitativen Erhebung der DZHW-Studie LiBerTas 2016. Version 1.0.0. Hannover: fdz.DZHW.\nHückstädt, M. (2019). Determinanten der subjektiv wahrgenommenen Wichtigkeit von Hochschulrankings bei der Studienortwahl? In L. Ringel & T. Werron (Hrsg.), Rankings - Soziologische Fallstudien (S. 181-202). Wiesbaden: Springer. https://doi.org/10.1007/978-3-658-26366-9_8"
+  },
+  {
+    "objectID": "publications.html#section-4",
+    "href": "publications.html#section-4",
+    "title": "Publications",
+    "section": "2018",
+    "text": "2018\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
+  },
+  {
+    "objectID": "3d.html",
+    "href": "3d.html",
+    "title": "3D Modelling",
+    "section": "",
+    "text": "Sieh dir diesen Beitrag auf Instagram an\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEin Beitrag geteilt von Chernoff Faces (@chernoff_faces)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSieh dir diesen Beitrag auf Instagram an\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEin Beitrag geteilt von Chernoff Faces (@chernoff_faces)"
+  },
+  {
+    "objectID": "acomplishments.html",
+    "href": "acomplishments.html",
+    "title": "Acomplishments",
+    "section": "",
+    "text": "Organiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nWeb Scraping und Data Mining mit Python\n\nCertifcate"
+  },
+  {
+    "objectID": "acomplishments.html#web-scraping-und-data-mining-mit-python",
+    "href": "acomplishments.html#web-scraping-und-data-mining-mit-python",
+    "title": "Acomplishments",
+    "section": "Web Scraping und Data Mining mit Python",
+    "text": "Web Scraping und Data Mining mit Python\nJGU-Mainz Mar 2022\n\n\n\ncaption"
   }
 ]
