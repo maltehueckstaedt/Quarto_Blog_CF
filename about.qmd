@@ -1,0 +1,74 @@
+---
+title: "About"
+toc: true
+image: avatar.png
+about:
+  template: trestles
+  image-width: 10em
+  image-shape: round
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com
+    - icon: github
+      text: Github
+      href: https://github.com
+---
+
+# About me
+
+Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.
+
+From November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the *German Centre for Science and Higher Education Research* (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the *Governance in Science and Higher Education* department in the project *Determinants and Effects of Collaboration in Research Collaborations* ([DEKiF](https://dekif-survey.dzhw.eu/en/index_html
+)). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project.
+
+
+# About the blog
+
+The blog "_Chernoff faces_" documents knowledge that is more or less loosely connected to my research activities or PhD. These can be both methodological and purely technical. The main purpose of the documentation is to briefly and clearly document knowledge elements that have already been developed for me personally. A very welcome side effect would be if this documentation of mine made it easier for third parties to work with [R](https://www.r-project.org/), [Python](https://www.python.org/), SQL etc. or to understand the application of specific methods. To this purpose, tutorials written in [Rmarkdown](https://rmarkdown.rstudio.com/) are regularly published on the blog, in which various data science technics and software packages are applied. To illustrate this, simple questions are practically worked on methods from frequentist and Bayesian statistics.
+
+
+# Interests
+
+- Programming with R and Python
+- Computational social science
+- Research collaborations
+- Interdisciplinarity
+- Sociology of art and culture
+
+# Publications
+
+## 2023 
+
+Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: <https://doi.org/10.1007/s11192-022-04629-7>
+
+Weinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: <https://doi.org/10.3389/frma.2023.1106482>
+
+Hückstädt, M., Leisten, L.M. (2023). _Input, process, output - inhibitors and promoters of collaboration Problems_ (under Review).
+
+## 2022
+
+Hückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: <https://doi.org/10.1007/s11192-022-04472-w>
+
+
+## 2021
+
+Kleimann, B., & Hückstädt, M. (2021).
+_Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences_.Quality in Higher Education (online first). <https://doi.org/10.1080/13538322.2021.1889760>
+
+## 2019
+
+Kleimann, B., İkiz-Akıncı, D., & Hückstädt, M. (2019).
+_Leistungsbewertung in Berufungsverfahren. Traditionswandel in der akademischen Personalselektion._ Daten- und Methodenbericht zur qualitativen Erhebung der DZHW-Studie LiBerTas 2016. Version 1.0.0. Hannover: fdz.DZHW.
+
+Hückstädt, M. (2019).
+_Determinanten der subjektiv wahrgenommenen Wichtigkeit von Hochschulrankings bei der Studienortwahl?_ In L. Ringel & T. Werron (Hrsg.), Rankings - Soziologische Fallstudien (S. 181-202). Wiesbaden: Springer. <https://doi.org/10.1007/978-3-658-26366-9_8>
+
+## 2018
+
+Kleimann, B., & Hückstädt, M. (2018).
+_Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich._ Beiträge zur Hochschulforschung, 40 (2/2018), 20-47.
+
