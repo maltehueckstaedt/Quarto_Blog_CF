@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Recent articles",
+    "section": "",
+    "text": "Malte Hückstädt\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 28, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nMar 25, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.\nFrom November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the German Centre for Science and Higher Education Research (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the Governance in Science and Higher Education department in the project Determinants and Effects of Collaboration in Research Collaborations (DEKiF). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project."
+  },
+  {
+    "objectID": "about.html#section",
+    "href": "about.html#section",
+    "title": "About",
+    "section": "2023",
+    "text": "2023\nHückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7\nWeinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: https://doi.org/10.3389/frma.2023.1106482\nHückstädt, M., Leisten, L.M. (2023). Input, process, output - inhibitors and promoters of collaboration Problems (under Review)."
+  },
+  {
+    "objectID": "about.html#section-1",
+    "href": "about.html#section-1",
+    "title": "About",
+    "section": "2022",
+    "text": "2022\nHückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: https://doi.org/10.1007/s11192-022-04472-w"
+  },
+  {
+    "objectID": "about.html#section-2",
+    "href": "about.html#section-2",
+    "title": "About",
+    "section": "2021",
+    "text": "2021\nKleimann, B., & Hückstädt, M. (2021). Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences.Quality in Higher Education (online first). https://doi.org/10.1080/13538322.2021.1889760"
+  },
+  {
+    "objectID": "about.html#section-3",
+    "href": "about.html#section-3",
+    "title": "About",
+    "section": "2019",
+    "text": "2019\nKleimann, B., İkiz-Akıncı, D., & Hückstädt, M. (2019). Leistungsbewertung in Berufungsverfahren. Traditionswandel in der akademischen Personalselektion. Daten- und Methodenbericht zur qualitativen Erhebung der DZHW-Studie LiBerTas 2016. Version 1.0.0. Hannover: fdz.DZHW.\nHückstädt, M. (2019). Determinanten der subjektiv wahrgenommenen Wichtigkeit von Hochschulrankings bei der Studienortwahl? In L. Ringel & T. Werron (Hrsg.), Rankings - Soziologische Fallstudien (S. 181-202). Wiesbaden: Springer. https://doi.org/10.1007/978-3-658-26366-9_8"
+  },
+  {
+    "objectID": "about.html#section-4",
+    "href": "about.html#section-4",
+    "title": "About",
+    "section": "2018",
+    "text": "2018\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
+  }
+]
