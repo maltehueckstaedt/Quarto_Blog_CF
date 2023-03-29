@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Chernoff Faces - About</title>
+<title>Quarto - About</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
+<script src="site_libs/quarto-search/autocomplete-preset-algolia.umd.js"></script>
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -45,6 +46,14 @@ ul.task-list li input[type="checkbox"] {
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "algolia": {
+    "application-id": "ZPJB5I1QN7",
+    "search-only-api-key": "41be6c1e0a7fea4a51b107810facf577",
+    "index-name": "prod_QUARTO",
+    "analytics-events": true,
+    "show-logo": true,
+    "libDir": "site_libs"
+  },
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,9 +66,35 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+
+
+<script type="text/javascript">
+var ALGOLIA_INSIGHTS_SRC = "https://cdn.jsdelivr.net/npm/search-insights/dist/search-insights.iife.min.js";
+!function(e,a,t,n,s,i,c){e.AlgoliaAnalyticsObject=s,e[s]=e[s]||function(){
+(e[s].queue=e[s].queue||[]).push(arguments)},i=a.createElement(t),c=a.getElementsByTagName(t)[0],
+i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
+}(window,document,"script",ALGOLIA_INSIGHTS_SRC,"aa");
+</script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-algolia-insights">
+
+</script>
 
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Quarto - About">
+<meta property="og:description" content="Malte Hückstädt was born in Schwedt/Oder in 1983.">
+<meta property="og:image" content="https://quarto.org/avatar.png">
+<meta property="og:site-name" content="Quarto">
+<meta property="og:image:height" content="2163">
+<meta property="og:image:width" content="2164">
+<meta name="twitter:title" content="Quarto - About">
+<meta name="twitter:description" content="Malte Hückstädt was born in Schwedt/Oder in 1983.">
+<meta name="twitter:image" content="https://quarto.org/avatar.png">
+<meta name="twitter:image-height" content="2163">
+<meta name="twitter:image-width" content="2164">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed fullcontent">
@@ -69,15 +104,15 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Chernoff Faces</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./quarto.png" alt="Quarto logo." class="navbar-logo">
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" aria-current="page">
  <span class="menu-text">About</span></a>
@@ -143,15 +178,8 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </header> 
       <div class="about-contents"><main class="content" id="quarto-document-content">
-<section id="about-me" class="level1">
-<h1>About me</h1>
 <p>Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.</p>
 <p>From November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the <em>German Centre for Science and Higher Education Research</em> (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the <em>Governance in Science and Higher Education</em> department in the project <em>Determinants and Effects of Collaboration in Research Collaborations</em> (<a href="https://dekif-survey.dzhw.eu/en/index_html">DEKiF</a>). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project.</p>
-</section>
-<section id="about-the-blog" class="level1">
-<h1>About the blog</h1>
-<p>The blog “<em>Chernoff faces</em>” documents knowledge that is more or less loosely connected to my research activities or PhD. These can be both methodological and purely technical. The main purpose of the documentation is to briefly and clearly document knowledge elements that have already been developed for me personally. A very welcome side effect would be if this documentation of mine made it easier for third parties to work with <a href="https://www.r-project.org/">R</a>, <a href="https://www.python.org/">Python</a>, SQL etc. or to understand the application of specific methods. To this purpose, tutorials written in <a href="https://rmarkdown.rstudio.com/">Rmarkdown</a> are regularly published on the blog, in which various data science technics and software packages are applied. To illustrate this, simple questions are practically worked on methods from frequentist and Bayesian statistics.</p>
-</section>
 <section id="interests" class="level1">
 <h1>Interests</h1>
 <ul>
@@ -298,6 +326,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Proudly supported by <a href="https://posit.co"><img src="https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg" class="img-fluid" alt="Posit" width="65"></a></div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./about.html">About</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./docs/faq/index.qmd">FAQ</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./license.qmd">License</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="./trademark.qmd">Trademark</a>
+  </li>  
+</ul>
+      </div>
+  </div>
+</footer>
 
 
 
