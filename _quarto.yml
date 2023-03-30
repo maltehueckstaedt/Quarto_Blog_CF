@@ -13,12 +13,6 @@ website:
   page-navigation: true
   search:
     type: overlay
-    algolia:
-      index-name: prod_QUARTO
-      application-id: ZPJB5I1QN7
-      search-only-api-key: 41be6c1e0a7fea4a51b107810facf577
-      analytics-events: true
-      show-logo: true
   page-footer:
     left: |
       Proudly supported by
@@ -34,13 +28,13 @@ website:
         href: trademark.qmd
   navbar:
     left:
-      - about.qmd
       - index.qmd
       - publications.qmd
       - skills.qmd
       - acomplishments.qmd
       - experience.qmd
       - talks.qmd
+      - about.qmd
       - contact.qmd
       - icon: github
         href: https://github.com/
