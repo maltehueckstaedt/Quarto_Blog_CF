@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://quarto.org/index.html</loc>
-    <lastmod>2023-03-30T07:01:21.070Z</lastmod>
+    <lastmod>2023-03-30T07:41:37.380Z</lastmod>
   </url>
   <url>
     <loc>https://quarto.org/about.html</loc>
@@ -46,6 +46,10 @@
   </url>
   <url>
     <loc>https://quarto.org/posts/chernoff_faces/index.html</loc>
-    <lastmod>2023-03-29T16:14:33.301Z</lastmod>
+    <lastmod>2023-03-30T07:42:31.688Z</lastmod>
+  </url>
+  <url>
+    <loc>https://quarto.org/posts/correspondence_analysis/index.html</loc>
+    <lastmod>2023-03-30T07:41:38.008Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,12 @@
+---
+title: "Correspondence Analysis"
+author: "Malte Hückstädt"
+date: "2023-03-30"
+categories: [R, data visualization, data exploration, analysis]
+image: "image.jpg"
+bibliography: Bibliothek.bib
+---
+
+# Introduction
+
+# References

@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Malte Hückstädt">
+<meta name="dcterms.date" content="2023-03-30">
 
-<title>Quarto – python_linear_regression</title>
+<title>Quarto - Correspondence Analysis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +31,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete-preset-algolia.umd.js"></script>
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -48,14 +48,6 @@ ul.task-list li input[type="checkbox"] {
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
-  "algolia": {
-    "application-id": "ZPJB5I1QN7",
-    "search-only-api-key": "41be6c1e0a7fea4a51b107810facf577",
-    "index-name": "prod_QUARTO",
-    "analytics-events": true,
-    "show-logo": true,
-    "libDir": "site_libs"
-  },
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -68,23 +60,15 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
-
-
-<script type="text/javascript">
-var ALGOLIA_INSIGHTS_SRC = "https://cdn.jsdelivr.net/npm/search-insights/dist/search-insights.iife.min.js";
-!function(e,a,t,n,s,i,c){e.AlgoliaAnalyticsObject=s,e[s]=e[s]||function(){
-(e[s].queue=e[s].queue||[]).push(arguments)},i=a.createElement(t),c=a.getElementsByTagName(t)[0],
-i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
-}(window,document,"script",ALGOLIA_INSIGHTS_SRC,"aa");
-</script>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-algolia-insights">
-
-</script>
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Quarto - Correspondence Analysis">
+<meta property="og:image" content="https://quarto.org/posts/correspondence_analysis/image.jpg">
+<meta property="og:site-name" content="Quarto">
+<meta name="twitter:title" content="Quarto - Correspondence Analysis">
+<meta name="twitter:image" content="https://quarto.org/posts/correspondence_analysis/image.jpg">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -103,10 +87,6 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../index.html">
  <span class="menu-text">Recent articles</span></a>
@@ -132,6 +112,10 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
  <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../../contact.html">
  <span class="menu-text">Contact</span></a>
   </li>  
@@ -152,11 +136,52 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Correspondence Analysis</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">data visualization</div>
+                <div class="quarto-category">data exploration</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Malte Hückstädt </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 30, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/quarto-dev/quarto-web/edit/main/posts/correspondence_analysis/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/quarto-dev/quarto-web/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -164,7 +189,14 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
 
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
