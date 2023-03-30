@@ -22,6 +22,88 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -64,9 +146,11 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Quarto - Correspondence Analysis">
+<meta property="og:description" content="Correspondence analysis (ca) is a chi-square statistic-based, primarily geometric, descriptive or explorative method, that can be used to examine latent structures of multivariate data.">
 <meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/correspondence_analysis/image.jpg">
 <meta property="og:site-name" content="Quarto">
 <meta name="twitter:title" content="Quarto - Correspondence Analysis">
+<meta name="twitter:description" content="Correspondence analysis (ca) is a chi-square statistic-based, primarily geometric, descriptive or explorative method, that can be used to examine latent structures of multivariate data.">
 <meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/correspondence_analysis/image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -179,6 +263,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a>
+  <ul class="collapse">
+  <li><a href="#data-processing" id="toc-data-processing" class="nav-link" data-scroll-target="#data-processing">Data processing</a></li>
+  </ul></li>
+  <li><a href="#correspondence-analysis" id="toc-correspondence-analysis" class="nav-link" data-scroll-target="#correspondence-analysis">Correspondence analysis</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -191,14 +281,686 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
+<p>Correspondence analysis (ca) is a chi-square statistic-based, primarily geometric, descriptive or explorative method, that can be used to examine latent structures of multivariate data. Like cluster analysis, correspondence analysis is a data reduction procedure that, in contrast to cluster analysis and principal component analysis, is used in particular to describe categorical data that are grouped together in a contingency table <span class="citation" data-cites="blasiusKorrespondenzanalyse2001">(<a href="#ref-blasiusKorrespondenzanalyse2001" role="doc-biblioref">Blasius 2001</a>)</span>. In contrast to cluster analysis, however, the characteristics or subjects are not assigned to a cluster, but are localized and related to each other in a space spanned by latent dimensions, which are represented by continuously scaled structural axes. The goal of ca, meanwhile, is to determine an optimal (for various, pragmatic reasons, usually two-dimensional) subspace of a multidimensional hyperspace. In the definition of this system the dimensions are to be chosen in such a way that with them a maximum of the variation of the data can be explained <span class="citation" data-cites="blasiusKorrespondenzanalyse2001">(<a href="#ref-blasiusKorrespondenzanalyse2001" role="doc-biblioref">Blasius 2001</a>)</span>.</p>
+<p>The ca is primarily interpreted graphically, while numerical interpretation tends to be of lower priority <span class="citation" data-cites="backhausKorrespondenzanalyse2016">(<a href="#ref-backhausKorrespondenzanalyse2016" role="doc-biblioref">Backhaus et al. 2016</a>)</span>. The graphical representation possibilities are then probably also one of the main advantages of ca: Thus, ca can represent data structures clearly, graphically, reduce complexity on the basis of latent dimensions, and thus make complex, unknown relationships visible at a glance. The general maxim of exploratory data analysis “<em>Let the data speak for themselves!</em>” <span class="citation" data-cites="lerouxMultipleCorrespondenceAnalysis2010">(<a href="#ref-lerouxMultipleCorrespondenceAnalysis2010" role="doc-biblioref">Le Roux and Rouanet 2010, 4</a>)</span> is thus quite redeemed in the context of ca’s graphical representations. However, the comparatively catchy “<em>geometric maps</em>” <span class="citation" data-cites="lengerPierreBourdieusKonzeption2013">(<a href="#ref-lengerPierreBourdieusKonzeption2013" role="doc-biblioref">Lenger, Schneickert, and Schumacher 2013, 207</a>)</span> that result from the geometric solution of a ca, also harbor a number of interpretational hurdles that even Pierre Bourdieu was not always able to overcome without error <span class="citation" data-cites="blasiusGibtEsFeinen1989a gollacFrohlicheWissenschaftUber2015">(<a href="#ref-blasiusGibtEsFeinen1989a" role="doc-biblioref"><strong>blasiusGibtEsFeinen1989a?</strong></a>; <a href="#ref-gollacFrohlicheWissenschaftUber2015" role="doc-biblioref">Gollac 2015</a>)</span>.</p>
+<p><span class="citation" data-cites="bourdieuDistinctionSocialCritique1987">(<a href="#ref-bourdieuDistinctionSocialCritique1987" role="doc-biblioref">Bourdieu 1987</a>)</span> gakodfdfdsh hfdhf <span class="citation" data-cites="backhausKorrespondenzanalyse2016">(<a href="#ref-backhausKorrespondenzanalyse2016" role="doc-biblioref">Backhaus et al. 2016</a>)</span></p>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>The ca is, at least outside France, known and recognized as <em>Bourdieu’s statistical method</em> <span class="citation" data-cites="lerouxMultipleCorrespondenceAnalysis2010">(<a href="#ref-lerouxMultipleCorrespondenceAnalysis2010" role="doc-biblioref">Le Roux and Rouanet 2010, 4</a>)</span>. In fact, however, it was not Pierre Bourdieu who invented this empirical method, often still perceived as “<em>strange</em>” <span class="citation" data-cites="heppEpistemologischeWachsamkeit2014">(<a href="#ref-heppEpistemologischeWachsamkeit2014" role="doc-biblioref">Hepp and Kergel 2014</a>)</span>, but his close friend, the analyst and linguist Jean-Paul Benzécris, who first introduced the ca in France in the 1960s.</p>
+<p>In order to stay close to the origins of ca, in the following we use data that Pierre Bourdieu <span class="citation" data-cites="bourdieuDistinctionSocialCritique1987">(<a href="#ref-bourdieuDistinctionSocialCritique1987" role="doc-biblioref">1987</a>)</span> already supplied to ca in his famous main work <em>Distinction: A Social Critique of the Judgement of Taste</em>: We explore the relationship between social class membership, aesthetic attitudes, and favorite painters <span class="citation" data-cites="bourdieuFeinenUnterschiedeKritik2012">(<a href="#ref-bourdieuFeinenUnterschiedeKritik2012" role="doc-biblioref">Bourdieu 2012, 822–23</a>)</span>.</p>
+<section id="data-processing" class="level2">
+<h2 class="anchored" data-anchor-id="data-processing">Data processing</h2>
+<p>To do this, we first load the corresponding <a href="https://github.com/MalteHueckstaedt/chernoff_faces/raw/master/analysis/04-2022-ca-R/Bourdieu_p822.xlsx">contingency table</a> into our workspace using the <code>read_excel()</code> function of the <code>readxl</code> package and specify (with the help of a <a href="https://magrittr.tidyverse.org/reference/pipe.html">“<em>pipe</em>”</a>) as rownames the variable of the social classes that already has the name <code>rownames</code> in our excel-sheet.</p>
+<p>In a further step, we print the contingency table (in transposed form for clarity) using the <code>kable()</code> function of the <code>kableExtra</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ readr   2.1.2     ✔ forcats 0.5.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Bourdieu_p822.xlsx"</span>) <span class="sc">%&gt;%</span> <span class="fu">column_to_rownames</span>(<span class="st">"rownames"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">t</span>(df), <span class="st">"pipe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">working classes</th>
+<th style="text-align: right;">middle classes</th>
+<th style="text-align: right;">upper classes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">sunset</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">64</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">communion</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">folkloric dance</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">girl with cat</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lactating woman</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">53</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tree bark</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">steel frame</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pregnant woman</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cabbages</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">car accident</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Raphael</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Buffet</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Utrillo</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Vlamink</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Watteau</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Renoir</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Van Gogh</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">49</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dali</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Braque</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Goya</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Brueghel</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Kandinsky</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="correspondence-analysis" class="level1">
+<h1>Correspondence analysis</h1>
+<p>As we could see, the complexity of our 3x22 contingency table is so high that correlations between class position and corresponding, aesthetic settings and weaknesses for specific favorite painters are hardly or hardly to be inferred from the table for the naked eye. For this reason, we specify a ca. We load the package <code>FactoMineR</code> into our workspace and feed our data to the <code>FactoMineR</code> function <code>CA()</code> and store the results in the object <code>ca</code>. Since the automated graphs of the <code>FactoMineR</code> package are not publishable, especially for complex correspondence analyses, we set the <code>graph</code> argument to <code>FALSE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">&lt;-</span> <span class="fu">CA</span>(df, <span class="at">graph =</span> F)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ca</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>**Results of the Correspondence Analysis (CA)**
+The row variable has  3  categories; the column variable has 22 categories
+The chi square of independence between the two variables is equal to 115.082 (p-value =  1.008015e-08 ).
+*The results are available in the following objects:
+
+   name              description                   
+1  "$eig"            "eigenvalues"                 
+2  "$col"            "results for the columns"     
+3  "$col$coord"      "coord. for the columns"      
+4  "$col$cos2"       "cos2 for the columns"        
+5  "$col$contrib"    "contributions of the columns"
+6  "$row"            "results for the rows"        
+7  "$row$coord"      "coord. for the rows"         
+8  "$row$cos2"       "cos2 for the rows"           
+9  "$row$contrib"    "contributions of the rows"   
+10 "$call"           "summary called parameters"   
+11 "$call$marge.col" "weights of the columns"      
+12 "$call$marge.row" "weights of the rows"         </code></pre>
+</div>
+</div>
+<p>If we output the object <code>ca</code>, we see that our ca was based on a 3x22 contingency table whose row and column variables are statistically significantly related (p-value = 1.008015e-08). Furthermore, we see all storage locations of the central information concerning the specified ca. In order to determine the number of axes of the ca to be taken into account, we first have the eigenvalues and the proportions of the variances “<em>explained</em>” by the different axes of the ca output.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">as.data.frame</span>(ca<span class="sc">$</span>eig), <span class="st">"pipe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 14%">
+<col style="width: 31%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">eigenvalue</th>
+<th style="text-align: right;">percentage of variance</th>
+<th style="text-align: right;">cumulative percentage of variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">dim 1</td>
+<td style="text-align: right;">0.0624176</td>
+<td style="text-align: right;">93.179969</td>
+<td style="text-align: right;">93.17997</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">dim 2</td>
+<td style="text-align: right;">0.0045685</td>
+<td style="text-align: right;">6.820031</td>
+<td style="text-align: right;">100.00000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>The eigenvalues correspond to the amount of information each axis contains. The dimensions are ordered in decreasing order and ranked by the amount of variance explained in the final solution of the ca. Dimension 1 of our specified ca explains 93.18% of the variance, and dimension 2 explains 6.82% of the variance <span class="citation" data-cites="hjellbrekkeMultipleCorrespondenceAnalysis2018">(<a href="#ref-hjellbrekkeMultipleCorrespondenceAnalysis2018" role="doc-biblioref">Hjellbrekke 2018</a>)</span>. The first two axes of the specified ca explain 100% of the variation in the contingency table fed to the ca. Accordingly, within the graphical representation of the geometric solution of ca, we extract the first two axes.</p>
+<p>To do this, we use the <code>mutate()</code>- und <code>select()</code>-function of the <code>dplyr</code>-Package to create a new data-frame containing the coordinates (<code>ca$row$coord</code>) of the row and column profiles, as well as their squared cosines values (<code>cos2</code>) and contribution values (<code>contrib</code>). The former measures the extent of association between row and column categories and a particular dimension of ca, the latter indicates which row and column categories are most significant in explaining the variability of the data on which the contingency table is based. Row and column categories of low importance are characterized by the fact that they do not make a high contribution to any of the first dimensions of a ca <span class="citation" data-cites="lerouxMultipleCorrespondenceAnalysis2010">(<a href="#ref-lerouxMultipleCorrespondenceAnalysis2010" role="doc-biblioref">Le Roux and Rouanet 2010</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ca_row <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ca<span class="sc">$</span>row<span class="sc">$</span>coord) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Dim 1</span><span class="st">`</span>,<span class="st">`</span><span class="at">Dim 2</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type=</span><span class="fu">rep</span>(<span class="st">"social class"</span>,<span class="dv">3</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">cos2_dim1=</span>ca<span class="sc">$</span>row<span class="sc">$</span>cos2[,<span class="dv">1</span>],</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">cos2_dim2=</span>ca<span class="sc">$</span>row<span class="sc">$</span>cos2[,<span class="dv">2</span>],</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">contr_dim1=</span>ca<span class="sc">$</span>row<span class="sc">$</span>contrib[,<span class="dv">1</span>],</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">contr_dim2=</span>ca<span class="sc">$</span>row<span class="sc">$</span>contrib[,<span class="dv">2</span>])</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>ca_col <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ca<span class="sc">$</span>col<span class="sc">$</span>coord) <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="st">`</span><span class="at">Dim 1</span><span class="st">`</span>,<span class="st">`</span><span class="at">Dim 2</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type=</span><span class="fu">rep</span>(<span class="st">"taste"</span>,<span class="dv">22</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">cos2_dim1=</span>ca<span class="sc">$</span>col<span class="sc">$</span>cos2[,<span class="dv">1</span>],</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">cos2_dim2=</span>ca<span class="sc">$</span>col<span class="sc">$</span>cos2[,<span class="dv">2</span>],</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">contr_dim1=</span>ca<span class="sc">$</span>col<span class="sc">$</span>contrib[,<span class="dv">1</span>],</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">contr_dim2=</span>ca<span class="sc">$</span>col<span class="sc">$</span>contrib[,<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The two datasets <code>ca_row</code> and <code>ca_col</code>, which contain the extracted information of the CA, are joined line by line using the function <code>rbind()</code> and again specify the names of the line profiles in the column <code>rownames</code> for the following graphical representation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ca_df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(ca_row,ca_col)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ca_df<span class="sc">$</span>rownames <span class="ot">&lt;-</span> <span class="fu">rownames</span>(ca_df)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(ca_df, <span class="st">"pipe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Dim 1</th>
+<th style="text-align: right;">Dim 2</th>
+<th style="text-align: left;">type</th>
+<th style="text-align: right;">cos2_dim1</th>
+<th style="text-align: right;">cos2_dim2</th>
+<th style="text-align: right;">contr_dim1</th>
+<th style="text-align: right;">contr_dim2</th>
+<th style="text-align: left;">rownames</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">working classes</td>
+<td style="text-align: right;">-0.3020220</td>
+<td style="text-align: right;">-0.0554749</td>
+<td style="text-align: left;">social class</td>
+<td style="text-align: right;">0.9673633</td>
+<td style="text-align: right;">0.0326367</td>
+<td style="text-align: right;">46.6152120</td>
+<td style="text-align: right;">21.4872327</td>
+<td style="text-align: left;">working classes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">middle classes</td>
+<td style="text-align: right;">-0.0274330</td>
+<td style="text-align: right;">0.0932834</td>
+<td style="text-align: left;">social class</td>
+<td style="text-align: right;">0.0796004</td>
+<td style="text-align: right;">0.9203996</td>
+<td style="text-align: right;">0.4133641</td>
+<td style="text-align: right;">65.3025847</td>
+<td style="text-align: left;">middle classes</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">upper classes</td>
+<td style="text-align: right;">0.3126783</td>
+<td style="text-align: right;">-0.0422438</td>
+<td style="text-align: left;">social class</td>
+<td style="text-align: right;">0.9820743</td>
+<td style="text-align: right;">0.0179257</td>
+<td style="text-align: right;">52.9714239</td>
+<td style="text-align: right;">13.2101826</td>
+<td style="text-align: left;">upper classes</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sunset</td>
+<td style="text-align: right;">-0.1593478</td>
+<td style="text-align: right;">0.0086692</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9970489</td>
+<td style="text-align: right;">0.0029511</td>
+<td style="text-align: right;">5.6355867</td>
+<td style="text-align: right;">0.2278978</td>
+<td style="text-align: left;">sunset</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">communion</td>
+<td style="text-align: right;">-0.4173789</td>
+<td style="text-align: right;">-0.0959956</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9497594</td>
+<td style="text-align: right;">0.0502406</td>
+<td style="text-align: right;">16.0829650</td>
+<td style="text-align: right;">11.6236890</td>
+<td style="text-align: left;">communion</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">folkloric dance</td>
+<td style="text-align: right;">-0.2339650</td>
+<td style="text-align: right;">-0.0201684</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9926239</td>
+<td style="text-align: right;">0.0073761</td>
+<td style="text-align: right;">7.7591702</td>
+<td style="text-align: right;">0.7877601</td>
+<td style="text-align: left;">folkloric dance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">girl with cat</td>
+<td style="text-align: right;">-0.0705356</td>
+<td style="text-align: right;">0.0337091</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.8140734</td>
+<td style="text-align: right;">0.1859266</td>
+<td style="text-align: right;">0.7701848</td>
+<td style="text-align: right;">2.4033062</td>
+<td style="text-align: left;">girl with cat</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lactating woman</td>
+<td style="text-align: right;">0.0467194</td>
+<td style="text-align: right;">0.0438757</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.5313588</td>
+<td style="text-align: right;">0.4686412</td>
+<td style="text-align: right;">0.3093915</td>
+<td style="text-align: right;">3.7281835</td>
+<td style="text-align: left;">lactating woman</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tree bark</td>
+<td style="text-align: right;">0.3712275</td>
+<td style="text-align: right;">0.0021798</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9999655</td>
+<td style="text-align: right;">0.0000345</td>
+<td style="text-align: right;">12.4658518</td>
+<td style="text-align: right;">0.0058725</td>
+<td style="text-align: left;">tree bark</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">steel frame</td>
+<td style="text-align: right;">0.4930348</td>
+<td style="text-align: right;">-0.0667783</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9819855</td>
+<td style="text-align: right;">0.0180145</td>
+<td style="text-align: right;">9.2941342</td>
+<td style="text-align: right;">2.3294917</td>
+<td style="text-align: left;">steel frame</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pregnant woman</td>
+<td style="text-align: right;">0.1896658</td>
+<td style="text-align: right;">0.0256267</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9820712</td>
+<td style="text-align: right;">0.0179288</td>
+<td style="text-align: right;">1.5431415</td>
+<td style="text-align: right;">0.3849018</td>
+<td style="text-align: left;">pregnant woman</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cabbages</td>
+<td style="text-align: right;">0.3571570</td>
+<td style="text-align: right;">-0.0503835</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9804881</td>
+<td style="text-align: right;">0.0195119</td>
+<td style="text-align: right;">4.2824346</td>
+<td style="text-align: right;">1.1643537</td>
+<td style="text-align: left;">cabbages</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">car accident</td>
+<td style="text-align: right;">0.9792702</td>
+<td style="text-align: right;">-0.2239721</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9502905</td>
+<td style="text-align: right;">0.0497095</td>
+<td style="text-align: right;">4.4714152</td>
+<td style="text-align: right;">3.1956868</td>
+<td style="text-align: left;">car accident</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Raphael</td>
+<td style="text-align: right;">-0.2483293</td>
+<td style="text-align: right;">-0.0032539</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9998283</td>
+<td style="text-align: right;">0.0001717</td>
+<td style="text-align: right;">4.4280915</td>
+<td style="text-align: right;">0.0103874</td>
+<td style="text-align: left;">Raphael</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Buffet</td>
+<td style="text-align: right;">-0.0080562</td>
+<td style="text-align: right;">0.3315053</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.0005902</td>
+<td style="text-align: right;">0.9994098</td>
+<td style="text-align: right;">0.0020578</td>
+<td style="text-align: right;">47.6064729</td>
+<td style="text-align: left;">Buffet</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Utrillo</td>
+<td style="text-align: right;">-0.0193692</td>
+<td style="text-align: right;">-0.0702185</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.0707084</td>
+<td style="text-align: right;">0.9292916</td>
+<td style="text-align: right;">0.0202918</td>
+<td style="text-align: right;">3.6436581</td>
+<td style="text-align: left;">Utrillo</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Vlamink</td>
+<td style="text-align: right;">0.1791711</td>
+<td style="text-align: right;">0.1642087</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.5434912</td>
+<td style="text-align: right;">0.4565088</td>
+<td style="text-align: right;">0.8681677</td>
+<td style="text-align: right;">9.9631457</td>
+<td style="text-align: left;">Vlamink</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Watteau</td>
+<td style="text-align: right;">-0.0275261</td>
+<td style="text-align: right;">0.0605970</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.1710476</td>
+<td style="text-align: right;">0.8289524</td>
+<td style="text-align: right;">0.0360354</td>
+<td style="text-align: right;">2.3860424</td>
+<td style="text-align: left;">Watteau</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Renoir</td>
+<td style="text-align: right;">-0.0321726</td>
+<td style="text-align: right;">0.0011474</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9987296</td>
+<td style="text-align: right;">0.0012704</td>
+<td style="text-align: right;">0.1428582</td>
+<td style="text-align: right;">0.0024827</td>
+<td style="text-align: left;">Renoir</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Van Gogh</td>
+<td style="text-align: right;">-0.0129299</td>
+<td style="text-align: right;">-0.0357981</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.1154028</td>
+<td style="text-align: right;">0.8845972</td>
+<td style="text-align: right;">0.0224504</td>
+<td style="text-align: right;">2.3512007</td>
+<td style="text-align: left;">Van Gogh</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Dali</td>
+<td style="text-align: right;">0.1826517</td>
+<td style="text-align: right;">-0.0055608</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9990740</td>
+<td style="text-align: right;">0.0009260</td>
+<td style="text-align: right;">0.3733348</td>
+<td style="text-align: right;">0.0047279</td>
+<td style="text-align: left;">Dali</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Braque</td>
+<td style="text-align: right;">0.2119424</td>
+<td style="text-align: right;">-0.0032304</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9997677</td>
+<td style="text-align: right;">0.0002323</td>
+<td style="text-align: right;">0.8796806</td>
+<td style="text-align: right;">0.0027922</td>
+<td style="text-align: left;">Braque</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Goya</td>
+<td style="text-align: right;">0.2631705</td>
+<td style="text-align: right;">-0.0952198</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.8842418</td>
+<td style="text-align: right;">0.1157582</td>
+<td style="text-align: right;">4.2627339</td>
+<td style="text-align: right;">7.6243880</td>
+<td style="text-align: left;">Goya</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Brueghel</td>
+<td style="text-align: right;">0.7816252</td>
+<td style="text-align: right;">-0.0283536</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9986858</td>
+<td style="text-align: right;">0.0013142</td>
+<td style="text-align: right;">22.7890942</td>
+<td style="text-align: right;">0.4097152</td>
+<td style="text-align: left;">Brueghel</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Kandinsky</td>
+<td style="text-align: right;">0.7977577</td>
+<td style="text-align: right;">0.0433777</td>
+<td style="text-align: left;">taste</td>
+<td style="text-align: right;">0.9970521</td>
+<td style="text-align: right;">0.0029479</td>
+<td style="text-align: right;">3.5609282</td>
+<td style="text-align: right;">0.1438439</td>
+<td style="text-align: left;">Kandinsky</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Now we are ready to plot the graphical solution of the ca. For this we use the package <code>ggplot2</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ca_df, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Dim 1</span><span class="st">`</span>, <span class="st">`</span><span class="at">Dim 2</span><span class="st">`</span>,<span class="at">color=</span>type)) <span class="sc">+</span> <span class="co">#specify the x and y variable</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color=</span><span class="st">"grey"</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span> <span class="co">#add x-axis</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color=</span><span class="st">"grey"</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span> <span class="co">#add y-axis</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">shape=</span>type),<span class="at">color =</span> <span class="st">"red"</span>)<span class="sc">+</span> <span class="co"># add (red) points corresponding to the coordinates of the variables 'Dim 1' and 'Dim 2</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> rownames), <span class="at">min.segment.length =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)<span class="sc">+</span>  <span class="co">#avoid overlapping labels</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"#d80000"</span>, <span class="st">"#2450a4"</span>))<span class="sc">+</span> <span class="co">#add manual color shading</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)<span class="sc">+</span> <span class="co">#hide legend</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"factor map of correspondence analysis"</span>) <span class="sc">+</span> <span class="co">#add main title</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Dim 1 (93.18%)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Dim 1 (6.82%)"</span>) <span class="co">#add axis titles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As indicated above, with respect to the interpretation of the graphical solution of a ca, there are some pitfalls that need to be considered. Carroll et al <span class="citation" data-cites="carrollInterpointDistanceComparisons1986">(<a href="#ref-carrollInterpointDistanceComparisons1986" role="doc-biblioref">1986</a>)</span> put it aptly like this: “[…]<em>it is legitimate to interpret distances among elements of one set of points.</em> […] <em>It is also legitimate to interpret the relative positions of one point of one set with respect to all the points in the other set. Except in special cases, it is extremely dangerous to interpret the proximity of two points corresponding to different sets of points</em>.<span class="citation" data-cites="carrollInterpointDistanceComparisons1986">(<a href="#ref-carrollInterpointDistanceComparisons1986" role="doc-biblioref">Carroll, Green, and Schaffer 1986, 46</a>)</span>”</p>
+<p>With this in mind, the graphical solution of our ca can be interpreted as follows:</p>
+<p>The relatively wide gaps between the three class profiles (working class, middle class, upper class) can be interpreted as an indication that the taste profiles of the three classes differ relatively strongly from each other, with the strongest difference in taste profiles between the working class and the upper class: members of the working class prefer a communion, a sunset and the depiction of a folkloric dance as motifs for a beautiful picture with above-average frequency. In contrast, members of the upper class favor less classical motifs such as a tree bark, a steel frame or cabbages. Finally, members of the middle class favor harmonious motifs such as a girl with cat, a nursing woman, or a pregnant woman more often than average. The interpretation of the correspondences between social classes and favored painters could be carried out analogously.</p>
+<p>Attention: It would be unjustified to interpret the distance between motifs or painters and classes in the sense that most of the respondents who favor e.g.&nbsp;Kandinsky are also members of the upper class. Rather, we must assume that Kandinsky is simply more highly regarded, relatively speaking, among upper class respondents than is the case among middle or working class respondents <span class="citation" data-cites="carrollInterpointDistanceComparisons1986">(<a href="#ref-carrollInterpointDistanceComparisons1986" role="doc-biblioref">Carroll, Green, and Schaffer 1986</a>)</span>.</p>
+<p>In addition to the interpretation of the meaning of the relation of the row and column profiles, we are further interested in the squared cosines values (<code>cos2</code>) of the row and column profiles as well as their contribution values (<code>contrib</code>). As we mentioned above, the <code>cos2</code> value measures the extent of association between row and column categories and a particular dimension of a ca. The contrib value further indicates which row and column categories are most important in explaining the variability of the data underlying the contingency table.</p>
+<p>Since the first dimension of our ca captures over 93% of the variability in the data, we focus our exploration of the <code>cos2</code> and <code>contrib</code> values only on the first axis of the ca.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ca_df, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Dim 1</span><span class="st">`</span>, <span class="st">`</span><span class="at">Dim 2</span><span class="st">`</span>,<span class="at">color=</span>cos2_dim1)) <span class="sc">+</span> <span class="co">#specify the x and y variable</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color=</span><span class="st">"grey"</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span> <span class="co">#add x-axis</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color=</span><span class="st">"grey"</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span> <span class="co">#add y-axis</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> cos2_dim1,<span class="at">color=</span>cos2_dim1), <span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span> <span class="co"># add (red) points corresponding to the coordinates of the variables 'Dim 1' and 'Dim 2</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> rownames), <span class="at">min.segment.length =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)<span class="sc">+</span>  <span class="co">#avoid overlapping labels</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low=</span><span class="st">"#2450a4"</span>, <span class="at">high=</span><span class="st">"#d80000"</span>)<span class="sc">+</span> <span class="co">#add manual color shading</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"squared cosines values map of correspondence analysis"</span>) <span class="sc">+</span> <span class="co">#add main title</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Dim 1 (93.18%)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Dim 1 (6.82%)"</span>) <span class="co">#add axis titles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The possible values of <code>cos2</code> are between 0 and 1. If a column or row feature has a <code>cos2</code> value of 1, it is perfectly represented by a dimension. A <code>cos2</code> of 0, on the other hand, would indicate that the feature is not represented by the corresponding dimension. As can be seen from the specified squared cosines values map of correspondence analysis, most of the features of the contigency table are clearly correlated with the first dimension and are accordingly acceptably represented by it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ca_df, <span class="fu">aes</span>(<span class="st">`</span><span class="at">Dim 1</span><span class="st">`</span>, <span class="st">`</span><span class="at">Dim 2</span><span class="st">`</span>,<span class="at">color=</span>contr_dim1)) <span class="sc">+</span> <span class="co">#specify the x and y variable</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color=</span><span class="st">"grey"</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span> <span class="co">#add x-axis</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color=</span><span class="st">"grey"</span>,<span class="at">linetype=</span><span class="st">"dashed"</span>)<span class="sc">+</span> <span class="co">#add y-axis</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> contr_dim1,<span class="at">color=</span>contr_dim1), <span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span> <span class="co"># add (red) points corresponding to the coordinates of the variables 'Dim 1' and 'Dim 2</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>(<span class="fu">aes</span>(<span class="at">label =</span> rownames), <span class="at">min.segment.length =</span> <span class="dv">0</span>, <span class="at">seed =</span> <span class="dv">42</span>, <span class="at">box.padding =</span> <span class="fl">0.5</span>,<span class="at">max.overlaps =</span> <span class="cn">Inf</span>)<span class="sc">+</span>  <span class="co">#avoid overlapping labels</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_gradient</span>(<span class="at">low=</span><span class="st">"#2450a4"</span>, <span class="at">high=</span><span class="st">"#d80000"</span>)<span class="sc">+</span> <span class="co">#add manual color shading</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"contribution values map of correspondence analysis"</span>) <span class="sc">+</span> <span class="co">#add main title</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Dim 1 (93.18%)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Dim 1 (6.82%)"</span>) <span class="co">#add axis titles</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The contribution values map of correspondence analysis gives an idea of the pole of the dimensions to which the different column and row categories contribute. It can be seen that the working class makes a central contribution to the negative pole of the first dimension, while the upper class makes a large contribution to the positive pole of the first dimension. Furthermore, the specified plot shows that the 1st dimension is mainly determined by the opposition of working and upper class.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>We have seen how to perform a correspondence analysis with R and how to interpret it in a basic way. Despite the comparatively simple interpretation, the ca has several challenges and pitfalls that need to be considered for a correct application. For a low-threshold introduction, I recommend reading <span class="citation" data-cites="lerouxMultipleCorrespondenceAnalysis2010">Le Roux and Rouanet (<a href="#ref-lerouxMultipleCorrespondenceAnalysis2010" role="doc-biblioref">2010</a>)</span> or, especially for social scientists, <span class="citation" data-cites="hjellbrekkeMultipleCorrespondenceAnalysis2018">Hjellbrekke (<a href="#ref-hjellbrekkeMultipleCorrespondenceAnalysis2018" role="doc-biblioref">2018</a>)</span>.</p>
+<p>In case you are a novice in R, the package <a href="http://www.sthda.com/english/wiki/factoextra-r-package-easy-multivariate-data-analyses-and-elegant-visualization">factoextra</a> offers a beginner-friendly introduction to the visualization of the results of a ca.</p>
 </section>
 <section id="references" class="level1">
-<h1>References</h1>
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-backhausKorrespondenzanalyse2016" class="csl-entry" role="doc-biblioentry">
+Backhaus, Klaus, Bernd Erichson, Rolf Weiber, and Wulff Plinke. 2016. <span>“<span>Korrespondenzanalyse</span>.”</span> In <em><span>Multivariate Analysemethoden: Eine anwendungsorientierte Einführung</span></em>, edited by Klaus Backhaus, Bernd Erichson, Wulff Plinke, and Rolf Weiber, 619–27. <span>Berlin, Heidelberg</span>: <span>Springer Berlin Heidelberg</span>. <a href="https://doi.org/10.1007/978-3-662-46076-4_17">https://doi.org/10.1007/978-3-662-46076-4_17</a>.
+</div>
+<div id="ref-blasiusKorrespondenzanalyse2001" class="csl-entry" role="doc-biblioentry">
+Blasius, Jörg. 2001. <em><span>Korrespondenzanalyse</span></em>. <span>Internationale Standardlehrbücher der Wirtschafts- und Sozialwissenschaften</span>. <span>München</span>: <span>Oldenbourg</span>.
+</div>
+<div id="ref-bourdieuDistinctionSocialCritique1987" class="csl-entry" role="doc-biblioentry">
+Bourdieu, Pierre. 1987. <em><span>Distinction: A Social Critique of the Judgement of Taste</span></em>. Reprint Edition. <span>Cambridge, Mass</span>: <span>Havard university press</span>.
+</div>
+<div id="ref-bourdieuFeinenUnterschiedeKritik2012" class="csl-entry" role="doc-biblioentry">
+———. 2012. <em><span>Die feinen Unterschiede: Kritik der gesellschaftlichen Urteilskraft</span></em>. Twenty-second. <span>Frankfurt am Main</span>: <span>Suhrkamp</span>.
+</div>
+<div id="ref-carrollInterpointDistanceComparisons1986" class="csl-entry" role="doc-biblioentry">
+Carroll, J. Douglas, Paul E. Green, and Catherine M. Schaffer. 1986. <span>“Interpoint <span>Distance Comparisons</span> in <span>Correspondence Analysis</span>.”</span> <em>Journal of Marketing Research</em> 23 (3): 271–80. <a href="https://doi.org/10.2307/3151485">https://doi.org/10.2307/3151485</a>.
+</div>
+<div id="ref-gollacFrohlicheWissenschaftUber2015" class="csl-entry" role="doc-biblioentry">
+Gollac, Michael. 2015. <span>“Eine Fröhliche <span>Wissenschaft</span>. <span>Über Pierre Bourdieus Gebrauch</span> Quantitativer <span>Methoden</span>.”</span> In <em>Pierre <span>Bourdieu</span>. <span>Kunst</span> Und <span>Kultur</span>. <span>Kunst</span> Und Künstlerisches <span>Feld</span>. <span>Schriften</span> Zur <span>Kultursoziologie</span> 4</em>, edited by Franz Schultheis and Stephan Egger. <span>Frankfurt am Main</span>: <span>Suhrkamp</span>.
+</div>
+<div id="ref-heppEpistemologischeWachsamkeit2014" class="csl-entry" role="doc-biblioentry">
+Hepp, Rolf-Dieter, and Sabine Kergel. 2014. <span>“Epistemologische <span>Wachsamkeit</span>.”</span> In <em>Handbuch <span>Bourdieu</span></em>, edited by Boike Rehbein, Gernot Saalmann, and Hermann Schwengel, 94–99. <span>Konstanz</span>: <span>UVK</span>. <a href="https://doi.org/10.1007/978-3-476-01379-8_20">https://doi.org/10.1007/978-3-476-01379-8_20</a>.
+</div>
+<div id="ref-hjellbrekkeMultipleCorrespondenceAnalysis2018" class="csl-entry" role="doc-biblioentry">
+Hjellbrekke, Johs. 2018. <em>Multiple <span>Correspondence Analysis</span> for Social Sciences</em>. <span>New York</span>: <span>Routledge</span>.
+</div>
+<div id="ref-lerouxMultipleCorrespondenceAnalysis2010" class="csl-entry" role="doc-biblioentry">
+Le Roux, Brigitte, and Henry Rouanet. 2010. <em>Multiple Correspondence Analysis</em>. Quantitative Applications in the Social Sciences 163. <span>Thousand Oaks, Calif</span>: <span>Sage Publications</span>.
+</div>
+<div id="ref-lengerPierreBourdieusKonzeption2013" class="csl-entry" role="doc-biblioentry">
+Lenger, Alexander, Christian Schneickert, and Florian Schumacher. 2013. <span>“<span>Pierre Bourdieus Konzeption des Habitus</span>.”</span> In <em><span>Pierre Bourdieus Konzeption des Habitus: Grundlagen, Zugänge, Forschungsperspektiven</span></em>, edited by Alexander Lenger, Christian Schneickert, and Florian Schumacher, 11–41. <span>Wiesbaden</span>: <span>Springer Fachmedien</span>. <a href="https://doi.org/10.1007/978-3-531-18669-6_1">https://doi.org/10.1007/978-3-531-18669-6_1</a>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Of course, it is recommended to use the role of row and column categories for all other extracted dimensions as well. dimensions to be investigated and reported.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

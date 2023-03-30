@@ -49,10 +49,11 @@ website:
 
 format:
   html:
+    mermaid:
+      theme: forest
     theme: cosmo
     css: styles.css
     #monofont: arial
 
 
 editor: visual
-

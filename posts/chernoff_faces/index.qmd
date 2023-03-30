@@ -9,7 +9,7 @@ bibliography: Bibliothek.bib
 
 # Introduction
 
-The *Chernoff-Faces* [@chernoff1973use] developed by Herman Chernoff (* 1 July 1923) are a method of multivariate data visualisation. Within the framework of data visualisation using Chernoff Faces, the physiognomy of a cartoon-like simplified human face (e.g. size of the ears, shape of the mouth, inclination of the eyebrows, size of the nose, etc.) is shaped according to the characteristic values of a object. As a result, each row vector of a data set receives a Chernoff face structured according to its combination of column vector values. By means of the Chernoff faces, which may vary depending on the values on the column vectors, the feature profiles of the row vectors can now be compared with each other. A distinctive strength of the Chernoff Faces visualisation method is that it uses the human ability to register even small divergences or convergences in the physiognomy of human (or human-like) faces. Since the physiognomy of the Chernoff Faces is in a sense *short-circuited* with the feature expressions of the respective feature carriers, the method of the Chernoff Faces allows similarity or dissimilarity structures of different feature profiles of line vectors to be explored easily and intuitively.
+The *Chernoff-Faces* [@chernoff1973use] developed by Herman Chernoff (\* 1 July 1923) are a method of multivariate data visualisation. Within the framework of data visualisation using Chernoff Faces, the physiognomy of a cartoon-like simplified human face (e.g. size of the ears, shape of the mouth, inclination of the eyebrows, size of the nose, etc.) is shaped according to the characteristic values of a object. As a result, each row vector of a data set receives a Chernoff face structured according to its combination of column vector values. By means of the Chernoff faces, which may vary depending on the values on the column vectors, the feature profiles of the row vectors can now be compared with each other. A distinctive strength of the Chernoff Faces visualisation method is that it uses the human ability to register even small divergences or convergences in the physiognomy of human (or human-like) faces. Since the physiognomy of the Chernoff Faces is in a sense *short-circuited* with the feature expressions of the respective feature carriers, the method of the Chernoff Faces allows similarity or dissimilarity structures of different feature profiles of line vectors to be explored easily and intuitively.
 
 The application of Chernoff Faces becomes problematic with data sets [cf. @livingstone2009practical] with a very large number of row vectors: Of course, twenty faces are easier to distinguish than two hundred.
 
@@ -17,18 +17,18 @@ The application of Chernoff Faces becomes problematic with data sets [cf. @livin
 
 The data set used for illustration purposes in the following shows the following variables for all professors at German public art colleges in the field of fine arts (and related subjects):
 
-- national and international ranking position of the artist rankings ([Artfacts](https://artfacts.net/))
-- age
-- gender
+-   national and international ranking position of the artist rankings ([Artfacts](https://artfacts.net/))
+-   age
+-   gender
 
 Statistical profiles can now be generated in these aforementioned dimensions for German, all public art colleges, which in turn can be visualised and explored using the Chernoff Faces. For this purpose, the following simple key figures are to be calculated for each art academy:
 
- 1. mean value of the global ranking of all professors of an art academy
- 2. mean value of the national ranking of all professors of an art academy
- 3. number of professors per art academy in total
- 4. number of female professors per art academy
- 5. number of male professors per art academy
- 6. average age of all professors per art academy
+1.  mean value of the global ranking of all professors of an art academy
+2.  mean value of the national ranking of all professors of an art academy
+3.  number of professors per art academy in total
+4.  number of female professors per art academy
+5.  number of male professors per art academy
+6.  average age of all professors per art academy
 
 ## Data processing
 
@@ -74,12 +74,12 @@ df$Kunsthochschule <- as.factor(df$Kunsthochschule)
 
 In the following, aggregated variables are created at the art college level. These are, as already described above:
 
-1. mean value of the global ranking of all professors of an art academy
-2. mean value of the national ranking of all professors of an art academy
-3. number of professors per art academy in total
-4. number of female professors per art academy
-5. number of male professors per art academy
-6. average age of all professors per art academy
+1.  mean value of the global ranking of all professors of an art academy
+2.  mean value of the national ranking of all professors of an art academy
+3.  number of professors per art academy in total
+4.  number of female professors per art academy
+5.  number of male professors per art academy
+6.  average age of all professors per art academy
 
 ```{r Output2, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
 # Create aggregated variables at college level
@@ -110,6 +110,7 @@ ArtFac <- merge(df2,Alter, by="Kunsthochschule")
 # Remove all data frames except ArtFac + df
 rm(list=setdiff(ls(), c("ArtFac", "df")))
 ```
+
 Finally, all rows with one or more missings on the column vectors are filtered out of the data frame. In addition, in order to make the Chernoff-Faces plot to be generated clearer, the names of the art colleges are replaced by acronyms and specified as `rownames`.
 
 ```{r Output3, echo=T, message=FALSE, warning=FALSE, paged.print=FALSE}
@@ -159,7 +160,7 @@ The lower the value of a ranking profile, the better the professors of the respe
 
 # Chernoff faces
 
-The `faces()` function of the package *aplpack* [@apl2017] automatically generates an overview of which variables were assigned to which facial regions of the Chernoff Faces.  It becomes clear that because only six variables were specified, the same variables were used for the remaining facial features to be modelled. The colouring of the faces is done as follows: "*For painting elements of a face the colors of are found by averaging of sets of variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose, (9,10,11)-hair, (1,2)-face* [@apl2017,9]."
+The `faces()` function of the package *aplpack* [@apl2017] automatically generates an overview of which variables were assigned to which facial regions of the Chernoff Faces. It becomes clear that because only six variables were specified, the same variables were used for the remaining facial features to be modelled. The colouring of the faces is done as follows: "*For painting elements of a face the colors of are found by averaging of sets of variables: (7,8)- eyes:iris, (1,2,3)-lips, (14,15)-ears, (12,13)-nose, (9,10,11)-hair, (1,2)-face* [@apl2017,9]."
 
 Looking at the profiles of the rankings of German art college professors, it becomes clear that the reputation poles of the art colleges are characterised by two extremes: The plus pole of reputation is formed by the professors of the HfBK Frankfurt am Main (HfBK FaM), the minus pole by the KH Halle (KH HAL). The smaller a Chernoff Face, the closer the profile of the respective art academy approaches the positive pole of reputation, and, vice versa, the larger a Chernoff Face, the closer the profile of the respective art academy approaches the negative pole of reputation. Similarly intuitively, the other four variables can now be compared simultaneously across the different profiles of the art colleges.
 

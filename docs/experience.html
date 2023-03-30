@@ -29,7 +29,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
-<script src="site_libs/quarto-search/autocomplete-preset-algolia.umd.js"></script>
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -46,14 +45,6 @@ ul.task-list li input[type="checkbox"] {
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
-  "algolia": {
-    "application-id": "ZPJB5I1QN7",
-    "search-only-api-key": "41be6c1e0a7fea4a51b107810facf577",
-    "index-name": "prod_QUARTO",
-    "analytics-events": true,
-    "show-logo": true,
-    "libDir": "site_libs"
-  },
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -66,28 +57,15 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
-
-
-<script type="text/javascript">
-var ALGOLIA_INSIGHTS_SRC = "https://cdn.jsdelivr.net/npm/search-insights/dist/search-insights.iife.min.js";
-!function(e,a,t,n,s,i,c){e.AlgoliaAnalyticsObject=s,e[s]=e[s]||function(){
-(e[s].queue=e[s].queue||[]).push(arguments)},i=a.createElement(t),c=a.getElementsByTagName(t)[0],
-i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
-}(window,document,"script",ALGOLIA_INSIGHTS_SRC,"aa");
-</script>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-plugin-algolia-insights">
-
-</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Quarto - Experience">
-<meta property="og:description" content="f">
 <meta property="og:site-name" content="Quarto">
 <meta name="twitter:title" content="Quarto - Experience">
-<meta name="twitter:description" content="f">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -107,10 +85,6 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">About</span></a>
-  </li>  
   <li class="nav-item">
     <a class="nav-link" href="./index.html">
  <span class="menu-text">Recent articles</span></a>
@@ -134,6 +108,10 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
   <li class="nav-item">
     <a class="nav-link" href="./talks.html">
  <span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html">
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./contact.html">
@@ -172,9 +150,30 @@ i.async=1,i.src=n,c.parentNode.insertBefore(i,c)
   </div>
 </header> 
       <div class="about-contents"><main class="content" id="quarto-document-content">
-<p>f</p>
+<section id="intro" class="level2">
+<h2 data-anchor-id="intro">Intro</h2>
+<div class="cell" data-fig-width="6.5">
+<div class="cell-output-display">
+<div>
+<p>
+</p><pre class="mermaid mermaid-js" data-tooltip-selector="#mermaid-tooltip-1">gantt
+section Section
+Completed :done,    des1, 2014-01-06,2018-01-08
+Active        :active,  des2, 2014-01-07, 3d
+Parallel 1   :         des3, after des1, d
+Parallel 2   :         des4, after des1, 1d
+Parallel 3   :         des5, after des3, 1d
+Parallel 4   :         des6, after des4, 1d
+</pre>
+<div id="mermaid-tooltip-1" class="mermaidTooltip">
+</div>
+<p></p>
+</div>
+</div>
+</div>
 
 
+</section>
 </main></div>
     </div>
   </div>
