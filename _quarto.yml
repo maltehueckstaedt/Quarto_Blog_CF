@@ -7,9 +7,9 @@ website:
   image: "quarto.png"
   open-graph: true
   twitter-card: true
-  site-url: https://quarto.org
-  repo-url: https://github.com/quarto-dev/quarto-web
-  repo-actions: [edit, issue]
+  site-url: https://maltehueckstaedt.github.io/Quarto_Blog_CF/
+  repo-url: https://github.com/maltehueckstaedt/Quarto_Blog_CF
+  repo-actions: [issue]
   page-navigation: true
   search:
     type: overlay
