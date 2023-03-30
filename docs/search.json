@@ -67,14 +67,14 @@
     "href": "publications.html",
     "title": "Publications",
     "section": "",
-    "text": "Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7\nWeinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: https://doi.org/10.3389/frma.2023.1106482\nHückstädt, M., Leisten, L.M. (2023). Input, process, output - inhibitors and promoters of collaboration Problems (under Review)."
+    "text": "Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7\nWeinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: https://doi.org/10.3389/frma.2023.1106482\nHückstädt, M., Leisten, L.M. (2023). Input, process, output - inhibitors and promoters of collaboration Problems (under Review).\nHückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: https://doi.org/10.1007/s11192-022-04472-w\nKleimann, B., & Hückstädt, M. (2021). Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences.Quality in Higher Education (online first). https://doi.org/10.1080/13538322.2021.1889760\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
   },
   {
     "objectID": "publications.html#section-1",
     "href": "publications.html#section-1",
     "title": "Publications",
-    "section": "2022",
-    "text": "2022\nHückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: https://doi.org/10.1007/s11192-022-04472-w"
+    "section": "2018",
+    "text": "2018\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
   },
   {
     "objectID": "publications.html#section-2",
@@ -109,7 +109,7 @@
     "href": "acomplishments.html",
     "title": "Acomplishments",
     "section": "",
-    "text": "Organiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nWeb Scraping und Data Mining mit Python\n\nCertifcate"
+    "text": "Ich bin"
   },
   {
     "objectID": "acomplishments.html#web-scraping-und-data-mining-mit-python",
@@ -123,7 +123,7 @@
     "href": "experience.html",
     "title": "Experience",
     "section": "",
-    "text": "gantt\nsection Section\nCompleted :done,    des1, 2014-01-06,2018-01-08\nActive        :active,  des2, 2014-01-07, 3d\nParallel 1   :         des3, after des1, d\nParallel 2   :         des4, after des1, 1d\nParallel 3   :         des5, after des3, 1d\nParallel 4   :         des6, after des4, 1d"
+    "text": "journey\n    title Experience\n    section DZHW Hannover\n      Vorberdjdsfd sd sf  dffjdsfhdsjk : 10: Me\n      Go upstairs: 3: Me\n      Do work: 1: Me\n    section Go home\n      Go downstairs: 5: Me\n      Sit down: 5: Me"
   },
   {
     "objectID": "posts/chernoff_faces/index.html",
@@ -159,5 +159,61 @@
     "title": "webscraping with Python",
     "section": "",
     "text": "Introduction\nWeb scraping refers to the process of extracting, copying and storing web content or source code sections with the aim of analysing or otherwise exploiting them. With the help of web scraping procedures, many different types of information can be collected and analysed automatically: For example, contact, network or behavioural data. Web scraping is no longer a novelty in empirical research. There are numerous reasons why web scraping methods are used in empirical research: For example, repeated collection of cross-sectional web data, the desire for replicability of data collection processes or the desire for time-efficient and less error-prone collection of online data (Munzert and Nyhuis 2019).\n\n\nWeb scraping with Python\nAs a low-threshold introduction to webscraping, we want to use Python to collect various online-accessible articles from the art magazine Monopol from the section Art Market. For this we need the Pythons libaries BeautifulSoup, requests, pandas and for the later backup of our collected data the library openpyxl. Since I myself use RStudio as IDE ((Integrated Development Environment)) for Python, I load the R package reticulate in an R environment and turn off the (to me annoying) notification function of the package. Finally, I use the function use_python() to tell R under which path my Python binary can be found. Users who work directly in Python can skip this step.\n\nlibrary(reticulate)\noptions(reticulate.repl.quiet = TRUE)\nuse_python(\"~/Library/r-miniconda/bin/python\")\n\nIn a further step, the Python libaries mentioned above are loaded into the working environment. If the libraries have not yet been installed, this can be done from R with the reticulate function py_install(). In Python, libraries can be installed directly with the function pip install.\n\n#py_install(\"pandas\")\n#py_install(\"bs4\")\n#py_install(\"openpyxl\")\nfrom bs4 import BeautifulSoup\nimport requests\nimport pandas as pd\nimport openpyxl\n\nOnce this is done, we define the URL where the links to the ten newest articles of the section “Art Market” are stored. The defined URL are fed to the function requests.get(), which should display the status code 200: HTTP status code 200 indicates that the request was successfully processed. All requested data has been located on the web server and is being transferred to the client\n\n#load url\nurl = \"https://www.monopol-magazin.de/ressort/kunstmarkt\"\nres = requests.get(url)\nprint(res)\n\n<Response [200]>\n\n\nIf we pass the object text from the list res generated by the requests.get() function to the BeautifulSoup function, we get a BeautifulSoup object that transforms the HTML document into an easily readable nested data structure.\n\nsoup = BeautifulSoup(res.text)\n\nWith the help of the selector gadget we select the CSS selector that leads to the URLs of the first ten articles of the art market section. In this case it is: #block-kf-bootstrap-content header.\n\narticles = soup.select(\"#block-kf-bootstrap-content header\")\n\nFrom the list articles created in this way, all titles of the ten articles are now extracted as pure text elements with the help of a for-loop and the list articles_titles is written.\n\narticles_titles = [i.text for i in articles]\n\nFurthermore, another for-loop iterates over the soup object to extract the links to the full texts of the ten articles as simple text elements. An empty list called articles_urls is created in which all partial URLs are written that can be found in the HTML elements of the class article__title and there in the HTML element a. Since only the respective paths are stored in the a elements of the HTML code, but not the main domain of the URL, this is finally merged with the paths to form a single string.\n\narticles_urls = []\nfor article__title in soup.find_all(attrs={'class':'article__title'}):\n  for link in article__title.find_all('a'):\n    url = \"https://www.monopol-magazin.de\"+link.get('href')\n    articles_urls.append(url)\ntype(articles_urls)\n\n<class 'list'>\n\n\nNow the text elements of the ten articles can be collected with a for-loop. Again, an empty list is created, this time with the name data. The for-loop iterates over the ten URLs extracted above that are in the list articles_urls. The requests.get() function is called first on each of the ten URLs. If the respective web page of the articles of the status code reflects 200, we create - as above - a soup object with the function BeautifulSoup(), which puts the HTML code of the respective page into a clear structure for us. Then, with the help of the selector gadget, we select the CSS selector that leads to the articles of each section of the art market. In this case it is: .field--type-text-long.field--label-hidden. Finally, the collected text elements are adapted to the unicode standard using the function normalize of the library unicodedata and a for-loop. This is done with the help of the NFKD algorithm.\n\ndata = []\n\nfor url in articles_urls:\n    res = requests.get(url)\n    if res.status_code == 200:\n        soup = BeautifulSoup(res.text)\n        for element in soup.select('.field--type-text-long.field--label-hidden'):\n            data.append((element.get_text()))\n\n#clean text\nimport unicodedata\ndata = [unicodedata.normalize(\"NFKD\",i) for i in data]\n\nVoilà! As we could see, our code created little spiders that roam the URLs we specified and reliably collect all the information we instructed them to collect in our code. In this way, the little spiders that we brought to life with a few lines of Python code can do the work in seconds with an accuracy and speed that would take us humans a quarter of an hour.\nWe now merge the three lists with the titles of the articles, the URLs and the actual text corpus first into a list called d and then into a data-frame called df. Furthermore, we use the replace() function and the strip() function to remove all line breaks and whitespace from all columns of the type string.\n\ndata_sub = data[0:10]\nd = {'titles':articles_titles,'urls':articles_urls,'texts':data_sub}\ndf = pd.DataFrame(d)\n\ndf[df.columns] = df.apply(lambda x: x.str.replace(\"\\n\", \"\"))\ndf[df.columns] = df.apply(lambda x: x.str.strip())\n\nprint(df)\n\n                                              titles  ...                                              texts\n0  Abschied von Marian Goodman      Künstlerin Na...  ...  Die US-Fotografin Nan Goldin verlässt nach fu...\n1  Kunstmesse      Art Düsseldorf feiert fünfte A...  ...  Die junge Kunstmesse Art Düsseldorf hat sich ...\n2                Art Düsseldorf      Gut aufgestellt  ...  Art Düsseldorf, Areal Böhler, 31. März bis ...\n3  Auktion bei Van Ham      Picasso-Gemälde mit M...  ...  Art Düsseldorf, Areal Böhler, 31. März bis ...\n4  New York      Erstmals Schau mit Richter-Werke...  ...  In Köln wird demnächst ein auf 1,5 bis 2,5 M...\n5  Auktion in Köln      Richter-Bild für halbe Mi...  ...  Wenige Monate nachdem die New Yorker Galerie Z...\n6  Kunstmesse Art Düsseldorf      Extrarunde in d...  ...  \"Gerhard Richter\", Zwirner Gallery, 537 West 2...\n7  Eröffnung der Grove-Galerie in Berlin      \"Ge...  ...  Das Gerhard-Richter-Werk \"Grün-Rot-Blau 789-3...\n8  Art Basel in Hongkong      Eine Kunstmesse für...  ...  Die Galerie Grove aus London orientiert sich a...\n9  Kampagnen-Journalismus?      Galerien beschwer...  ...  Jacob Barnes ist Galerist und Redakteur und ar...\n\n[10 rows x 3 columns]\n\n\nFinally, we export the data-frame created in this way into the .xlsx format with the function ExcelWriter(). To do this, we define the desired output-format, write the object df into an Excel sheet and export this with the function writer.save().\n\nwriter = pd.ExcelWriter('output.xlsx')\ndf.to_excel(writer)\nwriter.save()\n\n<string>:1: FutureWarning: save is not part of the public API, usage can give unexpected results and will be removed in a future version\n\n\nThere are many possibilities for analysing the data obtained, some of which will be presented here in the medium term.\n\n\n\n\n\n\n\n\nReferences\n\nMunzert, Simon, and Dominic Nyhuis. 2019. “Die Nutzung von Webdaten in den Sozialwissenschaften.” In Handbuch Methoden der Politikwissenschaft, 373–97. Wiesbaden: Springer. https://doi.org/10.1007/978-3-658-16937-4_22-1."
+  },
+  {
+    "objectID": "acomplishments.html#section",
+    "href": "acomplishments.html#section",
+    "title": "Acomplishments",
+    "section": "2022",
+    "text": "2022\n\n\n\nOrganiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nWeb Scraping und Data Mining mit Python\n\nCertifcate"
+  },
+  {
+    "objectID": "acomplishments.html#section-1",
+    "href": "acomplishments.html#section-1",
+    "title": "Acomplishments",
+    "section": "2022",
+    "text": "2022\n\n\n\nOrganiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nWeb Scraping und Data Mining mit Python\n\nCertifcate"
+  },
+  {
+    "objectID": "publications.html#section",
+    "href": "publications.html#section",
+    "title": "Publications",
+    "section": "2018",
+    "text": "2018\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
+  },
+  {
+    "objectID": "publications.html#hückstädt-m.-2023.-ten-reasons-why-research-collaborations-succeeda-random-forest-approach-scientometrics-1283-192350.-doi-httpsdoi.org10.1007s11192-022-04629-7",
+    "href": "publications.html#hückstädt-m.-2023.-ten-reasons-why-research-collaborations-succeeda-random-forest-approach-scientometrics-1283-192350.-doi-httpsdoi.org10.1007s11192-022-04629-7",
+    "title": "Publications",
+    "section": "2019Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7",
+    "text": "2019Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7\n\nWeinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: https://doi.org/10.3389/frma.2023.1106482\nHückstädt, M., Leisten, L.M. (2023). Input, process, output - inhibitors and promoters of collaboration Problems (under Review).\nHückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: https://doi.org/10.1007/s11192-022-04472-w\nKleimann, B., & Hückstädt, M. (2021). Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences.Quality in Higher Education (online first). https://doi.org/10.1080/13538322.2021.1889760"
+  },
+  {
+    "objectID": "publications.html#articles-in-edited-anthologies",
+    "href": "publications.html#articles-in-edited-anthologies",
+    "title": "Publications",
+    "section": "Articles in edited anthologies",
+    "text": "Articles in edited anthologies\n\nHückstädt, M. (2019). Determinanten der subjektiv wahrgenommenen Wichtigkeit von Hochschulrankings bei der Studienortwahl? In L. Ringel & T. Werron (Hrsg.), Rankings - Soziologische Fallstudien (S. 181-202). Wiesbaden: Springer. https://doi.org/10.1007/978-3-658-26366-9_8"
+  },
+  {
+    "objectID": "publications.html#workingpaper",
+    "href": "publications.html#workingpaper",
+    "title": "Publications",
+    "section": "Workingpaper",
+    "text": "Workingpaper\n\nHückstädt, M., Janßen, M., Oberschelp, A., Wagner, N., Weinmann, C. & Winde, M. (2022). Forschungskooperation im Verbund: Herausforderungen, Lösungsansätze, Empfehlungen. Stifterverband für die Deutsche Wissenschaft. Future Lab: Kooperationsgovernance – Diskussionspapier 6."
+  },
+  {
+    "objectID": "publications.html#reports",
+    "href": "publications.html#reports",
+    "title": "Publications",
+    "section": "Reports",
+    "text": "Reports\n\nHückstädt, M. (2023). Determinanten und Effekte von Kooperation in Homogenen und Heterogenen Forschungsverbünden (DEKiF). Daten- und Methodenbericht des DEKiF-Websurveys. Version 1.0.0. Hannover: fdz.DZHW. Hannover.\nHückstädt, M., İkiz-Akıncı, D. & Kleimann, B. (2020). Leistungsbewertung in Berufungsverfahren. Traditionswandel in der Akademischen Personalselektion. Daten- und Methodenbericht zur qualitativen Erhebung der DZHW-Studie LiBerTas 2016. Version 1.0.0. Hannover: fdz.DZHW. doi:10.21249/DZHW:lib2016:1.0.0"
+  },
+  {
+    "objectID": "skills.html",
+    "href": "skills.html",
+    "title": "Skills",
+    "section": "",
+    "text": "Regression\nRating\n\n\n\n\nlinear Regressions"
   }
 ]

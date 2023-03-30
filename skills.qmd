@@ -1,5 +1,14 @@
 ---
 title: "Skills"
-about:
-  template: solana
+toc: true
 ---
+
+## Hard Skills
+
+### Methods
+
+| Regression         | Rating                                              |
+|--------------------|-----------------------------------------------------|
+| linear Regressions | ![](images/rating_4v5.png){width="104" height="21"} |
+|                    |                                                     |
+|                    |                                                     |

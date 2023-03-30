@@ -1,13 +1,22 @@
 ---
 title: "Acomplishments"
-about:
-  template: solana
+toc: true
 ---
+
+Ich bin
 
 ## 2022
 
 | Organiser                             |                                      | Topic                                   | Date | Certificate                  |
-|---------------------------------------|--------------------------------------|-----------------------------------------|------|------------------------------|
+|---------------|---------------|---------------|---------------|---------------|
+| ![](images/JGU-Mainz.svg){width="60"} | Johannes Gutenberg-Universität Mainz | Web Scraping und Data Mining mit Python |      | [Certifcate](local-fist.com) |
+|                                       |                                      |                                         |      |                              |
+|                                       |                                      |                                         |      |                              |
+
+## 2022
+
+| Organiser                             |                                      | Topic                                   | Date | Certificate                  |
+|---------------|---------------|---------------|---------------|---------------|
 | ![](images/JGU-Mainz.svg){width="60"} | Johannes Gutenberg-Universität Mainz | Web Scraping und Data Mining mit Python |      | [Certifcate](local-fist.com) |
 |                                       |                                      |                                         |      |                              |
 |                                       |                                      |                                         |      |                              |
