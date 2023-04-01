@@ -1,5 +1,5 @@
 ---
-title: "webscraping with Python"
+title: "Webscraping with Python"
 author: "Malte Hückstädt"
 date: "2023-03-30"
 categories: [Python, web-scraping]
