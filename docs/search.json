@@ -109,7 +109,7 @@
     "href": "acomplishments.html",
     "title": "Acomplishments",
     "section": "",
-    "text": "Ich bin"
+    "text": "Organiser\n\nMode\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nmanuel\nWeb Scraping und Data Mining mit Python\n3/22\nCertifcate\n\n\n\nDataCamp\nonline\nWeb Scraping in Python\n3/22\nCertifcate\n\n\n\nDataCamp\nonline\nIntroduction to\nPython\n4/21\nCertifcate\n\n\n\nDataCamp\nonline\nIntermediate Python\n4/21\nCertifcate\n\n\n\nGESIS\nmanuel\nOnline-Befragungen – Planung\nund Durchführung\n12/19\nCertifcate\n\n\n\nGESIS\nmanuel\nEinführung in die Logik der\nBayesschen Statistik\n11/19\nCertifcate\n\n\n\nDataCamp\nonline\nCleaning Data in R\n5/19\nCertifcate\n\n\n\nDataCamp\nonline\nIntroduction to R\n5/19\nCertifcate\n\n\n\nHumboldt Universität zu Berlin\nmanuel\nDatenanalyse mit Stata\n12/15\nCertifcate"
   },
   {
     "objectID": "acomplishments.html#web-scraping-und-data-mining-mit-python",
@@ -164,15 +164,15 @@
     "objectID": "acomplishments.html#section",
     "href": "acomplishments.html#section",
     "title": "Acomplishments",
-    "section": "2022",
-    "text": "2022\n\n\n\nOrganiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nWeb Scraping und Data Mining mit Python\n3/2022\nCertifcate"
+    "section": "",
+    "text": "Organiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nDataCamp\nIntroduction to\nPython\n4/21\nCertifcate\n\n\n\nDataCamp\nIntermediate Python\n4/21\nCertifcate"
   },
   {
     "objectID": "acomplishments.html#section-1",
     "href": "acomplishments.html#section-1",
     "title": "Acomplishments",
-    "section": "2022",
-    "text": "2022\n\n\n\nOrganiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nWeb Scraping und Data Mining mit Python\n\nCertifcate"
+    "section": "2019",
+    "text": "2019\n\n\n\nOrganiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nGESIS\nOnline-Befragungen – Planung\nund Durchführung\n12/19\nCertifcate\n\n\n\nGESIS\nEinführung in die Logik der\nBayesschen Statistik\n11/19\nCertifcate"
   },
   {
     "objectID": "publications.html#section",
@@ -214,6 +214,13 @@
     "href": "skills.html",
     "title": "Skills",
     "section": "",
-    "text": "Regression\nRating\n\n\n\n\nlinear Regressions"
+    "text": "Methods\nRating\n\n\n\n\nRegression\n\n\n\nlinear Regressions\n\n\n\nlogistic Regression\n\n\n\nordinal Regression"
+  },
+  {
+    "objectID": "acomplishments.html#section-2",
+    "href": "acomplishments.html#section-2",
+    "title": "Acomplishments",
+    "section": "2019",
+    "text": "2019\n\n\n\nOrganiser\n\nTopic\nDate\nCertificate\n\n\n\n\n\nGESIS\nOnline-Befragungen – Planung\nund Durchführung\n12/19\nCertifcate\n\n\n\nGESIS\nEinführung in die Logik der\nBayesschen Statistik\n11/19\nCertifcate"
   }
 ]

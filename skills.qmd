@@ -7,8 +7,9 @@ toc: true
 
 ### Methods
 
-| Regression         | Rating                                              |
-|--------------------|-----------------------------------------------------|
-| linear Regressions | ![](images/rating_4v5.png){width="104" height="21"} |
-|                    |                                                     |
-|                    |                                                     |
+| Methods             | Rating                                              |
+|--------------------|----------------------------------------------------|
+| **Regression**      |                                                     |
+| linear Regressions  | ![](images/rating_4v5.png){width="104" height="21"} |
+| logistic Regression | ![](images/rating_4v5.png){width="104" height="21"} |
+| ordinal Regression  | ![](images/rating_4v5.png){width="104" height="21"} |
