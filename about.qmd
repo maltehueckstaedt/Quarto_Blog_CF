@@ -1,12 +1,9 @@
 ---
 title: "About"
 toc: true
-image: avatar.png
-about:
-  template: solana
-  image-width: 10em
-  image-shape: round
 ---
+
+![](images/avatar_circle.png){fig-align="center" width="129"}
 
 Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.
 

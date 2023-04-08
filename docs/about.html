@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -62,19 +63,13 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Quarto - About">
 <meta property="og:description" content="Malte Hückstädt was born in Schwedt/Oder in 1983.">
-<meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/avatar.png">
 <meta property="og:site-name" content="Quarto">
-<meta property="og:image:height" content="2163">
-<meta property="og:image:width" content="2164">
 <meta name="twitter:title" content="Quarto - About">
 <meta name="twitter:description" content="Malte Hückstädt was born in Schwedt/Oder in 1983.">
-<meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/avatar.png">
-<meta name="twitter:image-height" content="2163">
-<meta name="twitter:image-width" content="2164">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -142,19 +137,40 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#interests" id="toc-interests" class="nav-link active" data-scroll-target="#interests">Interests</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-solana column-body">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">About</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header> 
-      <div class="about-contents"><main class="content" id="quarto-document-content">
+  
+
+</header>
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/avatar_circle.png" class="img-fluid figure-img" width="129"></p>
+</figure>
+</div>
 <p>Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.</p>
 <p>From November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the <em>German Centre for Science and Higher Education Research</em> (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the <em>Governance in Science and Higher Education</em> department in the project <em>Determinants and Effects of Collaboration in Research Collaborations</em> (<a href="https://dekif-survey.dzhw.eu/en/index_html">DEKiF</a>). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project.</p>
 <section id="interests" class="level1">
@@ -169,13 +185,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 </section>
-</main></div>
-    </div>
-    <img src="avatar.png" class="about-image
-  round " style="height: 10em; width: 10em;">
-  </div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -196,6 +207,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;
