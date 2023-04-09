@@ -6,5 +6,21 @@
       "/posts/correspondence_analysis/index.html",
       "/posts/chernoff_faces/index.html"
     ]
+  },
+  {
+    "listing": "/index_2.html",
+    "items": [
+      "/posts/webscraping_python/index.html",
+      "/posts/correspondence_analysis/index.html",
+      "/posts/chernoff_faces/index.html"
+    ]
+  },
+  {
+    "listing": "/recent.html",
+    "items": [
+      "/posts/webscraping_python/index.html",
+      "/posts/correspondence_analysis/index.html",
+      "/posts/chernoff_faces/index.html"
+    ]
   }
 ]

@@ -39,6 +39,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="academicons.css">
 <meta property="og:title" content="Quarto - Skills">
 <meta property="og:site-name" content="Quarto">
 <meta name="twitter:title" content="Quarto - Skills">
@@ -107,21 +110,36 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./talks.html">
  <span class="menu-text">Talks</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./about.html">
- <span class="menu-text">About</span></a>
-  </li>  
+  <li class="dropdown-header">
+ <span class="menu-text">about.qmd</span></li>
   <li class="nav-item">
     <a class="nav-link" href="./contact.html">
  <span class="menu-text">Imprint</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/maltehueckstaedt"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-0185-4230">
+ <span class="menu-text"><i class="ai  ai-orcid" title="" style="color:"></i></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?hl=en&amp;user=EJTHqH4AAAAJ">
+ <span class="menu-text"><i class="ai  ai-google-scholar" title="" style="color:"></i></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Malte-Hueckstaedt">
+ <span class="menu-text"><i class="ai  ai-researchgate" title="" style="color:"></i></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://de.linkedin.com/in/malte-hückstädt-82aa78208"><i class="bi bi-linkedin" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"><i class="bi bi-instagram" role="img">
+    <a class="nav-link" href="https://www.instagram.com/chernoff_faces/"><i class="bi bi-instagram" role="img">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
@@ -141,8 +159,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#hard-skills" id="toc-hard-skills" class="nav-link active" data-scroll-target="#hard-skills">Hard Skills</a>
-  <ul class="collapse">
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <ul>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a>
+  <ul>
+  <li><a href="#regression" id="toc-regression" class="nav-link" data-scroll-target="#regression">Regression</a></li>
+  <li><a href="#classification" id="toc-classification" class="nav-link" data-scroll-target="#classification">Classification</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -171,10 +193,12 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="hard-skills">Hard Skills</h2>
 <section id="methods" class="level3">
 <h3 class="anchored" data-anchor-id="methods">Methods</h3>
+<section id="regression" class="level4">
+<h4 class="anchored" data-anchor-id="regression">Regression</h4>
 <table class="table">
 <colgroup>
-<col style="width: 28%">
-<col style="width: 71%">
+<col style="width: 29%">
+<col style="width: 70%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -184,25 +208,75 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Regression</strong></td>
-<td></td>
+<td>Linear Regressions</td>
+<td><img src="images/rating_5v5.png" class="img-fluid" width="105"></td>
 </tr>
 <tr class="even">
-<td>linear Regressions</td>
+<td>Ordinal Regression</td>
 <td><img src="images/rating_4v5.png" width="104" height="21"></td>
 </tr>
 <tr class="odd">
-<td>logistic Regression</td>
+<td>Regression Trees</td>
 <td><img src="images/rating_4v5.png" width="104" height="21"></td>
 </tr>
 <tr class="even">
-<td>ordinal Regression</td>
+<td>Multilevel Analysis</td>
+<td><img src="images/rating_3v5.png" width="104" height="21"></td>
+</tr>
+<tr class="odd">
+<td>Time Series Analysis</td>
+<td><img src="images/rating_2v5.png" width="104" height="21"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classification" class="level4">
+<h4 class="anchored" data-anchor-id="classification">Classification</h4>
+<table class="table">
+<colgroup>
+<col style="width: 29%">
+<col style="width: 70%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Methods</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logistic Regression</td>
 <td><img src="images/rating_4v5.png" width="104" height="21"></td>
+</tr>
+<tr class="even">
+<td>Classification Trees</td>
+<td><img src="images/rating_4v5.png" width="104" height="21"></td>
+</tr>
+<tr class="odd">
+<td>Support Vector Machines</td>
+<td><img src="images/rating_2v5.png" width="104" height="21"></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 
 
+</section>
 </section>
 </section>
 
@@ -343,20 +417,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Proudly supported by <a href="https://posit.co"><img src="https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg" class="img-fluid" alt="Posit" width="65"></a></div>   
+    <div class="nav-footer-left">Supported by <a href="https://posit.co"><img src="https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg" class="img-fluid" alt="Posit" width="65"></a></div>   
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./about.html">About</a>
+    <a class="nav-link" href="./about.qmd">About</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./docs/faq/index.qmd">FAQ</a>
+    <a class="nav-link" href="./faq.html">FAQ</a>
   </li>  
     <li class="nav-item">
     <a class="nav-link" href="./license.html">License</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="./trademark.qmd">Trademark</a>
   </li>  
 </ul>
       </div>

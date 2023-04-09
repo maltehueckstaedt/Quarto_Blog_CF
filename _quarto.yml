@@ -32,12 +32,21 @@ website:
       - acomplishments.qmd
       - experience.qmd
       - talks.qmd
-      - about.qmd
+      - recent.qmd
       - contact.qmd
       - icon: github
         href: https://github.com/maltehueckstaedt
+      - href: https://orcid.org/0000-0002-0185-4230
+        text: "{{< ai orcid >}}"
+      - href: https://scholar.google.com/citations?hl=en&user=EJTHqH4AAAAJ
+        text: "{{< ai google-scholar >}}"
+      - href: https://www.researchgate.net/profile/Malte-Hueckstaedt
+        text: "{{< ai researchgate >}}"        
+      - icon: linkedin
+        href: https://de.linkedin.com/in/malte-hückstädt-82aa78208
       - icon: instagram
         href: https://www.instagram.com/chernoff_faces/
+
         
     background: light
     logo: quarto.png
@@ -50,7 +59,9 @@ format:
     mermaid:
       theme: forest
     theme: cosmo
-    css: styles.css
+    css: 
+    - styles.css
+    - academicons.css
     #monofont: arial
 
 

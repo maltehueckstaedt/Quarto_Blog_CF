@@ -1,15 +1,31 @@
 ---
 title: "Skills"
 toc: true
+toc-depth: 5
 ---
 
 ## Hard Skills
 
 ### Methods
 
-| Methods             | Rating                                              |
-|---------------------|-----------------------------------------------------|
-| **Regression**      |                                                     |
-| linear Regressions  | ![](images/rating_4v5.png){width="104" height="21"} |
-| logistic Regression | ![](images/rating_4v5.png){width="104" height="21"} |
-| ordinal Regression  | ![](images/rating_4v5.png){width="104" height="21"} |
+#### Regression
+
+| Methods               | Rating                                              |
+|---------------------|---------------------------------------------------|
+| Linear Regressions    | ![](images/rating_5v5.png){width="105"}             |
+| Ordinal Regression    | ![](images/rating_4v5.png){width="104" height="21"} |
+| Regression Trees      | ![](images/rating_4v5.png){width="104" height="21"} |
+| Multilevel Analysis   | ![](images/rating_3v5.png){width="104" height="21"} |
+| Time Series Analysis  | ![](images/rating_2v5.png){width="104" height="21"} |
+
+#### Classification
+
+| Methods                 | Rating                                              |
+|---------------------|---------------------------------------------------|
+| Logistic Regression     | ![](images/rating_4v5.png){width="104" height="21"} |
+| Classification Trees    | ![](images/rating_4v5.png){width="104" height="21"} |
+| Support Vector Machines | ![](images/rating_2v5.png){width="104" height="21"} |
+|                         |                                                     |
+|                         |                                                     |
+|                         |                                                     |
+|                         |                                                     |

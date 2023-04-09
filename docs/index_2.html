@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto - Publications</title>
+<title>Quarto - Recent articles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -60,13 +62,43 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title','listing-subtitle','listing-reading-time','listing-categories','listing-description','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="academicons.css">
-<meta property="og:title" content="Quarto - Publications">
+<meta property="og:title" content="Quarto - Recent articles">
 <meta property="og:site-name" content="Quarto">
-<meta name="twitter:title" content="Quarto - Publications">
+<meta name="twitter:title" content="Quarto - Recent articles">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -88,10 +120,10 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html">
- <span class="menu-text">Recent articles</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./publications.html" aria-current="page">
+    <a class="nav-link" href="./publications.html">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
@@ -150,75 +182,180 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Recent articles</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#journal-artikel-peer-reviewed" id="toc-journal-artikel-peer-reviewed" class="nav-link active" data-scroll-target="#journal-artikel-peer-reviewed">Journal Artikel (Peer Reviewed)</a></li>
-  <li><a href="#articles-in-edited-anthologies" id="toc-articles-in-edited-anthologies" class="nav-link" data-scroll-target="#articles-in-edited-anthologies">Articles in edited anthologies</a></li>
-  <li><a href="#workingpaper" id="toc-workingpaper" class="nav-link" data-scroll-target="#workingpaper">Workingpaper</a></li>
-  <li><a href="#reports" id="toc-reports" class="nav-link" data-scroll-target="#reports">Reports</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="analysis">analysis <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data exploration">data exploration <span class="quarto-category-count">(2)</span></div><div class="category" data-category="data visualization">data visualization <span class="quarto-category-count">(2)</span></div><div class="category" data-category="web-scraping">web-scraping <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Publications</h1>
+
+
+
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="Python,web-scraping" data-listing-date-sort="1680127200000" data-listing-file-modified-sort="1680349103034" data-listing-reading-time-sort="4.895">
+<div class="thumbnail">
+<p><a href="./posts/webscraping_python/index.html"> <img src="./posts/webscraping_python/image.jpg" class="thumnail-image"> </a></p>
 </div>
+<div class="body">
+<a href="./posts/webscraping_python/index.html">
+<h3 class="no-anchor listing-title">
+Webscraping with Python
+</h3>
+<div class="listing-subtitle">
 
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('web-scraping'); return false;">
+web-scraping
+</div>
+</div>
+<a href="./posts/webscraping_python/index.html">
+<div class="listing-description">
+Web scraping refers to the process of extracting, copying and storing web content or source code sections with the aim of analysing or otherwise exploiting them. With the…<span class="citation" data-cites="munzertNutzungWebdatenSozialwissenschaften2019"></span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/webscraping_python/index.html">
+<div class="listing-date">
+Mar 30, 2023
+</div>
+<div class="listing-author">
+Malte Hückstädt
+</div>
+<div class="listing-reading-time">
+4 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="R,data visualization,data exploration,analysis" data-listing-date-sort="1680127200000" data-listing-file-modified-sort="1680174982214" data-listing-reading-time-sort="9.855">
+<div class="thumbnail">
+<p><a href="./posts/correspondence_analysis/index.html"> <img src="./posts/correspondence_analysis/image.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/correspondence_analysis/index.html">
+<h3 class="no-anchor listing-title">
+Correspondence Analysis
+</h3>
+<div class="listing-subtitle">
 
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data visualization'); return false;">
+data visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data exploration'); return false;">
+data exploration
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
+analysis
+</div>
+</div>
+<a href="./posts/correspondence_analysis/index.html">
+<div class="listing-description">
+Correspondence analysis (ca) is a chi-square statistic-based, primarily geometric, descriptive or explorative method, that can be used to examine latent structures of…<span class="citation" data-cites="blasiusKorrespondenzanalyse2001"></span><span class="citation" data-cites="blasiusKorrespondenzanalyse2001"></span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/correspondence_analysis/index.html">
+<div class="listing-date">
+Mar 30, 2023
+</div>
+<div class="listing-author">
+Malte Hückstädt
+</div>
+<div class="listing-reading-time">
+9 min
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="R,data visualization,data exploration,analysis" data-listing-date-sort="1680040800000" data-listing-file-modified-sort="1680174923999" data-listing-reading-time-sort="8.02">
+<div class="thumbnail">
+<p><a href="./posts/chernoff_faces/index.html"> <img src="./posts/chernoff_faces/image.jpg" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/chernoff_faces/index.html">
+<h3 class="no-anchor listing-title">
+Chernoff Faces
+</h3>
+<div class="listing-subtitle">
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<section id="journal-artikel-peer-reviewed" class="level2">
-<h2 class="anchored" data-anchor-id="journal-artikel-peer-reviewed">Journal Artikel (Peer Reviewed)</h2>
-<ul>
-<li><p><strong>Hückstädt, M.</strong> (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: <a href="https://doi.org/10.1007/s11192-022-04629-7" class="uri">https://doi.org/10.1007/s11192-022-04629-7</a></p></li>
-<li><p>Weinmann, C., <strong>Hückstädt, M</strong>., Meißner, F., &amp; Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: <a href="https://doi.org/10.3389/frma.2023.1106482" class="uri">https://doi.org/10.3389/frma.2023.1106482</a></p></li>
-<li><p><strong>Hückstädt, M</strong>., Leisten, L.M. (2023). <em>Input, process, output - inhibitors and promoters of collaboration Problems</em> (under Review).</p></li>
-<li><p><strong>Hückstädt, M.</strong> (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: <a href="https://doi.org/10.1007/s11192-022-04472-w" class="uri">https://doi.org/10.1007/s11192-022-04472-w</a></p></li>
-<li><p>Kleimann, B., &amp; <strong>Hückstädt, M.</strong> (2021). <em>Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences</em>.Quality in Higher Education (online first). <a href="https://doi.org/10.1080/13538322.2021.1889760" class="uri">https://doi.org/10.1080/13538322.2021.1889760</a></p></li>
-<li><p>Kleimann, B., &amp; <strong>Hückstädt, M</strong>. (2018). <em>Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich.</em> Beiträge zur Hochschulforschung, 40 (2/2018), 20-47.</p></li>
-</ul>
-</section>
-<section id="articles-in-edited-anthologies" class="level2">
-<h2 class="anchored" data-anchor-id="articles-in-edited-anthologies">Articles in edited anthologies</h2>
-<ul>
-<li><strong>Hückstädt, M.</strong> (2019). <em>Determinanten der subjektiv wahrgenommenen Wichtigkeit von Hochschulrankings bei der Studienortwahl?</em> In L. Ringel &amp; T. Werron (Hrsg.), Rankings - Soziologische Fallstudien (S. 181-202). Wiesbaden: Springer. <a href="https://doi.org/10.1007/978-3-658-26366-9_8" class="uri">https://doi.org/10.1007/978-3-658-26366-9_8</a></li>
-</ul>
-</section>
-<section id="workingpaper" class="level2">
-<h2 class="anchored" data-anchor-id="workingpaper">Workingpaper</h2>
-<ul>
-<li><strong>Hückstädt, M</strong>., Janßen, M., Oberschelp, A., Wagner, N., Weinmann, C. &amp; Winde, M. (2022). Forschungskooperation im Verbund: Herausforderungen, Lösungsansätze, Empfehlungen. Stifterverband für die Deutsche Wissenschaft. Future Lab: Kooperationsgovernance – Diskussionspapier 6.</li>
-</ul>
-</section>
-<section id="reports" class="level2">
-<h2 class="anchored" data-anchor-id="reports">Reports</h2>
-<ul>
-<li><p><strong>Hückstädt, M.</strong> (2023). Determinanten und Effekte von Kooperation in Homogenen und Heterogenen Forschungsverbünden (DEKiF). Daten- und Methodenbericht des DEKiF-Websurveys. Version 1.0.0. Hannover: fdz.DZHW. Hannover.</p></li>
-<li><p><strong>Hückstädt, M.</strong>, İkiz-Akıncı, D. &amp; Kleimann, B. (2020). Leistungsbewertung in Berufungsverfahren. Traditionswandel in der Akademischen Personalselektion. Daten- und Methodenbericht zur qualitativen Erhebung der DZHW-Studie LiBerTas 2016. Version 1.0.0. Hannover: fdz.DZHW. doi:10.21249/DZHW:lib2016:1.0.0</p></li>
-</ul>
-
-
-</section>
-
-</main> <!-- /main -->
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data visualization'); return false;">
+data visualization
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('data exploration'); return false;">
+data exploration
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('analysis'); return false;">
+analysis
+</div>
+</div>
+<a href="./posts/chernoff_faces/index.html">
+<div class="listing-description">
+The <em>Chernoff-Faces</em> <span class="citation" data-cites="chernoff1973use">(Chernoff 1973)</span> developed by Herman Chernoff (* 1 July 1923) are a method of multivariate data visualisation. Within the framework of data visualisation using Chernoff Faces, the…<em></em>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/chernoff_faces/index.html">
+<div class="listing-date">
+Mar 29, 2023
+</div>
+<div class="listing-author">
+Malte Hückstädt
+</div>
+<div class="listing-reading-time">
+8 min
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
