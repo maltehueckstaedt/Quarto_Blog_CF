@@ -33,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
@@ -66,7 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -134,26 +135,53 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#recent-talks" id="toc-recent-talks" class="nav-link active" data-scroll-target="#recent-talks">Recent Talks</a></li>
+  <li><a href="#upcoming-talks" id="toc-upcoming-talks" class="nav-link" data-scroll-target="#upcoming-talks">Upcoming Talks</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-solana column-body">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Talks</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-</header> 
-      <div class="about-contents"><main class="content" id="quarto-document-content">
+  
+
+</header>
+
+<section id="recent-talks" class="level1">
+<h1>Recent Talks</h1>
+<ul>
+<li><p><strong>Hückstädt, M.</strong> (2022, 5. Mai). Entstehungskontexte von Kooperationsproblemen in Forschungsverbünden und ihre Effekte auf den Kooperationserfolg. Evaluation der Abteilung Governance in Wissenschaft und Hochschule durch den wissenschaftlichen Bei-<br>
+rat, Deutsches Zentrum für Hochschul- und Wissenschaftsfor-<br>
+schung (DZHW), Hannover, DE.</p></li>
+<li><p><strong>Hückstädt, M.</strong> &amp; Janssen, M. (2022, 24. Januar). Was macht Forschungsverbünde erfolgreich? Der Beitrag des Forschungsverbundmanagements – Befunde und Empfehlungen aus den Teilstudien des DZHW. Praktischer Abschlussworkshop des Verbundprojektes DEKiF, Deutsches Zentrum für Hochschul- und Wissenschaftsforschung (DZHW), Stifterverband für die Deutsche Wissenschaft, Heinrich-Heine-Universität Düsseldorf, Hannover, DE.</p></li>
+<li><p>Jungbauer-Gans, M., Kleimann, B., Janßen, M., Oberschelp, A. &amp; <strong>Hückstädt, M.</strong> (2021, 22. November). Benefits and challenges of collaboration in research. Investigating the manifold aspects of mono-, inter- and transdisciplinary collaboration. Wissenschaftlicher Abschlussworkshop des Verbundprojektes DEKiF, Deutsches Zentrum für Hochschul- und Wissenschaftsforschung (DZHW), Stifterverband für die Deutsche Wissenschaft, Heinrich-Heine-Universität Düsseldorf, Hannover, DE.</p></li>
+</ul>
+</section>
+<section id="upcoming-talks" class="level1">
+<h1>Upcoming Talks</h1>
 
 
-</main></div>
-    </div>
-  </div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -174,6 +202,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const clipboard = new window.ClipboardJS('.code-copy-button', {
     target: function(trigger) {
       return trigger.previousElementSibling;

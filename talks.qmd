@@ -1,5 +1,16 @@
 ---
 title: "Talks"
-about:
-  template: solana
+toc: true
 ---
+
+# Recent Talks
+
+-   **Hückstädt, M.** (2022, 5. Mai). Entstehungskontexte von Kooperationsproblemen in Forschungsverbünden und ihre Effekte auf den Kooperationserfolg. Evaluation der Abteilung Governance in Wissenschaft und Hochschule durch den wissenschaftlichen Bei-\
+    rat, Deutsches Zentrum für Hochschul- und Wissenschaftsfor-\
+    schung (DZHW), Hannover, DE.
+
+-   **Hückstädt, M.** & Janssen, M. (2022, 24. Januar). Was macht Forschungsverbünde erfolgreich? Der Beitrag des Forschungsverbundmanagements -- Befunde und Empfehlungen aus den Teilstudien des DZHW. Praktischer Abschlussworkshop des Verbundprojektes DEKiF, Deutsches Zentrum für Hochschul- und Wissenschaftsforschung (DZHW), Stifterverband für die Deutsche Wissenschaft, Heinrich-Heine-Universität Düsseldorf, Hannover, DE.
+
+-   Jungbauer-Gans, M., Kleimann, B., Janßen, M., Oberschelp, A. & **Hückstädt, M.** (2021, 22. November). Benefits and challenges of collaboration in research. Investigating the manifold aspects of mono-, inter- and transdisciplinary collaboration. Wissenschaftlicher Abschlussworkshop des Verbundprojektes DEKiF, Deutsches Zentrum für Hochschul- und Wissenschaftsforschung (DZHW), Stifterverband für die Deutsche Wissenschaft, Heinrich-Heine-Universität Düsseldorf, Hannover, DE.
+
+# Upcoming Talks
