@@ -15,17 +15,15 @@ website:
     type: overlay
   page-footer:
     left: |
-      Proudly supported by
+      Supported by
       [![](https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg){fig-alt="Posit" width=65px}](https://posit.co)
     center:
       - text: "About"
         href: about.qmd
       - text: "FAQ"
-        href: docs/faq/index.qmd
+        href: faq.qmd
       - text: "License"
         href: license.qmd
-      - text: "Trademark"
-        href: trademark.qmd
   navbar:
     left:
       - index.qmd
@@ -37,9 +35,9 @@ website:
       - about.qmd
       - contact.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/maltehueckstaedt
       - icon: instagram
-        href: https://twitter.com
+        href: https://www.instagram.com/chernoff_faces/
         
     background: light
     logo: quarto.png
