@@ -123,6 +123,8 @@ div.csl-indent {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -145,6 +147,7 @@ div.csl-indent {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="academicons.css">
 <meta property="og:title" content="Quarto - Correspondence Analysis">
 <meta property="og:description" content="Correspondence analysis (ca) is a chi-square statistic-based, primarily geometric, descriptive or explorative method, that can be used to examine latent structures of multivariate data.">
 <meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/correspondence_analysis/image.jpg">
@@ -173,7 +176,7 @@ div.csl-indent {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html">
- <span class="menu-text">Recent articles</span></a>
+ <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../publications.html">
@@ -196,22 +199,8 @@ div.csl-indent {
  <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../contact.html">
- <span class="menu-text">Contact</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"><i class="bi bi-github" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com"><i class="bi bi-instagram" role="img">
-</i> 
- <span class="menu-text"></span></a>
+    <a class="nav-link" href="../../recent.html">
+ <span class="menu-text">Recent articles</span></a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -282,8 +271,7 @@ div.csl-indent {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <p>Correspondence analysis (ca) is a chi-square statistic-based, primarily geometric, descriptive or explorative method, that can be used to examine latent structures of multivariate data. Like cluster analysis, correspondence analysis is a data reduction procedure that, in contrast to cluster analysis and principal component analysis, is used in particular to describe categorical data that are grouped together in a contingency table <span class="citation" data-cites="blasiusKorrespondenzanalyse2001">(<a href="#ref-blasiusKorrespondenzanalyse2001" role="doc-biblioref">Blasius 2001</a>)</span>. In contrast to cluster analysis, however, the characteristics or subjects are not assigned to a cluster, but are localized and related to each other in a space spanned by latent dimensions, which are represented by continuously scaled structural axes. The goal of ca, meanwhile, is to determine an optimal (for various, pragmatic reasons, usually two-dimensional) subspace of a multidimensional hyperspace. In the definition of this system the dimensions are to be chosen in such a way that with them a maximum of the variation of the data can be explained <span class="citation" data-cites="blasiusKorrespondenzanalyse2001">(<a href="#ref-blasiusKorrespondenzanalyse2001" role="doc-biblioref">Blasius 2001</a>)</span>.</p>
-<p>The ca is primarily interpreted graphically, while numerical interpretation tends to be of lower priority <span class="citation" data-cites="backhausKorrespondenzanalyse2016">(<a href="#ref-backhausKorrespondenzanalyse2016" role="doc-biblioref">Backhaus et al. 2016</a>)</span>. The graphical representation possibilities are then probably also one of the main advantages of ca: Thus, ca can represent data structures clearly, graphically, reduce complexity on the basis of latent dimensions, and thus make complex, unknown relationships visible at a glance. The general maxim of exploratory data analysis “<em>Let the data speak for themselves!</em>” <span class="citation" data-cites="lerouxMultipleCorrespondenceAnalysis2010">(<a href="#ref-lerouxMultipleCorrespondenceAnalysis2010" role="doc-biblioref">Le Roux and Rouanet 2010, 4</a>)</span> is thus quite redeemed in the context of ca’s graphical representations. However, the comparatively catchy “<em>geometric maps</em>” <span class="citation" data-cites="lengerPierreBourdieusKonzeption2013">(<a href="#ref-lengerPierreBourdieusKonzeption2013" role="doc-biblioref">Lenger, Schneickert, and Schumacher 2013, 207</a>)</span> that result from the geometric solution of a ca, also harbor a number of interpretational hurdles that even Pierre Bourdieu was not always able to overcome without error <span class="citation" data-cites="blasiusGibtEsFeinen1989a gollacFrohlicheWissenschaftUber2015">(<a href="#ref-blasiusGibtEsFeinen1989a" role="doc-biblioref"><strong>blasiusGibtEsFeinen1989a?</strong></a>; <a href="#ref-gollacFrohlicheWissenschaftUber2015" role="doc-biblioref">Gollac 2015</a>)</span>.</p>
-<p><span class="citation" data-cites="bourdieuDistinctionSocialCritique1987">(<a href="#ref-bourdieuDistinctionSocialCritique1987" role="doc-biblioref">Bourdieu 1987</a>)</span> gakodfdfdsh hfdhf <span class="citation" data-cites="backhausKorrespondenzanalyse2016">(<a href="#ref-backhausKorrespondenzanalyse2016" role="doc-biblioref">Backhaus et al. 2016</a>)</span></p>
+<p>The ca is primarily interpreted graphically, while numerical interpretation tends to be of lower priority <span class="citation" data-cites="backhausKorrespondenzanalyse2016">(<a href="#ref-backhausKorrespondenzanalyse2016" role="doc-biblioref">Backhaus et al. 2016</a>)</span>. The graphical representation possibilities are then probably also one of the main advantages of ca: Thus, ca can represent data structures clearly, graphically, reduce complexity on the basis of latent dimensions, and thus make complex, unknown relationships visible at a glance. The general maxim of exploratory data analysis “<em>Let the data speak for themselves!</em>” <span class="citation" data-cites="lerouxMultipleCorrespondenceAnalysis2010">(<a href="#ref-lerouxMultipleCorrespondenceAnalysis2010" role="doc-biblioref">Le Roux and Rouanet 2010, 4</a>)</span> is thus quite redeemed in the context of ca’s graphical representations. However, the comparatively catchy “<em>geometric maps</em>” <span class="citation" data-cites="lengerPierreBourdieusKonzeption2013">(<a href="#ref-lengerPierreBourdieusKonzeption2013" role="doc-biblioref">Lenger, Schneickert, and Schumacher 2013, 207</a>)</span> that result from the geometric solution of a ca, also harbor a number of interpretational hurdles that even Pierre Bourdieu was not always able to overcome without error <span class="citation" data-cites="blasiusGibtEsFeinen1989 gollacFrohlicheWissenschaftUber2015">(<a href="#ref-blasiusGibtEsFeinen1989" role="doc-biblioref">Blasius and Winkler 1989</a>; <a href="#ref-gollacFrohlicheWissenschaftUber2015" role="doc-biblioref">Gollac 2015</a>)</span>.</p>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
@@ -298,9 +286,9 @@ div.csl-indent {
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-✔ tibble  3.1.8     ✔ dplyr   1.0.9
-✔ tidyr   1.2.0     ✔ stringr 1.4.0
+✔ ggplot2 3.4.2     ✔ purrr   1.0.1
+✔ tibble  3.2.1     ✔ dplyr   1.1.1
+✔ tidyr   1.3.0     ✔ stringr 1.5.0
 ✔ readr   2.1.2     ✔ forcats 0.5.1
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
@@ -931,6 +919,9 @@ Backhaus, Klaus, Bernd Erichson, Rolf Weiber, and Wulff Plinke. 2016. <span>“<
 <div id="ref-blasiusKorrespondenzanalyse2001" class="csl-entry" role="doc-biblioentry">
 Blasius, Jörg. 2001. <em><span>Korrespondenzanalyse</span></em>. <span>Internationale Standardlehrbücher der Wirtschafts- und Sozialwissenschaften</span>. <span>München</span>: <span>Oldenbourg</span>.
 </div>
+<div id="ref-blasiusGibtEsFeinen1989" class="csl-entry" role="doc-biblioentry">
+Blasius, Jörg, and Joachim Winkler. 1989. <span>“Gibt Es Die "Feinen <span>Unterschiede</span>"? <span>Eine</span> Empirische <span>Ueberpruefung</span> Der <span>Bourdieuschen Theorie</span>.”</span> Gedruckt. <em>Kölner Zeitschrift Für Soziologie Und Sozialpsychologie</em> 41 (1): 72–94.
+</div>
 <div id="ref-bourdieuDistinctionSocialCritique1987" class="csl-entry" role="doc-biblioentry">
 Bourdieu, Pierre. 1987. <em><span>Distinction: A Social Critique of the Judgement of Taste</span></em>. Reprint Edition. <span>Cambridge, Mass</span>: <span>Havard university press</span>.
 </div>
@@ -1099,23 +1090,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Proudly supported by <a href="https://posit.co"><img src="https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg" class="img-fluid" alt="Posit" width="65"></a></div>   
+    <div class="nav-footer-left">Supported by <a href="https://posit.co"><img src="https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg" class="img-fluid" alt="Posit" width="65"></a></div>   
       <div class="nav-footer-center">
         <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../about.html">About</a>
+    <a class="nav-link" href="../../index.html">About</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../docs/faq/index.qmd">FAQ</a>
+    <a class="nav-link" href="../../faq.html">FAQ</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../license.qmd">License</a>
+    <a class="nav-link" href="../../license.html">License</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../trademark.qmd">Trademark</a>
+    <a class="nav-link" href="../../imprint.html">Imprint</a>
   </li>  
 </ul>
       </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/maltehueckstaedt">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-0185-4230"><i class="ai  ai-orcid" title="" style="color:"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?hl=en&amp;user=EJTHqH4AAAAJ"><i class="ai  ai-google-scholar" title="" style="color:"></i></a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Malte-Hueckstaedt"><i class="ai  ai-researchgate" title="" style="color:"></i></a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://de.linkedin.com/in/malte-hückstädt-82aa78208">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.instagram.com/chernoff_faces/">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
   </div>
 </footer>
 
