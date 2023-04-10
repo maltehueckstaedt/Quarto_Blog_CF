@@ -3,13 +3,11 @@ title: "About"
 toc: true
 ---
 
-![](images/avatar_circle.png){fig-align="center" width="129"}
+![](images/avatar_circle.png){fig-align="center" width="185"}
 
-Malte Hückstädt was born in Schwedt/Oder in 1983. He studied fine arts in Hanover (FH Hanover) and Berlin (KH-Berlin) from 2004 to 2009, social sciences in Berlin (HU Berlin) from 2014 to 2016 and sociology with a quantitative-methodological profile in Bielefeld (Bielefeld University) from 2016 to 2018.
+Hi, I'm Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the *German Centre for Science and Higher Education Research* (DZHW) since 2018 in various research projects and contexts as a (Social) Data Scientist.
 
-From November 2018 to January 2019, Malte Hückstädt worked at the Research Data Centre of the *German Centre for Science and Higher Education Research* (DZHW) on the preparation of qualitative data for the creation of an SUF. Since February 2019, he has been working in the *Governance in Science and Higher Education* department in the project *Determinants and Effects of Collaboration in Research Collaborations* ([DEKiF](https://dekif-survey.dzhw.eu/en/index_html)). There he is responsible for the preparation, implementation and analysis of the large-scale web-survey carried out as part of the project.
-
-# Interests
+# Research interests
 
 -   Programming with R and Python
 -   Computational social science
@@ -44,9 +42,8 @@ Loading the data just for you.
 :::
 
 ```{=html}
-<script>
-    GitHubCalendar(".calendar", "maltehueckstaedt");
 
+<script>
     // or enable responsive functionality:
     GitHubCalendar(".calendar", "maltehueckstaedt", { responsive: true });
 
@@ -57,14 +54,16 @@ Loading the data just for you.
        }
     }).then(r => r.text())
 </script>
+ <p class="monospace">If you want to know more about my projects, <a href="https://github.com/maltehueckstaedt" target="blank">check out my GitHub repositorys</a>.</p>
 ```
-## Social Media
 
-::: wrapper
-### Tweets {{< twitter termehshafie >}}
 
-<a class="twitter-timeline" data-width="300" data-height="700" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a>
+# Twitter Activity
+
+<a class="twitter-timeline" data-width="800" data-height="300" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a>
 
 ```{=html}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ```
+
+# Hobbys

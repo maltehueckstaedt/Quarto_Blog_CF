@@ -10,18 +10,18 @@ toc-depth: 5
 
 #### Regression
 
-| Methods               | Rating                                              |
-|---------------------|---------------------------------------------------|
-| Linear Regressions    | ![](images/rating_5v5.png){width="105"}             |
-| Ordinal Regression    | ![](images/rating_4v5.png){width="104" height="21"} |
-| Regression Trees      | ![](images/rating_4v5.png){width="104" height="21"} |
-| Multilevel Analysis   | ![](images/rating_3v5.png){width="104" height="21"} |
-| Time Series Analysis  | ![](images/rating_2v5.png){width="104" height="21"} |
+| Methods              | Rating                                              |
+|----------------------|--------------------------------------------------|
+| Linear Regressions   | ![](images/rating_5v5.png){width="105"}             |
+| Ordinal Regression   | ![](images/rating_4v5.png){width="104" height="21"} |
+| Regression Trees     | ![](images/rating_4v5.png){width="104" height="21"} |
+| Multilevel Analysis  | ![](images/rating_3v5.png){width="104" height="21"} |
+| Time Series Analysis | ![](images/rating_2v5.png){width="104" height="21"} |
 
 #### Classification
 
 | Methods                 | Rating                                              |
-|---------------------|---------------------------------------------------|
+|----------------------|--------------------------------------------------|
 | Logistic Regression     | ![](images/rating_4v5.png){width="104" height="21"} |
 | Classification Trees    | ![](images/rating_4v5.png){width="104" height="21"} |
 | Support Vector Machines | ![](images/rating_2v5.png){width="104" height="21"} |

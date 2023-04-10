@@ -22,5 +22,33 @@
       "/posts/correspondence_analysis/index.html",
       "/posts/chernoff_faces/index.html"
     ]
+  },
+  {
+    "listing": "/publications.html",
+    "items": []
+  },
+  {
+    "listing": "/publications/index.html",
+    "items": [
+      "/publications/aggregated_triads/index.html"
+    ]
+  },
+  {
+    "listing": "/skills.html",
+    "items": [
+      "/index.html",
+      "/about.html",
+      "/acomplishments.html",
+      "/posts/chernoff_faces/index.html",
+      "/posts/correspondence_analysis/index.html",
+      "/experience.html",
+      "/faq.html",
+      "/contact.html",
+      "/license.html",
+      "/publications.html",
+      "/recent.html",
+      "/talks.html",
+      "/posts/webscraping_python/index.html"
+    ]
   }
 ]
