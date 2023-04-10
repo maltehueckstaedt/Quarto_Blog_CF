@@ -5,17 +5,11 @@ toc: true
 
 ![](images/avatar_circle.png){fig-align="center" width="185"}
 
-Hi, I'm Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the *German Centre for Science and Higher Education Research* (DZHW) since 2018 in various research projects and contexts as a (Social) Data Scientist.
+Hi, I'm Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the [*German Centre for Science and Higher Education Research* (DZHW)](https://www.dzhw.eu/en/index_html) since 2018 in various research projects and contexts as a (Social) Data Scientist.
 
-# Research interests
+My main research interests are programming with R and Python, computational social science, machine learning, research collaborations, interdisciplinarity and sociology of art and culture.
 
--   Programming with R and Python
--   Computational social science
--   Research collaborations
--   Interdisciplinarity
--   Sociology of art and culture
-
-# GitHub Activity
+In the context of my work as a research assistant at the [*German Centre for Science and Higher Education Research* (DZHW)](https://www.dzhw.eu/en/index_html), I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a [*reproducible analytical pipeline*](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/). I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a *reproducible analytical pipeline* is Git(Hub):
 
 <!-- Include the library. -->
 
@@ -54,16 +48,25 @@ Loading the data just for you.
        }
     }).then(r => r.text())
 </script>
- <p class="monospace">If you want to know more about my projects, <a href="https://github.com/maltehueckstaedt" target="blank">check out my GitHub repositorys</a>.</p>
 ```
+\
+If you would like to find out more about the progress of my projects,, check out [my GitHub repositorys](https://github.com/maltehueckstaedt).
 
+Social platforms are rather foreign to me. However, since I have been repeatedly told that Twitter is not only suitable for speech but also for scientific communication, I would like to force myself to include this tool more in my work in the future. Here you can find my latest tweets:
 
-# Twitter Activity
-
-<a class="twitter-timeline" data-width="800" data-height="300" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a>
+<center>
+<a class="twitter-timeline" data-width="330" data-height="500" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a>
+</center>
 
 ```{=html}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ```
+<center>
+<blockquote style = 'width:800;' class='instagram-media' data-instgrm-version='14'>
 
-# Hobbys
+<!-- replace this href with the link to the post -->
+<a href='https://www.instagram.com/p/CpnIcAPKTZP/?utm_source=ig_web_copy_link' ></a>
+
+</blockquote>
+<script src="//www.instagram.com/embed.js"></script>
+</center>

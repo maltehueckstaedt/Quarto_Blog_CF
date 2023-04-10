@@ -14,3 +14,4 @@ toc: true
 -   Jungbauer-Gans, M., Kleimann, B., Janßen, M., Oberschelp, A. & **Hückstädt, M.** (2021, 22. November). Benefits and challenges of collaboration in research. Investigating the manifold aspects of mono-, inter- and transdisciplinary collaboration. Wissenschaftlicher Abschlussworkshop des Verbundprojektes DEKiF, Deutsches Zentrum für Hochschul- und Wissenschaftsforschung (DZHW), Stifterverband für die Deutsche Wissenschaft, Heinrich-Heine-Universität Düsseldorf, Hannover, DE.
 
 # Upcoming Talks
+

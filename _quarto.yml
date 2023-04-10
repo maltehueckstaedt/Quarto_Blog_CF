@@ -14,26 +14,7 @@ website:
   search:
     type: overlay
   page-footer:
-    left: |
-      Supported by
-      [![](https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg){fig-alt="Posit" width=65px}](https://posit.co)
-    center:
-      - text: "About"
-        href: about.qmd
-      - text: "FAQ"
-        href: faq.qmd
-      - text: "License"
-        href: license.qmd
-  navbar:
-    left:
-      - index.qmd
-      - publications.qmd
-      - skills.qmd
-      - acomplishments.qmd
-      - experience.qmd
-      - talks.qmd
-      - recent.qmd
-      - contact.qmd
+    right: 
       - icon: github
         href: https://github.com/maltehueckstaedt
       - href: https://orcid.org/0000-0002-0185-4230
@@ -46,6 +27,27 @@ website:
         href: https://de.linkedin.com/in/malte-hückstädt-82aa78208
       - icon: instagram
         href: https://www.instagram.com/chernoff_faces/
+    left: |
+      Supported by
+      [![](https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg){fig-alt="Posit" width=65px}](https://posit.co)
+    center:
+      - text: "About"
+        href: index.qmd
+      - text: "FAQ"
+        href: faq.qmd
+      - text: "License"
+        href: license.qmd
+      - text: "Imprint"
+        href: imprint.qmd
+  navbar:
+    left:
+      - index.qmd
+      - publications.qmd
+      - skills.qmd
+      - acomplishments.qmd
+      - experience.qmd
+      - talks.qmd
+      - recent.qmd
 
         
     background: light
