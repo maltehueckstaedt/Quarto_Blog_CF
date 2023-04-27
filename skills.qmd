@@ -4,28 +4,183 @@ toc: true
 toc-depth: 5
 ---
 
-## Hard Skills
 
-### Methods
+:::: {.columns}
 
-#### Regression
+::: {.column width="45%"}
 
-| Methods              | Rating                                              |
-|----------------------|--------------------------------------------------|
-| Linear Regressions   | ![](images/rating_5v5.png){width="105"}             |
-| Ordinal Regression   | ![](images/rating_4v5.png){width="104" height="21"} |
-| Regression Trees     | ![](images/rating_4v5.png){width="104" height="21"} |
-| Multilevel Analysis  | ![](images/rating_3v5.png){width="104" height="21"} |
-| Time Series Analysis | ![](images/rating_2v5.png){width="104" height="21"} |
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+p {
+    font-size : 15px;
+    padding : 0;
+    margin : 0;
+    line-height : 20px;
+}
+</style>
 
-#### Classification
+<body>
+ 
+## Programming languages
 
-| Methods                 | Rating                                              |
-|----------------------|--------------------------------------------------|
-| Logistic Regression     | ![](images/rating_4v5.png){width="104" height="21"} |
-| Classification Trees    | ![](images/rating_4v5.png){width="104" height="21"} |
-| Support Vector Machines | ![](images/rating_2v5.png){width="104" height="21"} |
-|                         |                                                     |
-|                         |                                                     |
-|                         |                                                     |
-|                         |                                                     |
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">R</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Python</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<h2>R (most used packages)</h2>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">readxl</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+ 
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">tidyverse</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">knitr</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">stringr</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">rvest</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<h2>Data Visualization</h2>
+
+<p style="margin-bottom:0;">
+ 
+
+Mosaic Plots: 
+<span class="fa fa-circle checked" style="color: #557ea6;"></span>
+<span class="fa fa-circle checked" style="color: #557ea6;"></span>
+<span class="fa fa-circle checked" style="color: #cadef0;"></span>
+<span class="fa fa-circle" style="color: #cadef0;"></span>
+<span class="fa fa-circle" style="color: #cadef0;"></span>
+
+Scatter P: 
+<span class="fa fa-circle checked" style="color: #557ea6;"></span>
+<span class="fa fa-circle checked" style="color: #557ea6;"></span>
+<span class="fa fa-circle checked" style="color: #cadef0;"></span>
+<span class="fa fa-circle" style="color: #cadef0;"></span>
+<span class="fa fa-circle" style="color: #cadef0;"></span>
+
+</p>
+
+</body>
+</html>
+:::
+
+::: {.column width="10%"}
+<!-- empty column to create gap -->
+:::
+
+::: {.column width="45%"}
+<html>
+<head>
+<!-- Font Awesome Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<h2>Star Rating</h2>
+Random Forest: 
+<span class="fa fa-circle checked" style="color: #ff0000;"></span>
+<span class="fa fa-circle checked" style="color: #ff0000;"></span>
+<span class="fa fa-circle checked" style="color: #ff0000;"></span>
+<span class="fa fa-circle" style="color: #ff0000;"></span>
+<span class="fa fa-circle" style="color: #0000ff;"></span>
+
+</body>
+</html>
+:::
+
+::::
