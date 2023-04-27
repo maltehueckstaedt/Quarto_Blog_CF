@@ -30,11 +30,14 @@ website:
     left:
       - index.qmd
       - publications.qmd
+      - recent.qmd
+      - software.qmd
+      - href: https://github.com/MalteHueckstaedt?tab=repositories
+        text: "{{< iconify exploding-head >}}|"
       - skills.qmd
       - acomplishments.qmd
       - experience.qmd
       - talks.qmd
-      - recent.qmd
     right:
       - href: https://github.com/MalteHueckstaedt?tab=repositories
         text: "{{< iconify exploding-head >}} GH"

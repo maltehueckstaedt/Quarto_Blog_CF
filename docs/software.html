@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quarto - About</title>
+<title>Quarto - Software</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -62,11 +125,9 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="academicons.css">
-<meta property="og:title" content="Quarto - About">
-<meta property="og:description" content="Hi, I’m Malte. I was born in 1983 in Schwedt/Oder.">
+<meta property="og:title" content="Quarto - Software">
 <meta property="og:site-name" content="Quarto">
-<meta name="twitter:title" content="Quarto - About">
-<meta name="twitter:description" content="Hi, I’m Malte. I was born in 1983 in Schwedt/Oder.">
+<meta name="twitter:title" content="Quarto - Software">
 <meta name="twitter:card" content="summary">
 </head>
 
@@ -87,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link" href="./index.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -99,8 +160,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Recent articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html">
+    <a class="nav-link active" href="./software.html" aria-current="page">
  <span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MalteHueckstaedt?tab=repositories">
+ <span class="menu-text">|</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./skills.html">
@@ -155,8 +220,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#github" id="toc-github" class="nav-link active" data-scroll-target="#github">GitHub</a></li>
-  <li><a href="#running" id="toc-running" class="nav-link" data-scroll-target="#running">Running</a></li>
+  <li><a href="#themes" id="toc-themes" class="nav-link active" data-scroll-target="#themes">Themes</a>
+  <ul>
+  <li><a href="#dzhw-quarto-revealjs-theme" id="toc-dzhw-quarto-revealjs-theme" class="nav-link" data-scroll-target="#dzhw-quarto-revealjs-theme">DZHW Quarto Revealjs Theme</a>
+  <ul>
+  <li><a href="#how-to-install" id="toc-how-to-install" class="nav-link" data-scroll-target="#how-to-install">How to install</a></li>
+  <li><a href="#how-to-use-it" id="toc-how-to-use-it" class="nav-link" data-scroll-target="#how-to-use-it">How to use it</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -165,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Software</h1>
 </div>
 
 
@@ -180,83 +251,50 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-
-<style>
-    .column {
-      height: 800px;
-      overflow-y: auto;
-    }
-  </style>
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/avatar_circle.png" class="img-fluid figure-img" width="185"></p>
-</figure>
+<section id="themes" class="level2">
+<h2 class="anchored" data-anchor-id="themes">Themes</h2>
+<section id="dzhw-quarto-revealjs-theme" class="level3">
+<h3 class="anchored" data-anchor-id="dzhw-quarto-revealjs-theme">DZHW Quarto Revealjs Theme</h3>
+<p>You can create <a href="https://quarto.org/docs/presentations/">Quarto Presentations</a> with the <a href="https://quarto.org/docs/presentations/revealjs/">Revealjs</a> format in the applicable DZHW style. The best way to get a feel for the possibilities of Revealjs is to watch this demo presentation:</p>
+<div>
+<iframe class="slide-deck" src="https://maltehueckstaedt.github.io/dzhw_revealjs_template/#/title-slide"></iframe>
 </div>
-<p>Hi, I’m Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the <a href="https://www.dzhw.eu/en/index_html"><em>German Centre for Science and Higher Education Research</em> (DZHW)</a> since 2018 in various research projects and contexts as a (Social) Data Scientist.</p>
-<p>My main research interests are programming with R and Python, computational social science, machine learning, research collaborations, interdisciplinarity and sociology of art and culture.</p>
-<section id="github" class="level2">
-<h2 class="anchored" data-anchor-id="github">GitHub</h2>
-<p>In the context of my work as a research assistant at the <a href="https://www.dzhw.eu/en/index_html"><em>German Centre for Science and Higher Education Research</em> (DZHW)</a>, I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a <a href="https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/"><em>reproducible analytical pipeline</em></a>. I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a <em>reproducible analytical pipeline</em> is Git(Hub):</p>
-<!-- Include the library. -->
-<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
-</script>
-<!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
-<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css">
-<!-- Prepare a container for your calendar. -->
-<div class="calendar">
-<pre><code>&lt;!-- Loading stuff --&gt;
-Loading the data just for you.</code></pre>
-</div>
-
-<script>
-    // or enable responsive functionality:
-    GitHubCalendar(".calendar", "maltehueckstaedt", { responsive: true });
-
-    // Use a proxy
-    GitHubCalendar(".calendar", "maltehueckstaedt", {
-       proxy (maltehueckstaedt) {
-         return fetch(`https://your-proxy.com/github?user=${username}`)
-       }
-    }).then(r => r.text())
-</script>
-<p><br>
-If you would like to find out more about the progress of my projects,, check out <a href="https://github.com/maltehueckstaedt">my GitHub repositorys</a>.</p>
+<p>If you prefer to view the demo in a standalone browser you can do that <a href="https://maltehueckstaedt.github.io/dzhw_revealjs_template/#/title-slide">here</a>. Check out the <a href="https://github.com/maltehueckstaedt/dzhw_revealjs_template/blob/main/template.qmd">source code</a> for the demo to see how the slides were created.</p>
+<section id="how-to-install" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-install">How to install</h4>
+<p>In the terminal, navigate to the desired working directory. The DZHW-<a href="https://quarto.org">Quarto</a> theme can then be installed with the following command in the terminal:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> install extension maltehueckstaedt/dzhw_revealjs_template</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you are unable to install Quarto extensions, you probably should <a href="https://quarto.org/docs/get-started/">update Quarto</a>.</p>
 </section>
-<div class="columns">
-<div class="column" style="width:45%;">
-<section id="twitter" class="level2">
-<h2 class="anchored" data-anchor-id="twitter">Twitter</h2>
-<p>I’m still new to Twitter, but I really like the possibility of agile, scientific communication. The often polemical way of communicating on Twitter, on the other hand, is rather alien to me. I am a friend of fact-oriented, academic communication. With this in mind, check out my Twitter account, follow and retweet tweets that seem relevant to you!</p>
-<center>
-<a class="twitter-timeline" data-width="330" data-height="500" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a>
-</center>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</section>
-</div><div class="column" style="width:10%;">
-<!-- empty column to create gap -->
-</div><div class="column" style="width:45%;">
-<section id="instagram" class="level2">
-<h2 class="anchored" data-anchor-id="instagram">Instagram</h2>
-<p>When I’m not working on new Data Scientist topics in my free time, I work on 3D sculptures and animations. My tool of choice is the open source software Blender. I have also recently been working on image production with the help of Artificial Intelligence. Some of my work can be found on the Instagram account of Chernoff-Faces.</p>
-<center>
-<blockquote style="width:800;" class="instagram-media blockquote" data-instgrm-version="14">
-<!-- replace this href with the link to the post -->
-<p><a href="https://www.instagram.com/p/CpnIcAPKTZP/?utm_source=ig_web_copy_link"></a></p>
-</blockquote>
-<script src="//www.instagram.com/embed.js"></script>
-</center>
-</section>
-</div>
-</div>
-<section id="running" class="level2">
-<h2 class="anchored" data-anchor-id="running">Running</h2>
-<p>When I’m not working on my computer, I’ve been going running in my spare time for about 10 years. The winter asions are usually weak, but in spring, summer and autumn I usually do my rounds regularly. Here are details of one of my recent runs:</p>
-<iframe src="https://connect.garmin.com/modern/activity/embed/10907837412" title="Schwerin - W05D7-Langer Lauf" width="465" height="500" frameborder="0">
-</iframe>
-<p>For more information you can check my Garmin profile <a href="https://connect.garmin.com/modern/profile/a7608bfb-2aaf-4eed-becd-6871567540c7">here</a>.</p>
+<section id="how-to-use-it" class="level4">
+<h4 class="anchored" data-anchor-id="how-to-use-it">How to use it</h4>
+<p>After you install the template, use the following code on terminal to create a new directory with all files needed:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template maltehueckstaedt/dzhw_revealjs_template</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Quarto</span> templates may execute code when documents are rendered. If you do not </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">trust</span> the authors of the template, we recommend that you do not install or </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">use</span> the template.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Do you trust the authors of this template <span class="er">(</span><span class="ex">Y/n</span><span class="kw">)</span> <span class="ex">›</span> Yes</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Directory name: › WRITE/THE/DIRECTORY/HERE/talk/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[✓]</span> Downloading</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[✓]</span> Unzipping</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">Found</span> 1 extension.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[✓]</span> Copying files...</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">Files</span> created:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> LICENSE.md</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> test2.qmd</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> index.html</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> images</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> quarto-dzhw-theme.Rproj</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> actors.js</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> _extensions</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> clean_title_page.html</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> template.html</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a> <span class="ex">-</span> bibliography.bib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -1,0 +1,72 @@
+---
+title: "Software"
+slide-format: revealjs
+toc: true
+toc-depth: 5
+---
+
+## Themes
+
+### DZHW Quarto Revealjs Theme
+You can create [Quarto Presentations](https://quarto.org/docs/presentations/) with the [Revealjs](https://quarto.org/docs/presentations/revealjs/) format in the applicable DZHW style. The best way to get a feel for the possibilities of Revealjs is to watch this demo presentation:
+
+<div>
+
+```{=html}
+<iframe class="slide-deck" src="https://maltehueckstaedt.github.io/dzhw_revealjs_template/#/title-slide"></iframe>
+```
+
+</div>
+
+If you prefer to view the demo in a standalone browser you can do that [here](https://maltehueckstaedt.github.io/dzhw_revealjs_template/#/title-slide). Check out the [source code](https://github.com/maltehueckstaedt/dzhw_revealjs_template/blob/main/template.qmd) for the demo to see how the slides were created.
+
+#### How to install
+
+In the terminal, navigate to the desired working directory. The DZHW-[Quarto](https://quarto.org) theme can then be installed with the following command in the terminal:
+
+``` bash
+quarto install extension maltehueckstaedt/dzhw_revealjs_template
+```
+If you are unable to install Quarto extensions, you probably should [update Quarto](https://quarto.org/docs/get-started/).
+
+#### How to use it
+
+After you install the template, use the following code on terminal to create a new directory with all files needed:
+
+``` bash
+quarto use template maltehueckstaedt/dzhw_revealjs_template
+```
+
+```bash
+Quarto templates may execute code when documents are rendered. If you do not 
+trust the authors of the template, we recommend that you do not install or 
+use the template.
+```
+
+```bash
+ ? Do you trust the authors of this template (Y/n) › Yes
+ ? Directory name: › WRITE/THE/DIRECTORY/HERE/talk/
+```
+
+```bash
+[✓] Downloading
+[✓] Unzipping
+    Found 1 extension.
+[✓] Copying files...
+
+Files created:
+ - LICENSE.md
+ - test2.qmd
+ - index.html
+ - images
+ - quarto-dzhw-theme.Rproj
+ - actors.js
+ - _extensions
+ - clean_title_page.html
+ - template.html
+ - bibliography.bib
+```
+
+ 
+
+

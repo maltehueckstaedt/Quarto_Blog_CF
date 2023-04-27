@@ -593,5 +593,26 @@
     "title": "Skills",
     "section": "Regression",
     "text": "Regression\n\n\n\n\nLinear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis"
+  },
+  {
+    "objectID": "software.html",
+    "href": "software.html",
+    "title": "Software",
+    "section": "",
+    "text": "You can create Quarto Presentations with the Revealjs format in the applicable DZHW style. The best way to get a feel for the possibilities of Revealjs is to watch this demo presentation:\n\n\n\nIf you prefer to view the demo in a standalone browser you can do that here. Check out the source code for the demo to see how the slides were created.\n\n\nIn the terminal, navigate to the desired working directory. The DZHW-Quarto theme can then be installed with the following command in the terminal:\nquarto install extension maltehueckstaedt/dzhw_revealjs_template\nIf you are unable to install Quarto extensions, you probably should update Quarto.\n\n\n\nAfter you install the template, use the following code on terminal to create a new directory with all files needed:\nquarto use template maltehueckstaedt/dzhw_revealjs_template\nQuarto templates may execute code when documents are rendered. If you do not \ntrust the authors of the template, we recommend that you do not install or \nuse the template.\n ? Do you trust the authors of this template (Y/n) › Yes\n ? Directory name: › WRITE/THE/DIRECTORY/HERE/talk/\n[✓] Downloading\n[✓] Unzipping\n    Found 1 extension.\n[✓] Copying files...\n\nFiles created:\n - LICENSE.md\n - test2.qmd\n - index.html\n - images\n - quarto-dzhw-theme.Rproj\n - actors.js\n - _extensions\n - clean_title_page.html\n - template.html\n - bibliography.bib"
+  },
+  {
+    "objectID": "software.html#how-to-install",
+    "href": "software.html#how-to-install",
+    "title": "Software",
+    "section": "How to install",
+    "text": "How to install\nIn the terminal, navigate to the desired working directory. The DZHW-Quarto theme can then be installed with the following command in the terminal:\nquarto install extension maltehueckstaedt/dzhw_revealjs_template\nIf you are unable to install Quarto extensions, you probably should update Quarto."
+  },
+  {
+    "objectID": "software.html#how-to-use-it",
+    "href": "software.html#how-to-use-it",
+    "title": "Software",
+    "section": "How to use it",
+    "text": "How to use it\nAfter you install the template, use the following code on terminal to create a new directory with all files needed:\nquarto use template maltehueckstaedt/dzhw_revealjs_template\nQuarto templates may execute code when documents are rendered. If you do not \ntrust the authors of the template, we recommend that you do not install or \nuse the template.\n ? Do you trust the authors of this template (Y/n) › Yes\n ? Directory name: › WRITE/THE/DIRECTORY/HERE/talk/\n[✓] Downloading\n[✓] Unzipping\n    Found 1 extension.\n[✓] Copying files...\n\nFiles created:\n - LICENSE.md\n - test2.qmd\n - index.html\n - images\n - quarto-dzhw-theme.Rproj\n - actors.js\n - _extensions\n - clean_title_page.html\n - template.html\n - bibliography.bib"
   }
 ]
