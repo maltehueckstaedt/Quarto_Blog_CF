@@ -3,7 +3,6 @@ title: "Chernoff Faces"
 author: "Malte Hückstädt"
 date: "2023-03-29"
 categories: [R, data visualization, data exploration, analysis]
-image: "image.jpg"
 bibliography: Bibliothek.bib
 ---
 
