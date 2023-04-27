@@ -4,6 +4,14 @@ toc: true
 toc-depth: 5
 ---
 
+<head>
+  <style>
+    .column {
+      height: 800px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
 
 :::: {.columns}
 
@@ -57,7 +65,39 @@ p {
   </tr>
 </table>
 
-<h2>R (most used packages)</h2>
+## Markup languages
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">(R/Quarto)Markdown</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">LaTex</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## R (most used packages)
 
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>

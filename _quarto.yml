@@ -14,19 +14,6 @@ website:
   search:
     type: overlay
   page-footer:
-    right: 
-      - icon: github
-        href: https://github.com/maltehueckstaedt
-      - href: https://orcid.org/0000-0002-0185-4230
-        text: "{{< ai orcid >}}"
-      - href: https://scholar.google.com/citations?hl=en&user=EJTHqH4AAAAJ
-        text: "{{< ai google-scholar >}}"
-      - href: https://www.researchgate.net/profile/Malte-Hueckstaedt
-        text: "{{< ai researchgate >}}"        
-      - icon: linkedin
-        href: https://de.linkedin.com/in/malte-hückstädt-82aa78208
-      - icon: instagram
-        href: https://www.instagram.com/chernoff_faces/
     left: |
       Supported by
       [![](https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg){fig-alt="Posit" width=65px}](https://posit.co)
@@ -48,8 +35,18 @@ website:
       - experience.qmd
       - talks.qmd
       - recent.qmd
+    right:
+      - href: https://github.com/MalteHueckstaedt?tab=repositories
+        text: "{{< iconify exploding-head >}} GH"
+      - href: https://orcid.org/0000-0002-0185-4230
+        text: "{{< iconify exploding-head >}} ORCID"
+      - href: https://scholar.google.com/citations?hl=en&user=EJTHqH4AAAAJ
+        text: "{{< iconify exploding-head >}} GS"
+      - href: https://www.researchgate.net/profile/Malte-Hueckstaedt
+        text: "{{< iconify exploding-head >}} RS"
+      - href: https://de.linkedin.com/in/malte-hückstädt-82aa78208
+        text: "{{< iconify exploding-head >}} LI"
 
-        
     background: light
     logo: quarto.png
     logo-alt: "Quarto logo."

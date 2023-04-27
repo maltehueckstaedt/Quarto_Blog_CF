@@ -109,7 +109,7 @@
     "href": "acomplishments.html",
     "title": "Acomplishments",
     "section": "",
-    "text": "Organiser\n\nMode\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nmanuel\nWeb Scraping und Data Mining mit Python\n3/22\nCertifcate\n\n\n\nDataCamp\nonline\nWeb Scraping in Python\n3/22\nCertifcate\n\n\n\nDataCamp\nonline\nIntroduction to\nPython\n4/21\nCertifcate\n\n\n\nDataCamp\nonline\nIntermediate Python\n4/21\nCertifcate\n\n\n\nGESIS\nmanuel\nOnline-Befragungen – Planung\nund Durchführung\n12/19\nCertifcate\n\n\n\nGESIS\nmanuel\nEinführung in die Logik der\nBayesschen Statistik\n11/19\nCertifcate\n\n\n\nDataCamp\nonline\nCleaning Data in R\n5/19\nCertifcate\n\n\n\nDataCamp\nonline\nIntroduction to R\n5/19\nCertifcate\n\n\n\nHumboldt Universität zu Berlin\nmanuel\nDatenanalyse mit Stata\n12/15\nCertifcate"
+    "text": "As a data enthusiast, I continue to educate myself. Most of the knowledge I have learned in the field of data science in recent years has been acquired informally through practical applications or trail and error. However, when the opportunity arises, I also like to take part in training courses, either digital or analogue. In the following you will find my certified trainings in decreasing order of actuality.\n\n\n\n\n\n\n\nOrganiser\n\nMode\nTopic\nDate\nCertificate\n\n\n\n\n\nJohannes Gutenberg-Universität Mainz\nmanuel\nWeb Scraping und Data Mining mit Python\n3/22\nCertifcate\n\n\n\nDataCamp\nonline\nWeb Scraping in Python\n3/22\nCertifcate\n\n\n\nDataCamp\nonline\nIntroduction to\nPython\n4/21\nCertifcate\n\n\n\nDataCamp\nonline\nIntermediate Python\n4/21\nCertifcate\n\n\n\nGESIS\nmanuel\nOnline-Befragungen – Planung\nund Durchführung\n12/19\nCertifcate\n\n\n\nGESIS\nmanuel\nEinführung in die Logik der\nBayesschen Statistik\n11/19\nCertifcate\n\n\n\nDataCamp\nonline\nCleaning Data in R\n5/19\nCertifcate\n\n\n\nDataCamp\nonline\nIntroduction to R\n5/19\nCertifcate\n\n\n\nHumboldt Universität zu Berlin\nmanuel\nDatenanalyse mit Stata\n12/15\nCertifcate"
   },
   {
     "objectID": "acomplishments.html#web-scraping-und-data-mining-mit-python",
@@ -214,7 +214,7 @@
     "href": "skills.html",
     "title": "Skills",
     "section": "",
-    "text": "R\n\n\n    \n\n\n\n\n\n\n\nPython\n\n\n    \n\n\n\n\n\n\n\n\n\nreadxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest\n\n\n    \n\n\n\n\n\n\nMosaic Plots:     \nScatter P:     \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Forest:"
+    "text": "R\n\n\n    \n\n\n\n\n\n\n\nPython\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n(R/Quarto)Markdown\n\n\n    \n\n\n\n\n\n\n\nLaTex\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\nreadxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest\n\n\n    \n\n\n\n\n\n\nMosaic Plots:     \nScatter P:     \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Forest:"
   },
   {
     "objectID": "acomplishments.html#section-2",
@@ -544,5 +544,19 @@
     "title": "About",
     "section": "Instagram",
     "text": "Instagram\nWhen I’m not working on new Data Scientist topics in my free time, I work on 3D sculptures and animations. My tool of choice is the open source software Blender. I have also recently been working on image production with the help of Artificial Intelligence. Some of my work can be found on the Instagram account of Chernoff-Faces."
+  },
+  {
+    "objectID": "links.html",
+    "href": "links.html",
+    "title": "links",
+    "section": "",
+    "text": "icon: github\n\nhref: https://github.com/maltehueckstaedt\n\nhref: https://orcid.org/0000-0002-0185-4230\n\ntext: “”\n\nhref: https://scholar.google.com/citations?hl=en&user=EJTHqH4AAAAJ\n\ntext: “”\n\nhref: https://www.researchgate.net/profile/Malte-Hueckstaedt\n\ntext: “”\n\nicon: linkedin\n\nhref: https://de.linkedin.com/in/malte-hückstädt-82aa78208"
+  },
+  {
+    "objectID": "index.html#running",
+    "href": "index.html#running",
+    "title": "About",
+    "section": "Running",
+    "text": "Running\nWhen I’m not working on my computer, I’ve been going running in my spare time for about 10 years. The winter asions are usually weak, but in spring, summer and autumn I usually do my rounds regularly. Here are details of one of my recent runs:\n\n\nFor more information you can check my Garmin profile here."
   }
 ]
