@@ -214,7 +214,7 @@
     "href": "skills.html",
     "title": "Skills",
     "section": "",
-    "text": "R\n\n\n    \n\n\n\n\n\n\n\nPython\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n(R/Quarto)Markdown\n\n\n    \n\n\n\n\n\n\n\nLaTex\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\nreadxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest\n\n\n    \n\n\n\n\n\n\nMosaic Plots:     \nScatter P:     \n\n\n\n\n\n\n\n\n\n\n\n\n\n\nRandom Forest:"
+    "text": "R\n\n\n    \n\n\n\n\n\n\n\nPython\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n(R/Quarto)Markdown\n\n\n    \n\n\n\n\n\n\n\nLaTex\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\nreadxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis\n\n\n    \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis"
   },
   {
     "objectID": "acomplishments.html#section-2",
@@ -558,5 +558,40 @@
     "title": "About",
     "section": "Running",
     "text": "Running\nWhen I’m not working on my computer, I’ve been going running in my spare time for about 10 years. The winter asions are usually weak, but in spring, summer and autumn I usually do my rounds regularly. Here are details of one of my recent runs:\n\n\nFor more information you can check my Garmin profile here."
+  },
+  {
+    "objectID": "skills.html#programming-languages",
+    "href": "skills.html#programming-languages",
+    "title": "Skills",
+    "section": "Programming languages",
+    "text": "Programming languages\n\n\n\n\nR\n\n\n    \n\n\n\n\n\n\n\nPython"
+  },
+  {
+    "objectID": "skills.html#markup-languages",
+    "href": "skills.html#markup-languages",
+    "title": "Skills",
+    "section": "Markup languages",
+    "text": "Markup languages\n\n\n\n\n(R/Quarto)Markdown\n\n\n    \n\n\n\n\n\n\n\nLaTex"
+  },
+  {
+    "objectID": "skills.html#r-most-used-packages",
+    "href": "skills.html#r-most-used-packages",
+    "title": "Skills",
+    "section": "R (most used packages)",
+    "text": "R (most used packages)\n\n\n\n\nreadxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest"
+  },
+  {
+    "objectID": "skills.html#regression",
+    "href": "skills.html#regression",
+    "title": "Skills",
+    "section": "Regression",
+    "text": "Regression\n\n\n\n\nLinear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis\n\n\n    \n\n\n\n\n:::"
+  },
+  {
+    "objectID": "skills.html#regression-1",
+    "href": "skills.html#regression-1",
+    "title": "Skills",
+    "section": "Regression",
+    "text": "Regression\n\n\n\n\nLinear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis"
   }
 ]

@@ -13,6 +13,8 @@ toc-depth: 5
   </style>
 </head>
 
+# Hard Skills
+
 :::: {.columns}
 
 ::: {.column width="45%"}
@@ -174,26 +176,82 @@ p {
   </tr>
 </table>
 
-<h2>Data Visualization</h2>
+## Regression
 
-<p style="margin-bottom:0;">
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Linear Regression</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
  
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Ordinal Regression</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
-Mosaic Plots: 
-<span class="fa fa-circle checked" style="color: #557ea6;"></span>
-<span class="fa fa-circle checked" style="color: #557ea6;"></span>
-<span class="fa fa-circle checked" style="color: #cadef0;"></span>
-<span class="fa fa-circle" style="color: #cadef0;"></span>
-<span class="fa fa-circle" style="color: #cadef0;"></span>
+    </td>
+  </tr>
+</table>
 
-Scatter P: 
-<span class="fa fa-circle checked" style="color: #557ea6;"></span>
-<span class="fa fa-circle checked" style="color: #557ea6;"></span>
-<span class="fa fa-circle checked" style="color: #cadef0;"></span>
-<span class="fa fa-circle" style="color: #cadef0;"></span>
-<span class="fa fa-circle" style="color: #cadef0;"></span>
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Regression Trees</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
-</p>
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Multilevel Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Time Series Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
 
 </body>
 </html>
@@ -204,23 +262,82 @@ Scatter P:
 :::
 
 ::: {.column width="45%"}
-<html>
-<head>
-<!-- Font Awesome Icon Library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
+## Regression
 
-<h2>Star Rating</h2>
-Random Forest: 
-<span class="fa fa-circle checked" style="color: #ff0000;"></span>
-<span class="fa fa-circle checked" style="color: #ff0000;"></span>
-<span class="fa fa-circle checked" style="color: #ff0000;"></span>
-<span class="fa fa-circle" style="color: #ff0000;"></span>
-<span class="fa fa-circle" style="color: #0000ff;"></span>
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Linear Regression</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
 
-</body>
-</html>
+    </td>
+  </tr>
+</table>
+ 
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Ordinal Regression</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Regression Trees</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Multilevel Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Time Series Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
 :::
 
 ::::
