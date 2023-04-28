@@ -18,6 +18,7 @@
   {
     "listing": "/recent.html",
     "items": [
+      "/posts/Open_Alex/index.html",
       "/posts/webscraping_python/index.html",
       "/posts/correspondence_analysis/index.html",
       "/posts/chernoff_faces/index.html"
