@@ -1,5 +1,5 @@
 ---
-title: "Open Alex"
+title: "ScopusR"
 author: "Malte Hückstädt"
 date: "2023-05-01"
 categories: [R, Bibliometric, data analysis]
@@ -7,7 +7,6 @@ bibliography: references.bib
 ---
 
 # Scopus
-
 
 ```{r}
 library(rscopus)
@@ -18,4 +17,3 @@ library(rscopus)
 library(rscopus)
 res = author_df(last_name = "Muschelli", first_name = "John", verbose = FALSE, general = FALSE)
 ```
-

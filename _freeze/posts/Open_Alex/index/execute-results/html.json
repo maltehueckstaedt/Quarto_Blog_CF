@@ -1,7 +1,7 @@
 {
-  "hash": "6552cc1aaf4f6d2e9795397a5f7f37ee",
+  "hash": "924e0bfbb040fec31753fe4c9727ff55",
   "result": {
-    "markdown": "---\ntitle: \"Open Alex\"\nauthor: \"Malte Hückstädt\"\ndate: \"2023-05-01\"\ncategories: [R, Bibliometric, data analysis]\nbibliography: references.bib\n---\n\n\n# Scopus\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(rscopus)\n#usethis::edit_r_environ()\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(rscopus)\nres = author_df(last_name = \"Muschelli\", first_name = \"John\", verbose = FALSE, general = FALSE)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nWarning: 'entries_to_df' is deprecated.\nUse 'gen_entries_to_df' instead.\nSee help(\"Deprecated\")\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: \"ScopusR\"\nauthor: \"Malte Hückstädt\"\ndate: \"2023-05-01\"\ncategories: [R, Bibliometric, data analysis]\nbibliography: references.bib\n---\n\n\n# Scopus\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(rscopus)\n#usethis::edit_r_environ()\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(rscopus)\nres = author_df(last_name = \"Muschelli\", first_name = \"John\", verbose = FALSE, general = FALSE)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nWarning: 'entries_to_df' is deprecated.\nUse 'gen_entries_to_df' instead.\nSee help(\"Deprecated\")\n```\n:::\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
