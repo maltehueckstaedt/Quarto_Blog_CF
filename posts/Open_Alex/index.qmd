@@ -6,46 +6,16 @@ categories: [R, Bibliometric, data analysis]
 bibliography: references.bib
 ---
 
-
-```{r}
-#install.packages("openalexR")
-
-library(openalexR)
-library(tidyverse)
-```
-
-```{r}
-
-query_author <- oa_query(
-identifier = "A4355526848", #Christian Drosten /https://explore.openalex.org/authors/A4355526848
-entity = "authors",
-endpoint = "https://api.openalex.org"
-)
-res <- oa_request(
-query_url = query_author,
-count_only = FALSE,
-verbose = FALSE)
-
-df <- oa2df(res, entity = "authors")
-```
-
-## H-Index
-
-```{r}
-hindex <- function(x) {
-    tx <- sort(x, decreasing = T)
-    print(sum(tx >= seq_along(tx)))
-}
-
-hindex(c(1,2,3,4))
-```
-
-
 # Scopus
 
 
 ```{r}
 library(rscopus)
 #usethis::edit_r_environ()
+```
+
+```{r}
+library(rscopus)
+res = author_df(last_name = "Muschelli", first_name = "John", verbose = FALSE, general = FALSE)
 ```
 
