@@ -4,14 +4,6 @@ toc: true
 toc-depth: 5
 ---
 
-<head>
-  <style>
-    .column {
-      height: 800px;
-      overflow-y: auto;
-    }
-  </style>
-</head>
 
 # Hard Skills
 
@@ -34,6 +26,38 @@ p {
 </style>
 
 <body>
+
+## Languages
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">German</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">English</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
  
 ## Programming languages
 
@@ -55,6 +79,21 @@ p {
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>
     <td style="text-align: left; font-size: 20px;">Python</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Mplus</td>
     <td style="text-align: right">
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
@@ -94,6 +133,23 @@ p {
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## Version control
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Git(Hub)</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
     </td>
   </tr>
@@ -176,11 +232,52 @@ p {
   </tr>
 </table>
 
-## Regression
+
+## Web applications
 
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>
-    <td style="text-align: left; font-size: 20px;">Linear Regression</td>
+    <td style="text-align: left; font-size: 20px;">Shiny</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+## Distributions
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Anaconda</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+## Source-code editors
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">VS Code</td>
     <td style="text-align: right">
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
@@ -192,10 +289,72 @@ p {
     </td>
   </tr>
 </table>
- 
+
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>
-    <td style="text-align: left; font-size: 20px;">Ordinal Regression</td>
+    <td style="text-align: left; font-size: 20px;">Rstudio</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Atom (†)</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## Other software
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Zotero</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">yEd</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Pandoc</td>
     <td style="text-align: right">
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
@@ -210,7 +369,7 @@ p {
 
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>
-    <td style="text-align: left; font-size: 20px;">Regression Trees</td>
+    <td style="text-align: left; font-size: 20px;">MS Office</td>
     <td style="text-align: right">
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
@@ -225,12 +384,12 @@ p {
 
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>
-    <td style="text-align: left; font-size: 20px;">Multilevel Analysis</td>
+    <td style="text-align: left; font-size: 20px;">SQL</td>
     <td style="text-align: right">
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
-    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
@@ -238,15 +397,16 @@ p {
   </tr>
 </table>
 
+
 <table style="width: 100%; padding: 0; margin: 0;">
   <tr>
-    <td style="text-align: left; font-size: 20px;">Time Series Analysis</td>
+    <td style="text-align: left; font-size: 20px;">Docker</td>
     <td style="text-align: right">
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
-    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
-    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
     </td>
@@ -316,7 +476,7 @@ p {
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
-    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
@@ -331,6 +491,38 @@ p {
     
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## Classification
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Logistic Regression</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+ 
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Classification Trees</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
@@ -338,6 +530,305 @@ p {
     </td>
   </tr>
 </table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Support Vector Machines</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## Clustering
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Partitioning Cluster Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+ 
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Hierarchical Cluster Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Latent Class Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+## Dimensionality reduction
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">(Multiple) Corres-<br>pondence Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+ 
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Multidimensional Scaling</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Exploratory/Confirmatory <br> Factor Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Principal Component Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## Ensemble Methods
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Random Forest</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+## Other Methods
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Structural Equation Modeling</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Web Scraping</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">(Permutational)<br>Analysis of Variance</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Geocoding</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Network Analysis</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
+<table style="width: 100%; padding: 0; margin: 0;">
+  <tr>
+    <td style="text-align: left; font-size: 20px;">Natural Language<br>Processing</td>
+    <td style="text-align: right">
+    
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+
+    </td>
+  </tr>
+</table>
+
 :::
 
 ::::
+
+# Softskills
+
+<div class="softskill">
+self-discipline
+</div>
+<div class="softskill">
+quick thinking
+</div>
+<div class="softskill">
+high problem-solving competence
+</div>
+
+<div class="softskill">
+Self-management
+</div>
+<div class="softskill">
+Goal orientation
+</div>
+<div class="softskill">
+Reliability
+</div>
+
+<div class="softskill">
+High frustration tolerance
+</div>
+***
+<div class="softskill">
+Communication skills
+</div>
+<div class="softskill">
+critical ability
+</div>
+<div class="softskill">
+ability to work in a team
+</div>
+***
+<div class="softskill">
+resilience
+</div>
+<div class="softskill">
+Commitment
+</div>
+
+<div class="softskill">
+Initiative
+</div>
+<div class="softskill">
+Curiosity
+</div>
+<div class="softskill">
+Flexibility
+</div>
+
+<div class="softskill">
+Self-motivation
+</div>
+<div class="softskill">
+Self-reflection
+</div>
+<div class="softskill">
+Stress resistance
+</div>
+<div class="softskill">
+Sense of responsibility
+</div>

@@ -32,7 +32,7 @@ website:
       - publications.qmd
       - recent.qmd
       - software.qmd
-      - href: https://github.com/MalteHueckstaedt?tab=repositories
+      - href: https://maltehueckstaedt.github.io/Quarto_Blog_CF/
         text: "{{< iconify exploding-head >}}|"
       - skills.qmd
       - acomplishments.qmd
