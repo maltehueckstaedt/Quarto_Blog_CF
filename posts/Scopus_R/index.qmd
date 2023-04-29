@@ -1,0 +1,68 @@
+---
+title: "ScopusR"
+author: "Malte Hückstädt"
+date: "2023-05-01"
+categories: [R, Bibliometric, data analysis]
+bibliography: references.bib
+---
+
+# Scopus
+
+```{r}
+library(rscopus)
+library(tidyverse)
+library(scales)
+#usethis::edit_r_environ()
+```
+
+```{r}
+
+# res <- author_df(last_name = "Schweitzer", first_name = "Marc Alexander", verbose = FALSE, general = FALSE)
+# View(res)
+# colnames(res)
+# 
+# ggplot(res, aes(x = as.Date(cover_date), y = citations)) + 
+#   geom_line() + 
+#   # use date_breaks to have more frequent labels
+#   scale_x_date(labels = date_format("%m-%Y"), date_breaks = "4 months") +
+#   # rotate x-axis labels
+#   theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+# 
+# # hindex
+# 
+# res %>% 
+#   arrange(desc(citations)) %>%
+#   summarise(h_index = sum(citations >= seq_along(citations)))
+# 
+# test <- res %>%
+#   mutate(date = as.Date(cover_date)) %>%
+#   arrange(date) %>%
+#   mutate(h_index = if_else(citations >= seq_along(citations), seq_along(citations), 0)) %>%
+#   group_by(date) %>%
+#   summarise(citations = sum(citations), h_index = max(cumsum(h_index)))
+
+```
+
+
+```{r}
+#https://www.bibliometrix.org/vignettes/Introduction_to_bibliometrix.html
+library(bibliometrix) 
+file <- "./scopus.bib"
+M <- convert2df(file = file, dbsource = "scopus", format = "bibtex")
+
+results <- biblioAnalysis(M, sep = ";")
+
+options(width=100)
+S <- summary(object = results, k = 10, pause = FALSE)
+
+indices <- Hindex(M, field = "author", elements="SCHWEITZER MA", sep = ";", years = 20)
+
+# Bornmann's impact indices:
+indices$H
+
+
+M2 <- metaTagExtraction(M, Field = "AU_CO", sep = ";")
+NetMatrix <- biblioNetwork(M2, analysis = "collaboration", network = "countries", sep = ";")
+net=networkPlot(NetMatrix, n = dim(NetMatrix)[1], Title = "Country Collaboration", type = "circle", size=TRUE, remove.multiple=FALSE,labelsize=0.7,cluster="none")
+
+```
