@@ -1,0 +1,14 @@
+{
+  "hash": "7177d9b74503da2ae9d9910a8adfcc18",
+  "result": {
+    "markdown": "---\ntitle: \"ScopusR\"\nauthor: \"Malte Hückstädt\"\ndate: \"2023-05-01\"\ncategories: [R, Bibliometric, data analysis]\nbibliography: references.bib\n---\n\n\n# Scopus\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(rscopus)\n#usethis::edit_r_environ()\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(rscopus)\nres = author_df(last_name = \"Muschelli\", first_name = \"John\", verbose = FALSE, general = FALSE)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nWarning: 'entries_to_df' is deprecated.\nUse 'gen_entries_to_df' instead.\nSee help(\"Deprecated\")\n```\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
