@@ -1,0 +1,88 @@
+---
+title: "R with GitHub Codespace"
+author: "Malte Hückstädt"
+date: "2023-05-04"
+categories: [R, development environment]
+---
+
+# Conceptual representation
+
+## Dev-Container
+
+A dev container is a Docker-based developer environment that allows developers to run a consistent and isolated development environment on any computer that supports Docker. Dev containers use Docker container technology to provide a standard development environment with all the necessary dependencies and tools needed for a specific project.
+
+Developers can use dev containers to quickly and easily set up a development environment without having to worry about installing and configuring software on their local computer. This saves time and avoids potential problems caused by differences in developers' system configurations.
+
+Different development environments and programming languages can be set up in dev containers, e.g. Visual Studio Code, PyCharm, Eclipse or IntelliJ, as well as languages such as Python, Java, JavaScript, Ruby, Go or C++. Dev containers also support integration with version control systems such as Git and the ability to include dev container definitions in one's project repository to ensure that each developer uses a consistent development environment.
+
+Dev container technology is supported by various development environments and platforms, including GitHub Codespaces.
+
+## GitHub Codespace
+
+[GitHub Codespaces](https://github.com/features/codespaces) are a cloud-based development environment offered by GitHub. They allow developers to quickly and easily create, edit and test code in a provisioned virtual machine (VM) without having to set up their local development environment. Codespaces are integrated into the browser and can be accessed from any device with an internet connection.
+
+Codespaces also allows developers to create a personalised development VM by adding their preferred tools, configurations and dependencies. This allows them to better manage and scale their work by using the same development process across all devices.
+
+Another important feature of Codespaces is the ability to collaborate with other developers in real time. Multiple developers can access and collaborate on the same Codespace at the same time, making collaboration on projects easier.
+
+## R and GitHub Codespace
+
+To work with R in a GitHub codespace, the dev container [Jupyter notebook](https://jupyter-docker-stacks.readthedocs.io/en/latest/) is a good choice. Jupyter notebook is a web-based interactive development environment that allows users to create and run documents containing code, text, images and visualisations. The notebook format is very popular with data scientists because it provides an easy and intuitive way to perform data analysis, train models and visualise results.
+
+A Jupyter notebook consists of a sequence of cells that can contain either code or Markdown text. The user can write code in a cell and then execute that cell to display the result of the code. Results can be displayed as text, tables or charts. The user can also write Markdown text in a cell to provide a description of the code, results or analysis.
+
+Jupyter Notebook supports many programming languages, including [Python](https://www.python.org/), [R](https://www.r-project.org/), [Julia](https://julialang.org/), [C++](https://www.open-std.org/jtc1/sc22/wg21/), and others.
+
+In academia, particularly in the area of data analysis and modelling, Jupyter Notebook has become a standard tool. The Notebook format facilitates sharing of research and data analysis by allowing the code and results to be stored in a single document. It also has a wide range of extensions and plug-ins that enhance Notebook's functionality, such as saving Notebooks in different formats like PDF or HTML, or integrating Github to share Notebooks with others.
+
+# Setting up a R-GitHub codespace
+
+To set up a codespace on GitHub, proceed as follows:
+
+1.  Go to the Github repository where you want to set up a codespace.
+
+2.  Click on the green *Code*-button in the top right corner.
+
+3.  In the right-hand tab, select `create codespaces on main` from the drop-down menu. The codespace will now be set up, which may take a few moments.
+
+4.  Press `Ctrl+Shift+P`/`Cmd+Shift+P` to open the command palette.
+
+5.  In the command palette, enter `Codespaces: Add` and select `Codespaces: Add Dev Container Configuration Files…` by clicking on it.
+
+6.  Then select `create a new configuration`.
+
+7.  Aus der darauf folgenden Auswahlliste wählen Sie `Jupyter Data Science Notebooks (Community)` und `keep defaults` .
+
+8.  From the subsequent drop-down list, select `Jupyter Data Science Notebooks (Community)` and `keep defaults` .
+
+9.  If the question `File './.devcontainer/devcontainer.json' already exists, overwrite?` appears, select the option `overwrite` .
+
+10. Now we need to rebuild the codespace. To do this, open the Command Palette again: Command Palette with `Ctrl+Shift+P`/`Cmd+Shift+P` and select `Codespace: Rebuild Container` . The rebuild process can again take a few moments.
+
+# Building a Jupyter Notesbook with Jupyter-Kernel
+
+Once the codespace is restored, you can proceed as follows:
+
+1.  Create a new file in the codespace named `r-test.ipynb`.
+
+2.  Insert an R command in the first line, for example `library(tidyverse)`. If you execute the function, a pop-up window named `Select Kernel` opens in the top centre. There they select `Install proposed extension`.
+
+3.  Ist die Erweiterung installiert führen sie abermals die Funktion `library(tidyverse)` aus. Es öffnet sich wieder das popup-Fenster `Kernel auswählen` . Wählen Sie bitte `Jupyter Kernel` und anschließend `R Base`
+
+4.  Once the extension is installed, execute the `library(tidyverse)` function again. The pop-up window `Select Kernel` opens again. Please select `Jupyter Kernel` and then `R Base`.
+
+You can now write, run and debug code as if you had a local development environment on your computer. The advantage of a Codespace is that all dependencies and settings for your development environment are stored in the cloud, so you can access it on any device with internet access without having to do a local installation.[^1]
+
+[^1]: For easier use, I recommend installing the add-on package \`R Tools\` in the GitHub workspace.
+
+## Save files in your GitHub Repository
+
+Um Deine Arbeiten im GitHub-Repository zu sichern, kannst Du entweder über die Menüführung rechts im Codespace Commits puschen, oder mit `Ctrl+Shift+P`/`Cmd+Shift+P` die command palette öffnen und mit `View: Toggle Terminal` einen Terminal öffnen. Dort kannst Du anschließend folgendermaßen vorgehen:
+
+To save your work in the GitHub repository, you can either push commits via the menu on the right in the codespace, or open the command palette with `Ctrl+Shift+P`/`Cmd+Shift+P` and open a terminal with `View: Toggle Terminal`. You can then proceed as follows:
+
+1.  `git add .` (All changes in your working directory and subfolders will be added to the index to be included in the next commit).
+
+2.  `git commit -m "commit codespace files"` (All changes in the local Git repository of the codespace are confirmed).
+
+3.  `git push` (All changes in the local Git repository of the codespace are transferred to the repository on the GitHub Git server).

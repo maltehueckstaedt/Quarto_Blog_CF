@@ -1,0 +1,120 @@
+---
+title: "Analyse Instagram Data with R"
+author: "Malte Hückstädt"
+date: "2023-05-05"
+categories: [R, web-scraping]
+---
+
+```{r}
+#install.packages("rjson")
+library(rjson)
+library(tidyverse)
+sb_list <- fromJSON(file="./data/sucuk_bratwurst.json")
+
+```
+
+Ich bin als erstes daran interessiert, mit wem die Agentur in welcher Intensität auf IG verbunden ist.
+
+```{r}
+extractElements <- function(myList, containerName) {
+  elements <- character()
+  for (element in myList) {
+    if (is.list(element)) {
+      if (containerName %in% names(element)) {
+        elements <- c(elements, element[[containerName]])
+      }
+      elements <- c(elements, extractElements(element, containerName))
+    }
+  }
+  return(elements)
+}
+
+# Anwenden der Funktion auf den "username"-Container
+usernames <- extractElements(sb_list, "username")
+
+unique(usernames)
+
+```
+
+# Wordcloud
+
+```{r warning=FALSE}
+# Laden Sie die Wordcloud-Paketbibliothek
+library(wordcloud)
+
+# Erstellen Sie eine Wordcloud aus den extrahierten Wörtern
+wordcloud(usernames, min.freq = 1, random.order = FALSE)
+
+```
+
+# Netzwerkanalyse
+
+```{r}
+# Erstellen Sie eine leere Liste, um die Usernamen aller getaggten Personen für jeden Post zu speichern
+TaggedUsers <- list()
+
+# Iterieren Sie durch jede Liste in Ihrer Hauptliste
+for (post in sb_list) {
+  
+  # Extrahieren Sie alle Usernamen der getaggten Benutzer aus der aktuellen Post-Liste
+  taggedUsersUsernames <- list()
+  for (taggedUser in post$taggedUsers) {
+    taggedUsersUsernames <- c(taggedUsersUsernames, taggedUser$username)
+  }
+  
+  # Fügen Sie die Usernamen aller getaggten Benutzer der Liste "TaggedUsers" hinzu
+  TaggedUsers[[length(TaggedUsers) + 1]] <- taggedUsersUsernames
+}
+TaggedUsers[[1]]
+
+# Entfernen von Listen mit weniger als 2 Elementen
+TaggedUsers <- TaggedUsers %>% 
+  discard(~ length(.x) < 2)
+
+
+```
+
+```{r}
+library(igraph)
+
+# Initialisierung eines leeren Datenrahmens
+df <- data.frame(from = character(),
+                 to = character(),
+                 stringsAsFactors = FALSE)
+
+# Schleife durch jeden Post
+for(i in 1:length(TaggedUsers)) {
+  # Erstellen Sie eine Kantenliste für diesen Post
+  edges <- t(combn(TaggedUsers[[i]], 2))
+  
+  # Konvertieren Sie die Kantenliste in ein Datenrahmenobjekt
+  edges_df <- as.data.frame(edges, stringsAsFactors = FALSE)
+  names(edges_df) <- c("from", "to")
+  edges_df$post <- as.character(i)
+
+  # Fügen Sie die Kantenliste dem Gesamtdatenrahmen hinzu
+  df <- rbind(df, edges_df)
+}
+
+# Aggregieren Sie die Kantenliste nach "from", "to" und "post" und zählen Sie die Häufigkeit
+df_count <- df %>%
+  group_by(from, to) %>%
+  summarise(weight = n()) %>%
+  ungroup()
+
+
+# Libraries
+library(igraph)
+library(networkD3)
+
+data <- df_count %>% filter(weight>3) %>% select(from, to)
+
+# Plot
+p <- simpleNetwork(data, height="100px", width="100px")
+p
+
+forceNetwork(Links = MisLinks, Nodes = MisNodes,
+             Source = "source", Target = "target",
+             Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.8)
+```

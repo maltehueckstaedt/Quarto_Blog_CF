@@ -1,0 +1,54 @@
+---
+title: "ScopusR"
+author: "Malte Hückstädt"
+date: "2023-05-01"
+categories: [R, Bibliometric, data analysis]
+bibliography: references.bib
+---
+
+# Web of Science
+
+```{r eval=FALSE, include=FALSE}
+#https://www.bibliometrix.org/vignettes/Introduction_to_bibliometrix.html
+library(bibliometrix) 
+file <- "./data/EXC_1086_with_citations.bib"
+M <- convert2df(file = file, dbsource = "scopus", format = "bibtex")
+
+results <- biblioAnalysis(M, sep = ";")
+
+options(width=100)
+S <- summary(object = results, k = 10, pause = FALSE)
+
+S$MostProdAuthors
+S$AnnualProduction
+
+DF <- dominance(results, k = 10)
+
+
+indices <- Hindex(M, field = "author", elements="KUHNER D", sep = ";", years = 10)
+
+# KUHNER D impact indices:
+indices$H
+
+L <- lotka(results)
+
+# Author Productivity. Empirical Distribution
+L$AuthorProd
+
+A <- cocMatrix(M, Field = "AU", sep = ";")
+
+M <- metaTagExtraction(M, Field = "AU_CO", sep = ";")
+NetMatrix <- biblioNetwork(M, analysis = "collaboration", network = "countries", sep = ";")
+
+# Plot the network
+net=networkPlot(NetMatrix, n = dim(NetMatrix)[1], Title = "Country Collaboration", type = "circle", size=TRUE, remove.multiple=FALSE,labelsize=0.7,cluster="none")
+
+```
+
+```{r eval=FALSE, include=FALSE}
+df <- convert2df(file = file, dbsource = "scopus", format = "bibtex")
+df <- as.data.frame(df)
+NetMatrix <- biblioNetwork(df, analysis = "collaboration",  network = "authors", sep = ";")
+net <- networkPlot(NetMatrix, n = 30, type = "kamada", Title = "Co-Citation",labelsize=0.5) 
+
+```
