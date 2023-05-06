@@ -117,4 +117,28 @@ forceNetwork(Links = MisLinks, Nodes = MisNodes,
              Source = "source", Target = "target",
              Value = "value", NodeID = "name",
              Group = "group", opacity = 0.8)
+
+#transofrm 
+data <- df_count %>% filter(weight>3)
+data$from
+members <- c(rep("red",7),rep("blue",100))
+#to igraph
+igraph_obj <-  graph_from_data_frame(data)
+
+#to network3d
+karate_d3 <- igraph_to_networkD3(igraph_obj, group = members)
+
+karate_d3$links$value <- data$weight/2
+
+forceNetwork(Links = karate_d3$links, Nodes = karate_d3$nodes,
+             Source = 'source', Target = 'target', 
+             NodeID = 'name', Value = "value",
+             Group = 'group', opacity = 0.8,
+             legend = T,
+             linkDistance = 80,
+             linkColour = "#666",
+             zoom = T,
+             opacityNoHover = .7,
+             colourScale = JS("d3.scaleOrdinal(d3.schemeCategory10);"))
+
 ```
