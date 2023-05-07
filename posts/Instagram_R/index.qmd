@@ -11,39 +11,6 @@ library(rjson)
 library(tidyverse)
 sb_list <- fromJSON(file="./data/sucuk_bratwurst.json")
 
-```
-
-Ich bin als erstes daran interessiert, mit wem die Agentur in welcher Intensität auf IG verbunden ist.
-
-```{r}
-extractElements <- function(myList, containerName) {
-  elements <- character()
-  for (element in myList) {
-    if (is.list(element)) {
-      if (containerName %in% names(element)) {
-        elements <- c(elements, element[[containerName]])
-      }
-      elements <- c(elements, extractElements(element, containerName))
-    }
-  }
-  return(elements)
-}
-
-# Anwenden der Funktion auf den "username"-Container
-usernames <- extractElements(sb_list, "username")
-
-unique(usernames)
-
-```
-
-# Wordcloud
-
-```{r warning=FALSE}
-# Laden Sie die Wordcloud-Paketbibliothek
-library(wordcloud)
-
-# Erstellen Sie eine Wordcloud aus den extrahierten Wörtern
-wordcloud(usernames, min.freq = 1, random.order = FALSE)
 
 ```
 
@@ -107,33 +74,30 @@ df_count <- df %>%
 library(igraph)
 library(networkD3)
 
-data <- df_count %>% filter(weight>3) %>% select(from, to)
-
-# Plot
-p <- simpleNetwork(data, height="100px", width="100px")
-p
-
-forceNetwork(Links = MisLinks, Nodes = MisNodes,
-             Source = "source", Target = "target",
-             Value = "value", NodeID = "name",
-             Group = "group", opacity = 0.8)
-
-#transofrm 
+# filter
 data <- df_count %>% filter(weight>3)
-data$from
-members <- c(rep("red",7),rep("blue",100))
+
 #to igraph
 igraph_obj <-  graph_from_data_frame(data)
 
 #to network3d
-karate_d3 <- igraph_to_networkD3(igraph_obj, group = members)
+net_3d <- igraph_to_networkD3(igraph_obj, group = members)
 
-karate_d3$links$value <- data$weight/2
+net_3d$links$value <- data$weight/2
 
-forceNetwork(Links = karate_d3$links, Nodes = karate_d3$nodes,
+#generiere Gruppenvar
+net_3d$nodes
+net_3d$nodes$group2 <- net_3d$nodes$group
+
+
+size <- sample(1000:50000, 107, replace = TRUE)/600
+net_3d$nodes$size <- size
+
+forceNetwork(Links = net_3d$links, Nodes = net_3d$nodes,
              Source = 'source', Target = 'target', 
              NodeID = 'name', Value = "value",
-             Group = 'group', opacity = 0.8,
+             Group = 'group2', opacity = 0.8,
+             Nodesize= "size",
              legend = T,
              linkDistance = 80,
              linkColour = "#666",
