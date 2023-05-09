@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.340">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Malte Hückstädt">
+<meta name="dcterms.date" content="2023-05-05">
+
+<title>Quarto - Analysis Instagram Data with R and Network Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="../../site_libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="../../site_libs/d3-4.5.0/d3.min.js"></script>
+<script src="../../site_libs/forceNetwork-binding-0.4/forceNetwork.js"></script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="academicons.css">
+<meta property="og:title" content="Quarto - Analysis Instagram Data with R and Network Analysis">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/Instagram_R/images/IFC.png">
+<meta property="og:site-name" content="Quarto">
+<meta property="og:image:height" content="1162">
+<meta property="og:image:width" content="1882">
+<meta name="twitter:title" content="Quarto - Analysis Instagram Data with R and Network Analysis">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/Instagram_R/images/IFC.png">
+<meta name="twitter:image-height" content="1162">
+<meta name="twitter:image-width" content="1882">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../quarto.png" alt="Quarto logo." class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html" rel="" target="">
+ <span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../recent.html" rel="" target="">
+ <span class="menu-text">Recent articles</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../software.html" rel="" target="">
+ <span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://maltehueckstaedt.github.io/Quarto_Blog_CF/" rel="" target="">
+ <span class="menu-text">|</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../skills.html" rel="" target="">
+ <span class="menu-text">Skills</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../acomplishments.html" rel="" target="">
+ <span class="menu-text">Acomplishments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../experience.html" rel="" target="">
+ <span class="menu-text">Experience</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html" rel="" target="">
+ <span class="menu-text">Talks</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/MalteHueckstaedt?tab=repositories" rel="" target="">
+ <span class="menu-text"> GH</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0002-0185-4230" rel="" target="">
+ <span class="menu-text"> ORCID</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?hl=en&amp;user=EJTHqH4AAAAJ" rel="" target="">
+ <span class="menu-text"> GS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.researchgate.net/profile/Malte-Hueckstaedt" rel="" target="">
+ <span class="menu-text"> RS</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://de.linkedin.com/in/malte-hückstädt-82aa78208" rel="" target="">
+ <span class="menu-text"> LI</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Analysis Instagram Data with R and Network Analysis</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">web-scraping</div>
+                <div class="quarto-category">network analysis</div>
+                <div class="quarto-category">apify</div>
+                <div class="quarto-category">data visualization</div>
+                <div class="quarto-category">analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Malte Hückstädt </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 5, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instagram" id="toc-instagram" class="nav-link active" data-scroll-target="#instagram">Instagram</a>
+  <ul>
+  <li><a href="#webscraping-instagram" id="toc-webscraping-instagram" class="nav-link" data-scroll-target="#webscraping-instagram">Webscraping Instagram</a></li>
+  <li><a href="#apfiy" id="toc-apfiy" class="nav-link" data-scroll-target="#apfiy">Apfiy</a></li>
+  </ul></li>
+  <li><a href="#motivation-of-the-analysis" id="toc-motivation-of-the-analysis" class="nav-link" data-scroll-target="#motivation-of-the-analysis">Motivation of the analysis</a></li>
+  <li><a href="#network-analysis" id="toc-network-analysis" class="nav-link" data-scroll-target="#network-analysis">Network analysis</a>
+  <ul>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data collection</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a>
+  <ul>
+  <li><a href="#node-degree" id="toc-node-degree" class="nav-link" data-scroll-target="#node-degree">Node degree</a></li>
+  <li><a href="#centrality" id="toc-centrality" class="nav-link" data-scroll-target="#centrality">Centrality</a></li>
+  <li><a href="#clustering-coefficient" id="toc-clustering-coefficient" class="nav-link" data-scroll-target="#clustering-coefficient">Clustering coefficient</a></li>
+  <li><a href="#density" id="toc-density" class="nav-link" data-scroll-target="#density">Density</a></li>
+  <li><a href="#diameter" id="toc-diameter" class="nav-link" data-scroll-target="#diameter">Diameter</a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="instagram" class="level1">
+<h1>Instagram</h1>
+<p>Instagram is one of the most widely used social media platforms in the world where users share photos, videos and other content. Instagram web scraping can extract data from public Instagram profiles that may be of interest for various purposes, such as:</p>
+<ol type="1">
+<li><p>Marketing and advertising: businesses can scan Instagram profiles of influencers promoting their products or services and analyse the number of followers and interactions to find potential partnerships.</p></li>
+<li><p>Competitive analysis: By scraping Instagram profiles of competitors, companies can analyse their activities, content and engagement and draw conclusions on how to improve their own Instagram presence.</p></li>
+<li><p>Research and analysis: Scientists and researchers can collect Instagram data to study trends in online communication and user behaviour.</p></li>
+<li><p>Social media management: Social media managers can use Instagram data to optimise their strategies to increase interactions and engagement on the platform.</p></li>
+</ol>
+<p>However, it is important to note that scraping Instagram data can also raise legal and ethical concerns. Instagram has terms of service that allow scraping data from public profiles, but scraping <strong>private profiles</strong> or selling Instagram data to third parties without users’ consent may violate privacy laws.</p>
+<section id="webscraping-instagram" class="level2">
+<h2 class="anchored" data-anchor-id="webscraping-instagram">Webscraping Instagram</h2>
+<p>It is difficult to scrape Instagram because the platform has strict security measures in place to control and protect access to its data. Instagram has also restricted its API (Application Programming Interface) to prevent data scraping and only give authorised third parties access to certain data.</p>
+<p>Another reason why it is difficult to scrape Instagram is that the platform regularly changes its data structure and layout to make it harder to access its data. These changes can render web scraping tools and techniques useless as they are no longer able to access or extract the data.</p>
+<p>Instagram has also implemented anti-scraping technologies to block automated access to the platform. These include, for example, captchas embedded on websites to prevent automated bots from accessing the data.</p>
+<p>Although there are many Python apps that purport to collect legal scrapeable content from Instagram in an automated way, in my experience most don’t work. Now there are two ways to still collect instagram data:</p>
+<ol type="1">
+<li><p>Write your own Python script that allows you to scrape information from Instagram’s dynamic website.</p></li>
+<li><p>Use ready-made Apify functions.</p></li>
+</ol>
+<p>I chose the second option for reasons of efficiency.</p>
+</section>
+<section id="apfiy" class="level2">
+<h2 class="anchored" data-anchor-id="apfiy">Apfiy</h2>
+<p>Apify is a cloud-based web scraping and automation platform that enables users to extract, store and analyse data from various websites. The platform offers a user-friendly interface and a powerful API that allows users to quickly and easily create and manage their web scraping and automation projects.</p>
+<p>Apify offers a variety of tools and features, including pre-built scrapers optimised for different websites and a flexible scripting language that allows users to create and customise their own scrapers. In addition, Apify offers data extraction, transformation and loading capabilities, as well as auto-scaling that enables users to process large volumes of data quickly and efficiently.</p>
+<p>The platform is designed for individuals who want to access and use web data for various purposes, such as marketing, research, analytics, price comparison and more. Apify is free of charge, especially for scraping small amounts of data, and is therefore an attractive alternative for private use to the time-consuming writing of your own web scraping scripts.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+</section>
+</section>
+<section id="motivation-of-the-analysis" class="level1">
+<h1>Motivation of the analysis</h1>
+<p>I am interested in the data of public profiles on Instagram and the information that can be drawn from them. To explore how informative Instagram user data is, I chose an abitrary Instagram-account of a young, Berlin-based design agency:</p>
+<p><a href="https://www.instagram.com/sucukundbratwurst/" class="uri">https://www.instagram.com/sucukundbratwurst/</a></p>
+<p>As I am interested in who the agency is interconnected with as a first step, I use the <a href="https://apify.com/apify/instagram-scraper">Instagram Scraper</a> and the <a href="https://apify.com/apify/instagram-followers-count-scraper">Instagram Followers Count Scraper</a> by Apify. Both collect various interesting Instagram data. However, I am mainly interested in the agency’s relationships with the users tagged in the agency’s Instagram posts, their relationships with each other, their follower numbers and their professional roles. The latter is not necessarily listed on Instagram and therefore has to be partly collected through manual research. So in the following I would like to analyse the connections of the design agency <em>sucuk und bratwurst gmbh</em> with a network analysis.</p>
+</section>
+<section id="network-analysis" class="level1">
+<h1>Network analysis</h1>
+<p>Network analysis is an analytical technique concerned with exploring and evaluating relationships between different entities in a network. A network can consist of physical elements such as people, organisations or machines that are connected by links such as friendships, business relationships or data flows.</p>
+<p>Network analysis can help to understand and describe the structure of a network by examining the nature, strength and direction of the connections between units. To do this, the network is modelled in the form of a graph, with the units represented as nodes and the connections as edges.</p>
+<p>Network analysis can be applied in many different fields, such as sociology, psychology, biology, computer science, economics and political science. It can be used to visualise, quantify, compare and study networks to gain insights into the structure and function of the network <span class="citation" data-cites="lukeUserGuideNetwork2015">(<a href="#ref-lukeUserGuideNetwork2015" role="doc-biblioref">Luke 2015</a>)</span>.</p>
+<section id="data-collection" class="level2">
+<h2 class="anchored" data-anchor-id="data-collection">Data collection</h2>
+<p>The web scraping process is simple and intuitive after logging in to Apify, takes a moment and requires no further explanation. After the scraping process, the data can be downloaded in various formats. In view of the nesting of the data, I decided to use the <code>json</code>-format. To load the data of the Posts into R, I use the <code>rjson</code>-package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("rjson")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjson)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sb_list <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="at">file=</span><span class="st">"./data/sucuk_bratwurst.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The data entry of professional affiliations is not reliably listed on Instagram and must therefore be entered manually.</p>
+</section>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">Data preparation</h2>
+<p>The following code loads the list of Instagram posts (<code>sb_list</code>) and extracts the usernames of all tagged people in each post. The specific procedure is as follows:</p>
+<ol type="1">
+<li><p>An empty list is created (<code>TaggedUsers</code>).</p></li>
+<li><p>The loop iterates through each post in the list <code>sb_list</code></p></li>
+<li><p>Extracts the tagged usernames from the list of posts into the list <code>taggedUsersUsernames</code></p></li>
+<li><p>And finally writes them to the <code>TaggedUsers</code> list</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an empty list to store the usernames of all tagged people for each post</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>TaggedUsers <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate through each list in your main list</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (post <span class="cf">in</span> sb_list) {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract all usernames of the tagged users from the current post list</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  taggedUsersUsernames <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (taggedUser <span class="cf">in</span> post<span class="sc">$</span>taggedUsers) {</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    taggedUsersUsernames <span class="ot">&lt;-</span> <span class="fu">c</span>(taggedUsersUsernames, taggedUser<span class="sc">$</span>username)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add the usernames of all tagged users to the TaggedUsers list</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  TaggedUsers[[<span class="fu">length</span>(TaggedUsers) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> taggedUsersUsernames</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As I am interested in relationships between network peers of the agency, I remove all posts in which no person or only one person has been tagged.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing lists with less than 2 items</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>TaggedUsers <span class="ot">&lt;-</span> TaggedUsers <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">discard</span>(<span class="sc">~</span> <span class="fu">length</span>(.x) <span class="sc">&lt;</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The following creates an empty data frame called <code>df</code> to store information about the relationships between tagged users in Instagram posts. The code goes through each list in the <code>TaggedUsers</code>-list and creates an edge list of all possible combinations of tagged users in each post. The edge list is then converted into a data frame containing the two tagged users and the post they appear in. This is achieved with the <code>as.data.frame()</code>-function.</p>
+<p>Then the column names of the data frame <code>edges_df</code> are changed to “<em>from</em>”, “<em>to</em>” and “<em>post</em>”. The “<em>from</em>”- and “<em>to</em>”-columns contain the user names, while the “<em>post</em>”-column contains the number of the post from which the users were extracted.</p>
+<p>The <code>rbind()</code>-function adds one rows to the data frame for each instagram post entry in each iteration of the loop. In this way, we generate a data frame that contains the relationships between all tagged users in all Instagram posts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialisation of an empty data frame</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">from =</span> <span class="fu">character</span>(),</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">to =</span> <span class="fu">character</span>(),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through each post</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(TaggedUsers)) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create an edge list for this post</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  edges <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">combn</span>(TaggedUsers[[i]], <span class="dv">2</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert the edge list into a data frame object.</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  edges_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(edges, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(edges_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"from"</span>, <span class="st">"to"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  edges_df<span class="sc">$</span>post <span class="ot">&lt;-</span> <span class="fu">as.character</span>(i)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add the edge list to the overall data frame</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(df, edges_df)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since the different users appear in similar or the same constellations in different posts, there are multiple mentions of combinations of people. We would like to count these in a further step. To do this, we group the columns <code>from</code> and <code>to</code> and count the number of resulting grouped combinations of the characteristic expressions on the columns <code>from</code> and <code>to</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate the edge list by "from", "to" and "post" and count the frequency</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_count <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(from, to) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">weight =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The resulting data frame looks like this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">head</span>(df_count))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">from</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">to</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">kaleidoscopemagazine</td>
+<td style="text-align: left;">spaziomaiocchi</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">kaleidoscopemagazine</td>
+<td style="text-align: left;">hawlinservices</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kaleidoscopemagazine</td>
+<td style="text-align: left;">capsule.global</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">kaleidoscopemagazine</td>
+<td style="text-align: left;">torvs</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">kaleidoscopemagazine</td>
+<td style="text-align: left;">gebrueder</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">kaleidoscopemagazine</td>
+<td style="text-align: left;">kevkoko</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>We are still missing the information on the professional affiliation and the number of the followers of the peers. Since we don’t want to scrape an unnecessarily large amount of information, but only that of the most important peers of the design agency, we need to know the corresponding names of the peers.</p>
+<p>To reduce the complexity of the subsequent network analysis, we filter out those connections from the data that occur less than three times. In a further step, we create an igraph object with the function <code>graph_from_data_frame()</code> : <code>graph_from_data_frame()</code>is a function in the R package “<em>igraph</em>” that creates a directed or undirected graph from a data frame matrix. The function expects a data frame matrix as input, with the first and second columns of the matrix containing the name of the start node and the name of the target node, respectively. The optional third to nth columns can be used as attribute information for edges.</p>
+<p>To extract the names of the nodes from the igraph object, we extract the vertices of the graph (<code>V()</code>) and then their names (<code>names()</code>) and transform the resulting vector into a data frame format. We export this with the <code>write.xlsx()</code> function, open the corresponding table in Excel and copy the content of the column <code>.</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> df_count <span class="sc">%&gt;%</span> <span class="fu">filter</span>(weight<span class="sc">&gt;</span><span class="dv">3</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#to igraph</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>igraph_obj <span class="ot">&lt;-</span>  <span class="fu">graph_from_data_frame</span>(data)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>node_names <span class="ot">&lt;-</span>  igraph_obj <span class="sc">%&gt;%</span> V <span class="sc">%&gt;%</span> names <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># write.xlsx(node_names, file = "node_names.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In a further step, we feed the content of the column into the <a href="https://apify.com/apify/instagram-followers-count-scraper">Instagram Followers Count Scraper</a>. To do this, we press the green “<em>Try for free</em>” button at the top left and then press “<em>Bulk edit</em>”:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/IFC.png" class="img-fluid figure-img" width="673"></p>
+</figure>
+</div>
+<p>In the window that now opens, we copy the content from our Excel file and press “<em>Set</em>”. Then, back in the main window, we press the “<em>save and start</em>” button at the bottom. The scraping process takes a few moments again. We export the results as a json file.</p>
+<p>In a further step, we load the json file into our working environment with <code>fromJSON()</code>. We create an empty list (<code>user_info</code>) and a for-loop. The latter iteratively goes through the list <code>sb_follower_list</code> and extracts the username and number of followers for each peer of the design agency and writes the corresponding information into a list of data frame lines called <code>user_info</code>. Finally, <code>do.call()</code> is used to combine all data frame lines in <code>user_info</code> into a single data frame called <code>user_info_df</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sb_follower_list <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="at">file=</span><span class="st">"./data/sucuk_bratwurst_follower.json"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstelle eine leere Liste</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>user_info <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Wende eine Funktion auf jede Liste in der Liste an und speichere die Ergebnisse in der leeren Liste</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(sb_follower_list)) {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  user_info[[i]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">userName =</span> sb_follower_list[[i]]<span class="sc">$</span>userName,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                               <span class="at">followersCount =</span> sb_follower_list[[i]]<span class="sc">$</span>followersCount)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Kombiniere alle Ergebnisse in einem Dataframe</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>user_info_df <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, user_info)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Since we want to create our network anacysis with the package <a href="http://christophergandrud.github.io/networkD3/">network3D</a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, we gather all the data and put it into the desired form with <code>igraph_to_networkD3()</code>.</p>
+<p>In a first step, we store the information about the peers (nodes) and their connections to each other (edges) in an object called <code>net_3d</code>.</p>
+<p>In a further step, we bind the information about the number of followers and the type of peers to the nodes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(networkD3)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>net_3d <span class="ot">&lt;-</span> <span class="fu">igraph_to_networkD3</span>(igraph_obj)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xlsx)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>type <span class="ot">&lt;-</span> <span class="fu">read.xlsx</span>(<span class="st">"./data/type.xlsx"</span>,<span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(type)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>net_3d<span class="sc">$</span>nodes<span class="sc">$</span>type <span class="ot">&lt;-</span> type<span class="sc">$</span>type</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>net_3d<span class="sc">$</span>nodes <span class="ot">&lt;-</span> <span class="fu">rownames_to_column</span>(net_3d<span class="sc">$</span>nodes)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>user_info_df <span class="ot">&lt;-</span> <span class="fu">rename</span>(user_info_df, <span class="at">name =</span> userName)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>net_3d<span class="sc">$</span>nodes <span class="ot">&lt;-</span> <span class="fu">right_join</span>(user_info_df, net_3d<span class="sc">$</span>nodes, <span class="at">by =</span> <span class="st">"name"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>net_3d<span class="sc">$</span>nodes <span class="ot">&lt;-</span> net_3d<span class="sc">$</span>nodes <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">rowname=</span><span class="fu">as.numeric</span>(rowname)) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(rowname)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>Now we are ready, we can create a nice interactive graph using the <code>forceNetwork()</code> function. The following meanings should be noted:</p>
+<ul>
+<li><p>The edge thickness is indicates the frequency of two-way connections.</p></li>
+<li><p>The node size is set by the number of followers of the peers.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p></li>
+<li><p>The node colour indicates the type of peers.</p></li>
+</ul>
+<p><strong>Note:</strong> <code>forceNetwork()</code> animates an interactive visualisation of network graphs. The function uses a physics-based simulation to determine the layout of the network. Here, the nodes are considered as particles that act on each other through forces such as attraction and repulsion and are held in an equilibrated position. The result is an animated and interactive representation of the network that allows the user to interact with the network by hovering, clicking and dragging the nodes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>net_3d<span class="sc">$</span>nodes<span class="sc">$</span>followersCount <span class="ot">&lt;-</span> net_3d<span class="sc">$</span>nodes<span class="sc">$</span>followersCount<span class="sc">/</span><span class="dv">40000</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">forceNetwork</span>(<span class="at">Links =</span> net_3d<span class="sc">$</span>links, <span class="at">Nodes =</span> net_3d<span class="sc">$</span>nodes,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">Source =</span> <span class="st">'source'</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">Target =</span> <span class="st">'target'</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">NodeID =</span> <span class="st">'name'</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">Value =</span> <span class="st">"value"</span>, <span class="co"># Frequency of reciprocal connection</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">Group =</span> <span class="st">'type'</span>, <span class="co"># Peer type</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">opacity =</span> <span class="fl">0.8</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">Nodesize=</span> <span class="st">"followersCount"</span>, <span class="co"># Number of followers of the peers</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">legend =</span> T,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">linkDistance =</span> <span class="dv">80</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">linkColour =</span> <span class="st">"#666"</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">zoom =</span> T,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">opacityNoHover =</span> .<span class="dv">3</span>,</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">colourScale =</span> <span class="fu">JS</span>(<span class="st">"d3.scaleOrdinal(d3.schemeCategory10);"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="forceNetwork html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-99c8765f37554913811a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-99c8765f37554913811a">{"x":{"links":{"source":[9,14,68,77,66,9,2,14,60,61,10,62,35,46,70,11,33,8,67,35,45,64,54,36,55,64,45,9,18,50,1,45,8,28,72,54,65,20,11,35,48,73,5,36,41,25,16,52,55,29,32,85,37,26,0,13,15,6,60,64,70,24,79,19,47,22,33,44,84,2,39,56,3,49,21,43,7,4,12,0,1,21,8,11,76,44,37,9,10,11,8,69,11,71,8,11,82,72,63,9,64,83,37,10,84,44,50,74,8,14,45,85,73,88,79,11,54,80,81,76,44,11,47,8,11,69,44,45,9,64,84,54,10,50,85,80,79,51,52,18,11,8,9,50,44,10,45,85,54,79,64,84,59,48,8,5,9,14,10,23,65,63,9,26,50,45,30,8,6,5,20,11,47,32,21,81,72,0,41,34,18,13,85,28,44,19,74,70,73,16,33,64,37,7,17,43,15,52,3,10,84,39,22,54,76,80,79,4,29,2,12,40,57,16,13,72,28,11,73,2,55,44,47,5,0,48,15,7,36,52,1,33,20,12,29,26,56,21,3,4,18,39,19,43,49,47,11,8,47,3,55,5,82,50,80,44,79,10,45,9,85,64,14,81,84,54,42,15,29,11,48,11,62,66,46,67,19,24,16,5,9,30,21,22,8,10,40,38,44,10,73,8,72,9,27,44,9,76,37,63,14,11,10,19,21,11,10,22,5,21,9,8,10,22,23,20,21,9,14,5,30,8,17,11,28,9,14,15,29,43,8,10,45,79,64,84,44,54,47,11,36,78,9,35,46,61,8,11,10,60,67,66,15,32,28,57,54,1,13,35,45,21,84,72,70,8,16,20,55,29,52,5,26,37,0,22,6,18,41,3,4,12,2,79,47,85,19,39,49,33,36,7,73,11,44,43,56,64,8,31,20,21,5,44,85,64,79,50,54,45,81,80,84,10,9,14,57,58,57,66,9,8,14,10,11,72,47,51,45,54,84,64,53,37,45,73,72,79,64,11,54,51,52,84,64,37,44,9,50,11,63,54,86,81,79,80,45,76,84,82,87,88,85,10,14,83,15,75,11,35,60,5,31,21,11,79,9,64,84,44,46,66,11,0,12,0,10,20,5,9,8,31,11,22,21,15,19,29,36,8,52,9,47,33,19,64,11,14,83,82,80,9,79,81,86,84,64,44,10,47,11,44,10,37,9,39,38],"target":[94,94,89,89,89,89,89,89,89,89,89,89,89,89,89,89,89,89,89,60,84,84,84,99,99,54,54,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,12,12,31,35,35,63,63,63,63,63,63,63,93,93,93,93,7,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,86,101,32,3,71,71,71,81,81,81,81,81,81,81,81,81,81,81,53,53,69,69,69,80,80,80,80,80,80,80,80,80,80,104,104,90,90,90,90,90,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,38,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,102,102,37,49,49,49,56,16,83,83,83,83,83,83,83,83,83,83,83,83,83,83,43,43,43,97,59,18,68,68,68,68,25,25,17,17,17,17,17,17,17,17,39,39,74,74,74,74,74,74,28,88,88,88,88,88,88,88,88,5,5,5,30,30,30,30,30,30,91,91,91,91,91,91,91,91,91,91,91,4,98,92,92,92,92,92,92,92,85,85,85,85,85,85,55,55,55,106,62,62,62,62,62,62,62,62,62,62,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,22,22,22,22,22,82,82,82,82,82,82,82,82,82,82,82,82,82,58,105,105,46,46,46,46,46,46,73,48,52,79,79,79,79,44,44,44,44,44,44,44,44,44,44,44,44,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,95,29,13,13,61,61,20,20,20,20,50,50,50,50,50,67,67,33,1,23,23,23,23,23,23,23,23,23,23,23,11,11,11,11,65,65,65,103,2,24,45,96,87,87,87,87,87,87,87,87,87,87,87,87,36,76,76,76,76,76,100,100],"value":[4,4,4,5,4,25,4,19,4,4,26,8,6,6,5,13,5,17,4,4,11,12,11,4,5,16,16,255,11,4,4,16,215,5,5,16,9,10,95,6,4,6,35,4,4,4,7,9,8,10,4,5,5,5,4,9,19,4,4,19,4,4,18,5,9,11,8,36,12,8,4,4,5,4,13,4,5,6,4,10,4,11,5,5,5,5,5,9,10,6,5,6,4,7,4,4,16,5,5,27,16,16,5,27,12,26,4,5,6,27,15,5,5,5,16,5,15,16,16,5,4,4,5,4,4,6,18,16,18,18,12,16,18,4,5,18,18,4,4,4,5,5,18,4,18,18,16,5,16,18,18,12,5,5,6,4,5,5,6,12,7,8,228,5,4,17,8,170,4,35,8,71,5,4,12,18,5,5,4,4,8,7,5,4,32,4,6,5,6,7,7,18,5,4,9,5,12,7,5,221,12,4,11,16,7,18,18,5,6,7,5,6,4,7,8,5,5,77,5,7,9,10,13,35,4,5,17,5,4,8,4,7,9,4,8,5,4,13,5,6,14,4,4,4,4,4,6,6,11,5,4,7,18,4,18,18,18,18,16,18,5,18,18,18,12,16,5,10,10,4,5,8,4,4,4,4,4,4,5,9,9,6,7,7,9,9,6,15,4,6,6,5,5,6,4,5,5,5,5,5,5,5,5,4,10,12,8,8,8,8,8,8,8,10,5,4,10,8,8,8,8,8,6,6,4,6,4,11,7,7,6,6,4,5,5,4,5,4,4,10,19,8,5,4,4,4,4,5,6,5,4,4,14,4,4,4,16,4,8,5,17,13,12,5,5,205,7,10,6,7,8,35,5,5,4,11,4,9,4,5,6,4,8,18,8,5,4,4,4,8,4,5,6,82,34,6,4,19,11,4,5,13,10,18,5,18,18,4,16,16,18,18,12,18,18,18,5,5,6,4,5,5,5,5,4,5,8,4,16,16,12,18,4,5,16,4,4,18,18,14,17,5,4,12,17,5,24,23,4,5,5,15,20,17,17,17,15,8,12,17,4,5,5,23,22,17,27,4,7,4,4,4,8,9,8,4,4,4,4,4,4,4,4,5,4,4,13,13,8,13,13,9,5,7,13,10,6,4,8,8,11,8,7,4,4,16,4,4,4,4,4,4,4,4,4,4,4,4,4,4,6,8,7,5,7,7,7],"colour":["#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666","#666"]},"nodes":{"name":["kaleidoscopemagazine","spaziomaiocchi","torvs","cavecanems","kevkoko","josephinekinsey","bill_kouligas","bam_wrks","denis_olgac","lukasolgac","alessandro.belliero","sucukundbratwurst","alessio_ascari","nikkosmas","david__goenner","nike","evianchrist","iosifabaab","hendrik.schneider","highsnobiety","robertdietz","alexanderwangny","maisie_willoughby","studioteiwas","umbro","highsnobietyshop","danielsannwald","koeniggalerie","johann.koenig","nikesportswear","kameronkubicki","alexwangny","brat_star","simonxkaiser","joeriwoudstra","amp_yourself","y.hurn","dis","dazedbeauty","isamayaffrench","dazed","maximeballesteros","footlocker","footlockereu","nevenallgeier","vice","max_filesize","rintintin","minhtendo","division.recordings","salofee","zeitmagazin","mirkoborsche","christophamend","adidas_de","live_from_earth","dj_gigola","032c","marcgoehring","fuk_stuttgart","1djheroin1","peak_sinner","lorica____","arminunruh","adidasoriginals","superpapermuenchen","ssamibaha","selimhex","her_records","cinciooddcouture","igor_botur","ceyhun_guney","crom_magazine","me_dic_al","joe_urb","novembreglobal","yentech","tomobotdx","lofficielgermany","mrbianco","clrcrtq","christian_neureuther","maraleibrock","flohlzr","24k.mag","lennymuller","benediktfff","xxiii_suave","joschabruckert","100halal","danielbelliero","kateswingler","lanasehovic","arturcincio","_julian_sebastian","nielspferd","whynot_enterprises","frechegoere1","koenig.souvenir","a.c.o.i.d","yvestumor","berlin_showroom","derbomberderherzen","thefactory___","cpu_fuk","maria_koch","lofficielhommes_germany"],"group":["Company","Company","Musician","Artist","Musician","Member","Musician","Company","Member","Member","Member","Home","Company_Staff","Artist","Member","Company","Musician","Artist","Other","Company","Musician","Company","Company_Staff","Company","Company","Company","Artist","Company","Company_Staff","Company","Company_Staff","Company_Staff","Musician","Other","Artist","Company","Musician","Artist","Company","Artist","Company","Artist","Company","Company","Artist","Company","Musician","Musician","Musician","Company","Other","Company","Artist","Company_Staff","Company","Company","Other","Company","Artist","Company","Musician","Musician","Musician","Artist","Company","Other","Musician","Artist","Company","Company","Artist","Company_Staff","Company","Other","Other","Other","Musician","Artist","Company","Company_Staff","Other","Other","Other","Other","Company","Other","Artist","Musician","Company_Staff","Member","Company_Staff","Company_Staff","Company_Staff","Other","Artist","Other","Company_Staff","Artist","Company","Musician","Other","Company","Musician","Artist","Other","Company_Staff","Company"],"nodesize":[1.7759,0.8237,0.227575,1.51005,0.7677,0.513825,0.464925,0.463625,0.21135,0.137325,0.10005,2.6894,0.3363,0.289,0.041725,7261.6501,0.33165,0.05985,0.557,129.32915,0.42905,141.78525,0.1402,0.04815,18.165325,3.551225,2.304975,7.170475,2.56355,197.004175,0.0719,12.52065,0.4146,0.2644,0.0732,0.151675,14.66375,2.40685,9.757275,9.2104,48.315725,1.27495,306.780525,59.48745,0.30365,126.42335,0.02955,15.3589,1.002775,0.16175,0.11215,12.225175,1.1265,1.043625,17.9451,1.89705,1.535325,8.74385,3.190425,0.147875,0.14485,0.066425,0.0264,0.043,857.860625,0.12795,0.084425,0.02825,0.019525,0.050725,0.211975,0.0304,1.99475,0.4641,0.078325,2.8755,0.085075,0.0671,0.294525,0.82685,0.08485,0.0491,0.03325,0.01925,7.84585,0.255775,0.01065,0.009775,0.01215,0.01215,0.016925,0.032,0.024775,0.001975,0.027125,0.0074,0.0365,0.05495,0.122225,0.228975,5.164475,0.078825,0.1114,0.094525,0.0034,0.590075,0.05935]},"options":{"NodeID":"name","Group":"type","colourScale":"d3.scaleOrdinal(d3.schemeCategory10);","fontSize":7,"fontFamily":"serif","clickTextSize":17.5,"linkDistance":80,"linkWidth":"function(d) { return Math.sqrt(d.value); }","charge":-30,"opacity":0.8,"zoom":true,"legend":true,"arrows":false,"nodesize":true,"radiusCalculation":" Math.sqrt(d.nodesize)+6","bounded":false,"opacityNoHover":0.3,"clickAction":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<p>We can see that the design agency sucuk und bratwurst gmbh is connected to different types of peers who have exceedingly different reach on Instagram: On the one hand Nike (biggest, blue node) with 290 million followers and on the other hand many smaller peers (artists, musicians and others) with 1-3 thousand followers. We can also see that the members of sucuk and bratwurst gmbh (red nodes in the centre of the graph) are the central elements of the network, which is only intuitive, since we are after all analysing their Instagram network, of which they themselves form the centre. The graph also shows that sucuk and bratwurst gmbh are predominantly connected to high-reach companies from the textile industry (Nike, Adidas, Alexander Wang, Footlooker) and their employees, which marks the clear, economic orientation of the company. At the same time, they also have connections to more or less successful German musicians (Rin, Yung Hurn), publications (Zeit, Vice) and artists (Julian Sebastian, Igor Botur). In this respect, the network analysis makes it clear that sucuk and bratwurst gmbh are definitely addressed as a young, established design agency, which, if the data is to be believed, has a very high social capital <span class="citation" data-cites="bourdieuOkonomischesKapitalKulturelles1983">(<a href="#ref-bourdieuOkonomischesKapitalKulturelles1983" role="doc-biblioref">Bourdieu 1983</a>)</span>.</p>
+<section id="node-degree" class="level4">
+<h4 class="anchored" data-anchor-id="node-degree">Node degree</h4>
+<p>The node degree indicates the number of edges that are connected to a node. The node degree is an important indicator because it provides information about how many connections a node has in the network <span class="citation" data-cites="lukeUserGuideNetwork2015">(<a href="#ref-lukeUserGuideNetwork2015" role="doc-biblioref">Luke 2015</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">degree</span>(igraph_obj) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="st">"degree"</span>, <span class="at">.cols =</span> <span class="st">"."</span>) <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="st">"name"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(d, net_3d<span class="sc">$</span>nodes, <span class="at">by =</span> <span class="st">"name"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(degree)) <span class="sc">%&gt;%</span> <span class="co"># </span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gruppe =</span> <span class="fu">factor</span>(type, <span class="at">levels =</span> <span class="fu">unique</span>(type))) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">name =</span> <span class="fu">reorder</span>(name, degree)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">30</span>,degree)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(<span class="at">x =</span> name, <span class="at">y =</span> degree, <span class="at">fill=</span>type)) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span> </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"name"</span>, <span class="at">y =</span> <span class="st">"degree"</span>)<span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">60</span>, <span class="at">vjust =</span> <span class="dv">1</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Unsurprisingly, the highest node degree comes from the agency itself (home) and members of the agency itself. The artists <em>nebenallgeier</em> and <em>beediktfff</em> are also highly integrated into the network of <em>sucuk und bratwurst gmbh</em>.</p>
+</section>
+<section id="centrality" class="level4">
+<h4 class="anchored" data-anchor-id="centrality">Centrality</h4>
+<p>Centrality is a measure of the importance of a node in the network. There are different types of centrality, such as degree centrality, closeness centrality or betweenness centrality <span class="citation" data-cites="kolaczykStatisticalAnalysisNetwork2020">(<a href="#ref-kolaczykStatisticalAnalysisNetwork2020" role="doc-biblioref">Kolaczyk and Csárdi 2020</a>)</span>. The choice of the centrality metric depends on the specific question. In the following, Betweenness Centrality is calculated: This measure shows how often a node is on the shortest path between other nodes in the network. Nodes with higher betweenness centrality have greater control over communication in the network <span class="citation" data-cites="mcnultyHandbookGraphsNetworks2022">(<a href="#ref-mcnultyHandbookGraphsNetworks2022" role="doc-biblioref">McNulty 2022</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cb <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">centr_betw=</span><span class="fu">centr_betw</span>(igraph_obj)<span class="sc">$</span>res,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">name=</span>igraph_obj <span class="sc">%&gt;%</span> V <span class="sc">%&gt;%</span> names)<span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="dv">10</span>,centr_betw)<span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(centr_betw))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(cb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true" class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">centr_betw</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">561.0491</td>
+<td style="text-align: left;">denis_olgac</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">479.8883</td>
+<td style="text-align: left;">lukasolgac</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">467.2978</td>
+<td style="text-align: left;">alessandro.belliero</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">301.3423</td>
+<td style="text-align: left;">david__goenner</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">171.9985</td>
+<td style="text-align: left;">nevenallgeier</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">125.8868</td>
+<td style="text-align: left;">max_filesize</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">109.5167</td>
+<td style="text-align: left;">sucukundbratwurst</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">94.0000</td>
+<td style="text-align: left;">amp_yourself</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">76.5000</td>
+<td style="text-align: left;">isamayaffrench</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46.0000</td>
+<td style="text-align: left;">division.recordings</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Once again, we can see that intuitively, the members of <em>sucuk und bratwurst gmbh</em> have the greatest betweenness centrality and thus have greater control over the communication in their network.</p>
+</section>
+<section id="clustering-coefficient" class="level4">
+<h4 class="anchored" data-anchor-id="clustering-coefficient">Clustering coefficient</h4>
+<p>The clustering coefficient is a measure of how strongly the neighbours of a node in a network are connected to each other. It therefore measures the probability that, for example, two people who share a friend also become friends, thus forming a closed triangle <span class="citation" data-cites="lukeUserGuideNetwork2015">(<a href="#ref-lukeUserGuideNetwork2015" role="doc-biblioref">Luke 2015</a>)</span>.<br>
+A high clustering coefficient indicates that the nodes in a network are organised in strong clusters (groups of nodes that are strongly connected to each other). A low value, on the other hand, indicates that there are few connections between a node’s neighbours and thus the network is less structured <span class="citation" data-cites="lukeUserGuideNetwork2015">(<a href="#ref-lukeUserGuideNetwork2015" role="doc-biblioref">Luke 2015</a>)</span>.</p>
+<p>As a rule, the clustering coefficient lies between 0 and 1. A value of 1 means that all neighbours of a node are connected to each other and thus there is a fully networked cluster. A value of 0 means that there are no connections between the neighbours of a node and thus there is no cluster <span class="citation" data-cites="stegbauerNetzwerkanalyseUndNetzwerktheorie2010">(<a href="#ref-stegbauerNetzwerkanalyseUndNetzwerktheorie2010" role="doc-biblioref">Stegbauer 2010</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">transitivity</span>(igraph_obj) <span class="sc">%&gt;%</span> <span class="fu">round</span>(.,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.36</code></pre>
+</div>
+</div>
+<p>A value of 0.36 therefore means that the network under consideration is relatively strongly structured by relationship clusters.</p>
+</section>
+<section id="density" class="level4">
+<h4 class="anchored" data-anchor-id="density">Density</h4>
+<p>In a network analysis, the density indicates how many edges there are in the network compared to the maximum possible number of edges. A density of 0 means that there are no edges in the network, while a density of 1 means that all possible edges are present in the network. A high density thus indicates more interconnectedness within the network, while a low density indicates less interconnectedness or fragmentation of the network <span class="citation" data-cites="lukeUserGuideNetwork2015">(<a href="#ref-lukeUserGuideNetwork2015" role="doc-biblioref">Luke 2015</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">graph.density</span>(igraph_obj) <span class="sc">%&gt;%</span> <span class="fu">round</span>(.,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.05</code></pre>
+</div>
+</div>
+<p>A density of 0.05 means that only 5% of all possible edges in the network actually exist. The network under consideration therefore has a relatively low number of connections compared to all possible connections that could exist between the nodes.</p>
+</section>
+<section id="diameter" class="level4">
+<h4 class="anchored" data-anchor-id="diameter">Diameter</h4>
+<p>The diameter of a network is the longest shortest connection between two nodes in the network. The diameter is an important parameter for the efficiency of a network. A small diameter means that the nodes in the network are connected quickly and efficiently. A large diameter, on the other hand, means that it is more difficult and time-consuming to get from one node to another, which may indicate that the network may not be as effective or well connected as it could be <span class="citation" data-cites="lukeUserGuideNetwork2015">(<a href="#ref-lukeUserGuideNetwork2015" role="doc-biblioref">Luke 2015</a>)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">diameter</span>(igraph_obj) <span class="sc">%&gt;%</span> <span class="fu">round</span>(.,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 39</code></pre>
+</div>
+</div>
+<p>A diameter (Diameter) of 39 means that the maximum shortest distance between two nodes in the network is 39 edges (links). This means that there is at least one pair of nodes for which the shortest path between them comprises 39 edges. In other words, when trying to get from one node to another in this network, it takes an average of 39 steps to reach the destination. A high diameter value may indicate low connectivity of the network.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="references" class="level1">
+
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-bourdieuOkonomischesKapitalKulturelles1983" class="csl-entry" role="listitem">
+Bourdieu, Pierre. 1983. <span>“Ökonomisches Kapital, kulturelles Kapital, soziales Kapital.”</span> In <em>Soziale Ungleichheiten</em>, edited by Reinhard Kreckel and Albert Scherr, Soziale Welt Sonderband 2:183–98. <span>Göttingen</span>. <a href="https://doi.org/10.1007/978-3-531-18944-4_15">https://doi.org/10.1007/978-3-531-18944-4_15</a>.
+</div>
+<div id="ref-kolaczykStatisticalAnalysisNetwork2020" class="csl-entry" role="listitem">
+Kolaczyk, Eric D., and Gábor Csárdi. 2020. <em>Statistical Analysis of Network Data with <span>R</span></em>. Second edition. Use <span>R</span>! <span>Cham</span>: <span>Springer</span>.
+</div>
+<div id="ref-lukeUserGuideNetwork2015" class="csl-entry" role="listitem">
+Luke, Douglas. 2015. <em>A <span>User</span>’s <span>Guide</span> to <span>Network Analysis</span> in <span>R</span></em>. Use <span>R</span>! <span>Cham</span>: <span>Springer International Publishing</span>. <a href="https://doi.org/10.1007/978-3-319-23883-8">https://doi.org/10.1007/978-3-319-23883-8</a>.
+</div>
+<div id="ref-mcnultyHandbookGraphsNetworks2022" class="csl-entry" role="listitem">
+McNulty, Keith. 2022. <em>Handbook of Graphs and Networks in People Analytics: With Examples in <span>R</span> and Python</em>. First edition. <span>Boca Raton</span>: <span>CRC Press</span>.
+</div>
+<div id="ref-stegbauerNetzwerkanalyseUndNetzwerktheorie2010" class="csl-entry" role="listitem">
+Stegbauer, Christian. 2010. <em>Netzwerkanalyse Und <span>Netzwerktheorie</span>: <span>Ein</span> Neues <span>Paradigma</span> in Den <span>Sozialwissenschaften</span></em>. <span>VS Verlag für Sozialwissenschaften</span>.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Especially in the context of Instagram, the time-consuming creation of custom web scraping scripts for dynamic websites is not very useful, as they are not very durable due to the high variability of Instagram’s website structures.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The networkD3 package is an R package that provides an implementation of the D3.js library for creating interactive network visualisations. With this package, you can create interactive and engaging network visualisations and export them in HTML format.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Since the peer “<em>Nike</em>” has an overwhelming number of followers compared to all other peers, the corresponding node would cover the entire graph. To address this, the number of followers is divided by 40.000.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://utteranc.es/client.js" repo="maltehueckstaedt/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Supported by <a href="https://posit.co"><img src="https://www.rstudio.com/assets/img/posit-logo-fullcolor-TM.svg" class="img-fluid" alt="Posit" width="65"></a></div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../index.html">About</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../faq.html">FAQ</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">License</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../imprint.html">Imprint</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

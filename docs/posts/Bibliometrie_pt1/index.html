@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Malte Hückstädt">
+<meta name="dcterms.date" content="2023-05-01">
 
-<title>Quarto - About</title>
+<title>Quarto - Analyse Web of Science-Data with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,20 +62,12 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="academicons.css">
-<meta property="og:title" content="Quarto - About">
-<meta property="og:description" content="">
-<meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/images/avatar_circle.png">
+<meta property="og:title" content="Quarto - Analyse Web of Science-Data with R">
 <meta property="og:site-name" content="Quarto">
-<meta property="og:image:height" content="1007">
-<meta property="og:image:width" content="1007">
-<meta name="twitter:title" content="Quarto - About">
-<meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/images/avatar_circle.png">
-<meta name="twitter:image-height" content="1007">
-<meta name="twitter:image-width" content="1007">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Quarto - Analyse Web of Science-Data with R">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -83,8 +77,8 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./quarto.png" alt="Quarto logo." class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../quarto.png" alt="Quarto logo." class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -94,19 +88,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publications.html" rel="" target="">
+    <a class="nav-link" href="../../publications.html" rel="" target="">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./recent.html" rel="" target="">
+    <a class="nav-link" href="../../recent.html" rel="" target="">
  <span class="menu-text">Recent articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./software.html" rel="" target="">
+    <a class="nav-link" href="../../software.html" rel="" target="">
  <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
@@ -114,19 +108,19 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">|</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./skills.html" rel="" target="">
+    <a class="nav-link" href="../../skills.html" rel="" target="">
  <span class="menu-text">Skills</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./acomplishments.html" rel="" target="">
+    <a class="nav-link" href="../../acomplishments.html" rel="" target="">
  <span class="menu-text">Acomplishments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./experience.html" rel="" target="">
+    <a class="nav-link" href="../../experience.html" rel="" target="">
  <span class="menu-text">Experience</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talks.html" rel="" target="">
+    <a class="nav-link" href="../../talks.html" rel="" target="">
  <span class="menu-text">Talks</span></a>
   </li>  
 </ul>
@@ -159,7 +153,41 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Analyse Web of Science-Data with R</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">bibliometrics</div>
+                <div class="quarto-category">data analysis</div>
+                <div class="quarto-category">network analysis</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Malte Hückstädt </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 1, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -167,106 +195,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#github" id="toc-github" class="nav-link active" data-scroll-target="#github">GitHub</a></li>
-  <li><a href="#running" id="toc-running" class="nav-link" data-scroll-target="#running">Running</a></li>
+  <li><a href="#coming-soon" id="toc-coming-soon" class="nav-link active" data-scroll-target="#coming-soon">Coming Soon</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">About</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
-
-</header>
-
-
-<style>
-    .column {
-      height: 800px;
-      overflow-y: auto;
-    }
-  </style>
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/avatar_circle.png" class="img-fluid figure-img" width="185"></p>
-</figure>
-</div>
-<p>Hi, I’m Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the <a href="https://www.dzhw.eu/en/index_html"><em>German Centre for Science and Higher Education Research</em> (DZHW)</a> since 2018 in various research projects and contexts as a (Social) Data Scientist.</p>
-<p>My main research interests are programming with R and Python, computational social science, machine learning, research collaborations, interdisciplinarity and sociology of art and culture.</p>
-<section id="github" class="level2">
-<h2 class="anchored" data-anchor-id="github">GitHub</h2>
-<p>In the context of my work as a research assistant at the <a href="https://www.dzhw.eu/en/index_html"><em>German Centre for Science and Higher Education Research</em> (DZHW)</a>, I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a <a href="https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/"><em>reproducible analytical pipeline</em></a>. I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a <em>reproducible analytical pipeline</em> is Git(Hub):</p>
-<!-- Include the library. -->
-<script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js">
-</script>
-<!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
-<link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css">
-<!-- Prepare a container for your calendar. -->
-<div class="calendar">
-<pre><code>&lt;!-- Loading stuff --&gt;
-Loading the data just for you.</code></pre>
-</div>
-
-<script>
-    // or enable responsive functionality:
-    GitHubCalendar(".calendar", "maltehueckstaedt", { responsive: true });
-
-    // Use a proxy
-    GitHubCalendar(".calendar", "maltehueckstaedt", {
-       proxy (maltehueckstaedt) {
-         return fetch(`https://your-proxy.com/github?user=${username}`)
-       }
-    }).then(r => r.text())
-</script>
-<p><br>
-If you would like to find out more about the progress of my projects,, check out <a href="https://github.com/maltehueckstaedt">my GitHub repositorys</a>.</p>
-</section>
-<div class="columns">
-<div class="column" style="width:45%;">
-<section id="twitter" class="level2">
-<h2 class="anchored" data-anchor-id="twitter">Twitter</h2>
-<p>I’m still new to Twitter, but I really like the possibility of agile, scientific communication. The often polemical way of communicating on Twitter, on the other hand, is rather alien to me. I am a friend of fact-oriented, academic communication. With this in mind, check out my Twitter account, follow and retweet tweets that seem relevant to you!</p>
-<center>
-<a class="twitter-timeline" data-width="330" data-height="500" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a>
-</center>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</section>
-</div><div class="column" style="width:10%;">
-<!-- empty column to create gap -->
-</div><div class="column" style="width:45%;">
-<section id="instagram" class="level2">
-<h2 class="anchored" data-anchor-id="instagram">Instagram</h2>
-<p>When I’m not working on new Data Scientist topics in my free time, I work on 3D sculptures and animations. My tool of choice is the open source software Blender. I have also recently been working on image production with the help of Artificial Intelligence. Some of my work can be found on the Instagram account of Chernoff-Faces.</p>
-<center>
-<blockquote style="width:800;" class="instagram-media blockquote" data-instgrm-version="14">
-<!-- replace this href with the link to the post -->
-<p><a href="https://www.instagram.com/p/CpnIcAPKTZP/?utm_source=ig_web_copy_link"></a></p>
-</blockquote>
-<script src="//www.instagram.com/embed.js"></script>
-</center>
-</section>
-</div>
-</div>
-<section id="running" class="level2">
-<h2 class="anchored" data-anchor-id="running">Running</h2>
-<p>When I’m not working on my computer, I’ve been going running in my spare time for about 10 years. The winter asions are usually weak, but in spring, summer and autumn I usually do my rounds regularly. Here are details of one of my recent runs:</p>
-<iframe src="https://connect.garmin.com/modern/activity/embed/10907837412" title="Schwerin - W05D7-Langer Lauf" width="465" height="500" frameborder="0">
-</iframe>
-<p>For more information you can check my Garmin profile <a href="https://connect.garmin.com/modern/profile/a7608bfb-2aaf-4eed-becd-6871567540c7">here</a>.</p>
+<section id="coming-soon" class="level1">
+<h1>Coming Soon</h1>
 
 
 </section>
@@ -505,6 +445,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<script src="https://utteranc.es/client.js" repo="maltehueckstaedt/blogComments" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
@@ -512,16 +454,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./index.html">About</a>
+    <a class="nav-link" href="../../index.html">About</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./faq.html">FAQ</a>
+    <a class="nav-link" href="../../faq.html">FAQ</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">License</a>
+    <a class="nav-link" href="../../license.html">License</a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./imprint.html">Imprint</a>
+    <a class="nav-link" href="../../imprint.html">Imprint</a>
   </li>  
 </ul>
     </div>

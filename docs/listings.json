@@ -18,6 +18,9 @@
   {
     "listing": "/recent.html",
     "items": [
+      "/posts/Instagram_R/index.html",
+      "/posts/GitHub_Codespace/index.html",
+      "/posts/Bibliometrie_pt1/index.html",
       "/posts/webscraping_python/index.html",
       "/posts/correspondence_analysis/index.html",
       "/posts/chernoff_faces/index.html"

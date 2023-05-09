@@ -1,0 +1,14 @@
+{
+  "hash": "b7409c205aae13a79c6c821d18451b3e",
+  "result": {
+    "markdown": "---\ntitle: \"Analyse Web of Science-Data with R\"\nauthor: \"Malte Hückstädt\"\ndate: \"2023-05-01\"\ncategories: [R, bibliometrics, data analysis, network analysis]\nbibliography: references.bib\n---\n\n\n\n\n# Coming Soon\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
