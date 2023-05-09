@@ -2,7 +2,7 @@
 title: "Analysis Instagram Data with R and Network Analysis"
 author: "Malte Hückstädt"
 date: "2023-05-05"
-categories: [R, web-scraping]
+categories: [R, web-scraping, network analysis, apify, data visualization, analysis]
 bibliography: references.bib
 toc-depth: 8
 ---
@@ -57,7 +57,7 @@ I am interested in the data of public profiles on Instagram and the information 
 
 <https://www.instagram.com/sucukundbratwurst/>
 
-As I am interested in who the agency is interconnected with as a first step, I use the [Instagram Scraper](https://apify.com/apify/instagram-scraper) and the [Instagram Followers Count Scraper](https://apify.com/apify/instagram-followers-count-scraper) by Apify. Both collect various interesting Instagram data. However, I am mainly interested in the agency's relationships with the users tagged in the agency's Instagram posts, their relationships with each other, their follower numbers and their professional roles. The latter is not necessarily listed on Instagram and therefore has to be partly collected through manual research. So in the following I would like to analyse the connections of the design agency *sucuk und bratwurst gmbh* with a network analysis. 
+As I am interested in who the agency is interconnected with as a first step, I use the [Instagram Scraper](https://apify.com/apify/instagram-scraper) and the [Instagram Followers Count Scraper](https://apify.com/apify/instagram-followers-count-scraper) by Apify. Both collect various interesting Instagram data. However, I am mainly interested in the agency's relationships with the users tagged in the agency's Instagram posts, their relationships with each other, their follower numbers and their professional roles. The latter is not necessarily listed on Instagram and therefore has to be partly collected through manual research. So in the following I would like to analyse the connections of the design agency *sucuk und bratwurst gmbh* with a network analysis.
 
 # Network analysis
 
@@ -65,7 +65,7 @@ Network analysis is an analytical technique concerned with exploring and evaluat
 
 Network analysis can help to understand and describe the structure of a network by examining the nature, strength and direction of the connections between units. To do this, the network is modelled in the form of a graph, with the units represented as nodes and the connections as edges.
 
-Network analysis can be applied in many different fields, such as sociology, psychology, biology, computer science, economics and political science. It can be used to visualise, quantify, compare and study networks to gain insights into the structure and function of the network.
+Network analysis can be applied in many different fields, such as sociology, psychology, biology, computer science, economics and political science. It can be used to visualise, quantify, compare and study networks to gain insights into the structure and function of the network [@lukeUserGuideNetwork2015].
 
 ## Data collection
 
@@ -86,7 +86,7 @@ The following code loads the list of Instagram posts (`sb_list`) and extracts th
 
 1.  An empty list is created (`TaggedUsers`).
 
-2.  The loop iterates through each post in the list sb_list
+2.  The loop iterates through each post in the list `sb_list`
 
 3.  Extracts the tagged usernames from the list of posts into the list `taggedUsersUsernames`
 
@@ -118,15 +118,13 @@ TaggedUsers <- TaggedUsers %>%
   discard(~ length(.x) < 2)
 ```
 
-The following creates an empty data frame called `df` to store information about the relationships between tagged users in Instagram posts. The code then goes through each list in the `TaggedUsers`-list and creates an edge list of all possible combinations of tagged users in each post. The edge list is then converted into a data frame containing the two tagged users and the post they appear in. This is achieved with the `as.data.frame()`-function.
+The following creates an empty data frame called `df` to store information about the relationships between tagged users in Instagram posts. The code goes through each list in the `TaggedUsers`-list and creates an edge list of all possible combinations of tagged users in each post. The edge list is then converted into a data frame containing the two tagged users and the post they appear in. This is achieved with the `as.data.frame()`-function.
 
 Then the column names of the data frame `edges_df` are changed to "*from*", "*to*" and "*post*". The "*from*"- and "*to*"-columns contain the user names, while the "*post*"-column contains the number of the post from which the users were extracted.
 
-Finally, the channel list is added to the overall data frame *df* with the `rbind`-function. The `rbind`-function adds one rows to the data frame for each instagram post entry in each iteration of the loop. In this way, we generate a data frame that contains the relationships between all tagged users in all Instagram posts.
+The `rbind()`-function adds one rows to the data frame for each instagram post entry in each iteration of the loop. In this way, we generate a data frame that contains the relationships between all tagged users in all Instagram posts.
 
 ```{r}
-library(igraph)
-
 # Initialisation of an empty data frame
 df <- data.frame(from = character(),
                  to = character(),
@@ -157,7 +155,7 @@ df_count <- df %>%
   ungroup()
 ```
 
-The resulting dataframe looks like this:
+The resulting data frame looks like this:
 
 ```{r}
 library(kableExtra)
@@ -186,7 +184,7 @@ library(xlsx)
 
 In a further step, we feed the content of the column into the [Instagram Followers Count Scraper](https://apify.com/apify/instagram-followers-count-scraper). To do this, we press the green "*Try for free*" button at the top left and then press "*Bulk edit*":
 
-![](images/IFC.png){fig-align="center" width="631"}
+![](images/IFC.png){fig-align="center" width="673"}
 
 In the window that now opens, we copy the content from our Excel file and press "*Set*". Then, back in the main window, we press the "*save and start*" button at the bottom. The scraping process takes a few moments again. We export the results as a json file.
 
@@ -215,7 +213,7 @@ Since we want to create our network anacysis with the package [network3D](http:/
 
 In a first step, we store the information about the peers (nodes) and their connections to each other (edges) in an object called `net_3d`.
 
-In a further step, we send the information about the number of followers and the type of peers to the nodes.
+In a further step, we bind the information about the number of followers and the type of peers to the nodes.
 
 ```{r}
 library(networkD3)
@@ -224,16 +222,18 @@ net_3d <- igraph_to_networkD3(igraph_obj)
 library(xlsx)
 type <- read.xlsx("./data/type.xlsx",1) %>% select(type)
 net_3d$nodes$type <- type$type
+net_3d$nodes <- rownames_to_column(net_3d$nodes)
 
 user_info_df <- rename(user_info_df, name = userName)
-net_3d$nodes <- inner_join(user_info_df, net_3d$nodes, by = "name")
+net_3d$nodes <- right_join(user_info_df, net_3d$nodes, by = "name")
+net_3d$nodes <- net_3d$nodes %>% mutate(rowname=as.numeric(rowname)) %>% arrange(rowname)
 ```
 
 ## Analysis
 
 Now we are ready, we can create a nice interactive graph using the `forceNetwork()` function. The following meanings should be noted:
 
--   The edge thickness is indicates the intensity of two-way connections.
+-   The edge thickness is indicates the frequency of two-way connections.
 
 -   The node size is set by the number of followers of the peers.[^3]
 
@@ -241,7 +241,7 @@ Now we are ready, we can create a nice interactive graph using the `forceNetwork
 
 [^3]: Since the peer "*Nike*" has an overwhelming number of followers compared to all other peers, the corresponding node would cover the entire graph. To address this, the number of followers is divided by 40.000.
 
-**Attention:** `forceNetwork()` animates an interactive visualisation of network graphs. The function uses a physics-based simulation to determine the layout of the network. Here, the nodes are considered as particles that act on each other through forces such as attraction and repulsion and are held in an equilibrated position. The result is an animated and interactive representation of the network that allows the user to interact with the network by hovering, clicking and dragging the nodes.
+**Note:** `forceNetwork()` animates an interactive visualisation of network graphs. The function uses a physics-based simulation to determine the layout of the network. Here, the nodes are considered as particles that act on each other through forces such as attraction and repulsion and are held in an equilibrated position. The result is an animated and interactive representation of the network that allows the user to interact with the network by hovering, clicking and dragging the nodes.
 
 ```{r}
 net_3d$nodes$followersCount <- net_3d$nodes$followersCount/40000
@@ -261,7 +261,9 @@ forceNetwork(Links = net_3d$links, Nodes = net_3d$nodes,
              colourScale = JS("d3.scaleOrdinal(d3.schemeCategory10);"))
 ```
 
-### Interpreation
+### Interpretation
+
+We can see that the design agency sucuk und bratwurst gmbh is connected to different types of peers who have exceedingly different reach on Instagram: On the one hand Nike (biggest, blue node) with 290 million followers and on the other hand many smaller peers (artists, musicians and others) with 1-3 thousand followers. We can also see that the members of sucuk and bratwurst gmbh (red nodes in the centre of the graph) are the central elements of the network, which is only intuitive, since we are after all analysing their Instagram network, of which they themselves form the centre. The graph also shows that sucuk and bratwurst gmbh are predominantly connected to high-reach companies from the textile industry (Nike, Adidas, Alexander Wang, Footlooker) and their employees, which marks the clear, economic orientation of the company. At the same time, they also have connections to more or less successful German musicians (Rin, Yung Hurn), publications (Zeit, Vice) and artists (Julian Sebastian, Igor Botur). In this respect, the network analysis makes it clear that sucuk and bratwurst gmbh are definitely addressed as a young, established design agency, which, if the data is to be believed, has a very high social capital [@bourdieuOkonomischesKapitalKulturelles1983].
 
 #### Node degree
 
@@ -300,11 +302,11 @@ cb <- data.frame(centr_betw=centr_betw(igraph_obj)$res,
 kable(cb)
 ```
 
-Once again, we can see that intuitively, the members of Sucuc and Bratwurst have the greatest betweenness centrality and thus have greater control over the communication in their network.
+Once again, we can see that intuitively, the members of *sucuk und bratwurst gmbh* have the greatest betweenness centrality and thus have greater control over the communication in their network.
 
 #### Clustering coefficient
 
-The clustering coefficient is a measure of how strongly the neighbours of a node in a network are connected to each other. It therefore measures the probability that, for example, two people who share a friend also become friends, thus forming a closed triangle [@lukeUserGuideNetwork2015].  
+The clustering coefficient is a measure of how strongly the neighbours of a node in a network are connected to each other. It therefore measures the probability that, for example, two people who share a friend also become friends, thus forming a closed triangle [@lukeUserGuideNetwork2015].\
 A high clustering coefficient indicates that the nodes in a network are organised in strong clusters (groups of nodes that are strongly connected to each other). A low value, on the other hand, indicates that there are few connections between a node's neighbours and thus the network is less structured [@lukeUserGuideNetwork2015].
 
 As a rule, the clustering coefficient lies between 0 and 1. A value of 1 means that all neighbours of a node are connected to each other and thus there is a fully networked cluster. A value of 0 means that there are no connections between the neighbours of a node and thus there is no cluster [@stegbauerNetzwerkanalyseUndNetzwerktheorie2010].
@@ -317,13 +319,13 @@ A value of 0.36 therefore means that the network under consideration is relative
 
 #### Density
 
-In a network analysis, the density indicates how many edges there are in the network compared to the maximum possible number of edges.  A density of 0 means that there are no edges in the network, while a density of 1 means that all possible edges are present in the network. A high density thus indicates more interconnectedness within the network, while a low density indicates less interconnectedness or fragmentation of the network [@lukeUserGuideNetwork2015].
+In a network analysis, the density indicates how many edges there are in the network compared to the maximum possible number of edges. A density of 0 means that there are no edges in the network, while a density of 1 means that all possible edges are present in the network. A high density thus indicates more interconnectedness within the network, while a low density indicates less interconnectedness or fragmentation of the network [@lukeUserGuideNetwork2015].
 
 ```{r}
  graph.density(igraph_obj) %>% round(.,2)
 ```
 
-A density of 0.05 means that only 5% of all possible edges in the network actually exist. The network under consideration therefore has a relatively low number of connections compared to all possible connections that could exist between the nodes.  
+A density of 0.05 means that only 5% of all possible edges in the network actually exist. The network under consideration therefore has a relatively low number of connections compared to all possible connections that could exist between the nodes.
 
 #### Diameter
 
