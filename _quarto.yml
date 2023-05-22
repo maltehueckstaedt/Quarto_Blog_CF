@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 website:
+  google-analytics: "G-RPNCKESW8M"
   title: "Quarto"
   image: "quarto.png"
   open-graph: true
