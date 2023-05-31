@@ -1,1 +1,2 @@
-Sitemap: https://maltehueckstaedt.github.io/Quarto_Blog_CF/sitemap.xml
+User-agent: *
+Disallow:
