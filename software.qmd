@@ -73,7 +73,7 @@ Files created:
 
 ### Locate Your Cluster!
 
-With the ShinyApp "*Locate Your Cluster*" you can check the functionality of your research collaboration in five functionality dimensions (Difference, Relationship, Commitment, Communication, Fairness) and compare your team with other research clusters. The reference point for your data is the information provided by approximately 5000 PIs and spokespersons of DFG research collaborations. Have Fun!
+With the ShinyApp "[Locate Your Cluster](https://chernofffaces.shinyapps.io/Shiny-Collaborations/)" you can check the functionality of your research collaboration in five functionality dimensions (Difference, Relationship, Commitment, Communication, Fairness) and compare your team with other research clusters. The reference point for your data is the information provided by approximately 5000 PIs and spokespersons of DFG research collaborations. Have Fun!
 
 ### **Power in the Field of Art School Professors** 
 
