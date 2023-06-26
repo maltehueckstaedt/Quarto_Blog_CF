@@ -8,6 +8,7 @@ toc-depth: 5
 ## Themes
 
 ### DZHW Quarto Revealjs Theme
+
 You can create [Quarto Presentations](https://quarto.org/docs/presentations/) with the [Revealjs](https://quarto.org/docs/presentations/revealjs/) format in the applicable DZHW style. The best way to get a feel for the possibilities of Revealjs is to watch this demo presentation:
 
 <div>
@@ -27,6 +28,7 @@ In the terminal, navigate to the desired working directory. The DZHW-[Quarto](ht
 ``` bash
 quarto install extension maltehueckstaedt/dzhw_revealjs_template
 ```
+
 If you are unable to install Quarto extensions, you probably should [update Quarto](https://quarto.org/docs/get-started/).
 
 #### How to use it
@@ -37,18 +39,18 @@ After you install the template, use the following code on terminal to create a n
 quarto use template maltehueckstaedt/dzhw_revealjs_template
 ```
 
-```bash
+``` bash
 Quarto templates may execute code when documents are rendered. If you do not 
 trust the authors of the template, we recommend that you do not install or 
 use the template.
 ```
 
-```bash
+``` bash
  ? Do you trust the authors of this template (Y/n) › Yes
  ? Directory name: › WRITE/THE/DIRECTORY/HERE/talk/
 ```
 
-```bash
+``` bash
 [✓] Downloading
 [✓] Unzipping
     Found 1 extension.
@@ -67,6 +69,22 @@ Files created:
  - bibliography.bib
 ```
 
- 
+## ShinyApps
 
+### Locate Your Cluster!
 
+With the ShinyApp "*Locate Your Cluster*" you can check the functionality of your research collaboration in five functionality dimensions (Difference, Relationship, Commitment, Communication, Fairness) and compare your team with other research clusters. The reference point for your data is the information provided by approximately 5000 PIs and spokespersons of DFG research collaborations. Have Fun!
+
+### **Power in the Field of Art School Professors** 
+
+The ShinyApp "[*Power in the Field of Art School Professors*](https://chernofffaces.shinyapps.io/field_of_art_professors_supp_materials/)**"** offers you additional information on the analyses and data of the article "Power in the Field of Art School Professors: The Role of Symbolic, Social, Cultural and Economic Capital" (under review). In this ShinyApp, four tabs are provided:
+
+1.  Cloud of the art schools
+
+2.  Positions of the Professors
+
+3.  Distribution of the inputvariables
+
+4.  Inputdata
+
+Each tab is accompanied by information and instructions. The ShinyApp is thus simple and extremely intuitive to use.
