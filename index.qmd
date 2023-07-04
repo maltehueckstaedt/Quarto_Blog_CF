@@ -67,8 +67,7 @@ Loading the data just for you.
 \
 If you would like to find out more about the progress of my projects,, check out [my GitHub repositorys](https://github.com/maltehueckstaedt).
 
-::: columns
-::: {.column width="45%"}
+
 ## Twitter
 
 I'm still new to Twitter, but I really like the possibility of agile, scientific communication. The often polemical way of communicating on Twitter, on the other hand, is rather alien to me. I am a friend of fact-oriented, academic communication. With this in mind, check out my Twitter account, follow and retweet tweets that seem relevant to you!
@@ -78,33 +77,6 @@ I'm still new to Twitter, but I really like the possibility of agile, scientific
 ```{=html}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ```
-:::
-
-::: {.column width="10%"}
-<!-- empty column to create gap -->
-:::
-
-::: {.column width="45%"}
-## Instagram
-
-When I'm not working on new Data Scientist topics in my free time, I work on 3D sculptures and animations. My tool of choice is the open source software Blender. I have also recently been working on image production with the help of Artificial Intelligence. Some of my work can be found on the Instagram account of Chernoff-Faces.
-
-<center>
-
-<blockquote style="width:800;" class="instagram-media" data-instgrm-version="14">
-
-<!-- replace this href with the link to the post -->
-
-<a href='https://www.instagram.com/p/ClEIOTFokCi/' ></a>
-
-</blockquote>
-
-```{=html}
-<script src="//www.instagram.com/embed.js"></script>
-```
-</center>
-:::
-:::
 
 ## Running
 
