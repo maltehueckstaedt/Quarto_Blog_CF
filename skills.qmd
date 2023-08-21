@@ -556,7 +556,7 @@ p {
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
-    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
     </td>
@@ -571,7 +571,7 @@ p {
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
-    <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
+    <span class="fa fa-circle checked fa-lg" style="color: #557ea6;"></span>
     <span class="fa fa-circle checked fa-lg" style="color: #cadef0;"></span>
 
     </td>
