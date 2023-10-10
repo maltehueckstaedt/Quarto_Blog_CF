@@ -347,7 +347,7 @@
     "href": "recent.html",
     "title": "Recent articles",
     "section": "",
-    "text": "The blog Chernoff faces documents knowledge that is more or less loosely connected to my research activities or PhD. These can be both methodological and purely technical. The main purpose of the documentation is to briefly and clearly document knowledge elements that have already been developed for me personally. A very welcome side effect would be if this documentation of mine made it easier for third parties to work with R, Python, SQL etc. or to understand the application of specific methods. To this purpose, tutorials written in Quartmarkdown are regularly published on the blog, in which various data science technics and software packages are applied. To illustrate this, simple questions are practically worked on methods from frequentist and Bayesian statistics.\n\n\n\n\n\n\n\n\n\n\n\nAnalysis Instagram Data with R and Network Analysis\n\n\n\n\n\n\n\nR\n\n\nweb-scraping\n\n\nnetwork analysis\n\n\napify\n\n\ndata visualization\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 5, 2023\n\n\nMalte Hückstädt\n\n\n18 min\n\n\n\n\n\n\n\n\nR with GitHub Codespace\n\n\n\n\n\n\n\nR\n\n\ndevelopment environment\n\n\n\n\n\n\n\n\n\n\n\nMay 4, 2023\n\n\nMalte Hückstädt\n\n\n6 min\n\n\n\n\n\n\n\n\nAnalyse Web of Science-Data with R\n\n\n\n\n\n\n\nR\n\n\nbibliometrics\n\n\ndata analysis\n\n\nnetwork analysis\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2023\n\n\nMalte Hückstädt\n\n\n8 min\n\n\n\n\n\n\n\n\nWebscraping with Python\n\n\n\n\n\n\n\nPython\n\n\nweb-scraping\n\n\n\n\n\n\n\n\n\n\n\nMar 30, 2023\n\n\nMalte Hückstädt\n\n\n5 min\n\n\n\n\n\n\n\n\nCorrespondence Analysis\n\n\n\n\n\n\n\nR\n\n\ndata visualization\n\n\ndata exploration\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 30, 2023\n\n\nMalte Hückstädt\n\n\n10 min\n\n\n\n\n\n\n\n\nChernoff Faces\n\n\n\n\n\n\n\nR\n\n\ndata visualization\n\n\ndata exploration\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 29, 2023\n\n\nMalte Hückstädt\n\n\n9 min\n\n\n\n\n\n\nNo matching items"
+    "text": "The blog Chernoff faces documents knowledge that is more or less loosely connected to my research activities or PhD. These can be both methodological and purely technical. The main purpose of the documentation is to briefly and clearly document knowledge elements that have already been developed for me personally. A very welcome side effect would be if this documentation of mine made it easier for third parties to work with R, Python, SQL etc. or to understand the application of specific methods. To this purpose, tutorials written in Quartmarkdown are regularly published on the blog, in which various data science technics and software packages are applied. To illustrate this, simple questions are practically worked on methods from frequentist and Bayesian statistics.\n\n\n\n\n\n\n\n\n\n\n\nLinear Regression with Python\n\n\n\n\n\n\n\nPython\n\n\nregression\n\n\n\n\n\n\n\n\n\n\n\nOct 9, 2023\n\n\nMalte Hückstädt\n\n\n8 min\n\n\n\n\n\n\n\n\nAnalysis Instagram Data with R and Network Analysis\n\n\n\n\n\n\n\nR\n\n\nweb-scraping\n\n\nnetwork analysis\n\n\napify\n\n\ndata visualization\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMay 5, 2023\n\n\nMalte Hückstädt\n\n\n18 min\n\n\n\n\n\n\n\n\nR with GitHub Codespace\n\n\n\n\n\n\n\nR\n\n\ndevelopment environment\n\n\n\n\n\n\n\n\n\n\n\nMay 4, 2023\n\n\nMalte Hückstädt\n\n\n6 min\n\n\n\n\n\n\n\n\nAnalyse Web of Science-Data with R\n\n\n\n\n\n\n\nR\n\n\nbibliometrics\n\n\ndata analysis\n\n\nnetwork analysis\n\n\n\n\n\n\n\n\n\n\n\nMay 1, 2023\n\n\nMalte Hückstädt\n\n\n8 min\n\n\n\n\n\n\n\n\nWebscraping with Python\n\n\n\n\n\n\n\nPython\n\n\nweb-scraping\n\n\n\n\n\n\n\n\n\n\n\nMar 30, 2023\n\n\nMalte Hückstädt\n\n\n5 min\n\n\n\n\n\n\n\n\nCorrespondence Analysis\n\n\n\n\n\n\n\nR\n\n\ndata visualization\n\n\ndata exploration\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 30, 2023\n\n\nMalte Hückstädt\n\n\n10 min\n\n\n\n\n\n\n\n\nChernoff Faces\n\n\n\n\n\n\n\nR\n\n\ndata visualization\n\n\ndata exploration\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nMar 29, 2023\n\n\nMalte Hückstädt\n\n\n9 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "publications/index.html",
@@ -536,7 +536,7 @@
     "href": "index.html#github",
     "title": "About",
     "section": "GitHub",
-    "text": "GitHub\nIn the context of my work as a research assistant at the German Centre for Science and Higher Education Research (DZHW), I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a reproducible analytical pipeline. I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a reproducible analytical pipeline is Git(Hub):\n\n\n\n\n\n\n&lt;!-- Loading stuff --&gt;\nLoading the data just for you.\n\n\n\n\nIf you would like to find out more about the progress of my projects,, check out my GitHub repositorys."
+    "text": "GitHub\nIn the context of my work as a research assistant at the German Centre for Science and Higher Education Research (DZHW), I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a reproducible analytical pipeline. I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a reproducible analytical pipeline is Git(Hub). If you would like to find out more about the progress of my projects, check out my GitHub repositorys."
   },
   {
     "objectID": "index.html#instagram",
@@ -563,29 +563,29 @@
     "objectID": "skills.html#programming-languages",
     "href": "skills.html#programming-languages",
     "title": "Skills",
-    "section": "Programming languages",
-    "text": "Programming languages\n\n\n\n\nR\n\n\n    \n\n\n\n\n\n\n\nPython"
+    "section": "",
+    "text": "R\n\n\n    \n\n\n\n\n\n\n\nPython\n\n\n    \n\n\n\n\n\n\n\nMplus"
   },
   {
     "objectID": "skills.html#markup-languages",
     "href": "skills.html#markup-languages",
     "title": "Skills",
-    "section": "Markup languages",
-    "text": "Markup languages\n\n\n\n\n(R/Quarto)Markdown\n\n\n    \n\n\n\n\n\n\n\nLaTex"
+    "section": "",
+    "text": "(R/Quarto)Markdown\n\n\n    \n\n\n\n\n\n\n\nLaTex"
   },
   {
     "objectID": "skills.html#r-most-used-packages",
     "href": "skills.html#r-most-used-packages",
     "title": "Skills",
-    "section": "R (most used packages)",
-    "text": "R (most used packages)\n\n\n\n\nreadxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest"
+    "section": "",
+    "text": "readxl\n\n\n    \n\n\n\n\n\n\n\ntidyverse\n\n\n    \n\n\n\n\n\n\n\nknitr\n\n\n    \n\n\n\n\n\n\n\nstringr\n\n\n    \n\n\n\n\n\n\n\nrvest"
   },
   {
     "objectID": "skills.html#regression",
     "href": "skills.html#regression",
     "title": "Skills",
-    "section": "Regression",
-    "text": "Regression\n\n\n\n\nLinear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis\n\n\n    \n\n\n\n\n:::"
+    "section": "",
+    "text": "Linear Regression\n\n\n    \n\n\n\n\n\n\n\nOrdinal Regression\n\n\n    \n\n\n\n\n\n\n\nRegression Trees\n\n\n    \n\n\n\n\n\n\n\nMultilevel Analysis\n\n\n    \n\n\n\n\n\n\n\nTime Series Analysis"
   },
   {
     "objectID": "skills.html#regression-1",
@@ -810,5 +810,117 @@
     "title": "Experience",
     "section": "",
     "text": "Employer:\nGerman Centre for Higher Education Research and Science Studies (DZHW)\n\n\nPeriod:\n11/2018 – 01/2019\n\n\nPlace:\nHanover, DE\n\n\nRole:\nResearch Associate\n\n\nProject:\nContinuous operation of the Research Data Centre for Higher Education and Science Research (FDZ-DZHW)\n\n\nResponsibilities:\nEditing and anonymisation of guided interview transcripts of the research project Performance Evaluation in Appointment Procedures - the changing tradition of hiring professors in academia (LiBerTas)\n\n\nPeriod:\n10/2010 – 09/2012\n\n\nRole:\nFreelance artist and graphic designer"
+  },
+  {
+    "objectID": "posts/lin_reg_python/index.html",
+    "href": "posts/lin_reg_python/index.html",
+    "title": "Linear Regression with Python",
+    "section": "",
+    "text": "The basic assumption of linear regression is that there is a linear relationship between one or more independent variable(s) and a dependent variable. This means that a proportional change in the independent variables causes a proportional change in the dependent variable. This linear relationship is represented by a regression function, which is mathematically adjusted to minimise the deviation between the observed data points and the predicted values. Minimising the deviation between the observed data points and the predicted values is usually achieved using the Ordinary Least Squares (OLS) method. The aim of the OLS procedure is to estimate the parameters of the regression line so that they best fit the input data (Döring and Bortz 2016).\nOnce estimated, the regression function can be used to make predictions for the dependent variable based on the values of the independent variables. This makes linear regression a powerful tool for identifying and predicting relationships in quantitative data."
+  },
+  {
+    "objectID": "skills.html#languages",
+    "href": "skills.html#languages",
+    "title": "Skills",
+    "section": "",
+    "text": "German\n\n\n    \n\n\n\n\n\n\n\nEnglish"
+  },
+  {
+    "objectID": "skills.html#version-control",
+    "href": "skills.html#version-control",
+    "title": "Skills",
+    "section": "",
+    "text": "Git(Hub)"
+  },
+  {
+    "objectID": "skills.html#web-applications",
+    "href": "skills.html#web-applications",
+    "title": "Skills",
+    "section": "",
+    "text": "Shiny"
+  },
+  {
+    "objectID": "skills.html#distributions",
+    "href": "skills.html#distributions",
+    "title": "Skills",
+    "section": "",
+    "text": "Anaconda"
+  },
+  {
+    "objectID": "skills.html#source-code-editors",
+    "href": "skills.html#source-code-editors",
+    "title": "Skills",
+    "section": "",
+    "text": "VS Code\n\n\n    \n\n\n\n\n\n\n\nRstudio\n\n\n    \n\n\n\n\n\n\n\nAtom (†)"
+  },
+  {
+    "objectID": "skills.html#other-software",
+    "href": "skills.html#other-software",
+    "title": "Skills",
+    "section": "",
+    "text": "Zotero\n\n\n    \n\n\n\n\n\n\n\nyEd\n\n\n    \n\n\n\n\n\n\n\nPandoc\n\n\n    \n\n\n\n\n\n\n\nMS Office\n\n\n    \n\n\n\n\n\n\n\nSQL\n\n\n    \n\n\n\n\n\n\n\nDocker"
+  },
+  {
+    "objectID": "skills.html#classification",
+    "href": "skills.html#classification",
+    "title": "Skills",
+    "section": "",
+    "text": "Logistic Regression\n\n\n    \n\n\n\n\n\n\n\nClassification Trees\n\n\n    \n\n\n\n\n\n\n\nSupport Vector Machines"
+  },
+  {
+    "objectID": "skills.html#clustering",
+    "href": "skills.html#clustering",
+    "title": "Skills",
+    "section": "",
+    "text": "Partitioning Cluster Analysis\n\n\n    \n\n\n\n\n\n\n\nHierarchical Cluster Analysis\n\n\n    \n\n\n\n\n\n\n\nLatent Class Analysis"
+  },
+  {
+    "objectID": "skills.html#dimensionality-reduction",
+    "href": "skills.html#dimensionality-reduction",
+    "title": "Skills",
+    "section": "",
+    "text": "(Multiple) Corres-pondence Analysis\n\n\n    \n\n\n\n\n\n\n\nMultidimensional Scaling\n\n\n    \n\n\n\n\n\n\n\nExploratory/Confirmatory  Factor Analysis\n\n\n    \n\n\n\n\n\n\n\nPrincipal Component Analysis"
+  },
+  {
+    "objectID": "skills.html#ensemble-methods",
+    "href": "skills.html#ensemble-methods",
+    "title": "Skills",
+    "section": "",
+    "text": "Random Forest"
+  },
+  {
+    "objectID": "skills.html#other-methods",
+    "href": "skills.html#other-methods",
+    "title": "Skills",
+    "section": "",
+    "text": "Structural Equation Modeling\n\n\n    \n\n\n\n\n\n\n\nWeb Scraping\n\n\n    \n\n\n\n\n\n\n\n(Permutational)Analysis of Variance\n\n\n    \n\n\n\n\n\n\n\nGeocoding\n\n\n    \n\n\n\n\n\n\n\nNetwork Analysis\n\n\n    \n\n\n\n\n\n\n\nNatural LanguageProcessing"
+  },
+  {
+    "objectID": "publications.html#journal-artikel-peer-reviewed",
+    "href": "publications.html#journal-artikel-peer-reviewed",
+    "title": "Publications",
+    "section": "",
+    "text": "Hückstädt, M. (2023). ‘Ten reasons why research collaborations succeed—a random forest approach’, Scientometrics, 128/3: 1923–50. DOI: https://doi.org/10.1007/s11192-022-04629-7\nWeinmann, C., Hückstädt, M., Meißner, F., & Vowe, G. (2023). ‘How do researchers perceive problems in research collaboration? Results from a large-scale study of German scientists’, Frontiers in Research Metrics and Analytics, 8. DOI: https://doi.org/10.3389/frma.2023.1106482\nHückstädt, M., Leisten, L.M. (2023). Input, process, output - inhibitors and promoters of collaboration Problems (under Review).\nHückstädt, M. (2022). ‘Coopetition between frenemies–interrelations and effects of seven collaboration problems in research clusters’, Scientometrics, 127/9: 5191–224. DOI: 10.1007/s11192-022-04472-w. DOI: https://doi.org/10.1007/s11192-022-04472-w\nKleimann, B., & Hückstädt, M. (2021). Selection criteria in professorial recruiting as indicators of institutional similarity? A comparison of German universities and universities of applied sciences.Quality in Higher Education (online first). https://doi.org/10.1080/13538322.2021.1889760\nKleimann, B., & Hückstädt, M. (2018). Auswahlkriterien in Berufungsverfahren: Universitäten und Fachhochschulen im Vergleich. Beiträge zur Hochschulforschung, 40 (2/2018), 20-47."
+  },
+  {
+    "objectID": "posts/lin_reg_python/index.html#split-data",
+    "href": "posts/lin_reg_python/index.html#split-data",
+    "title": "Linear Regression with Python",
+    "section": "Split Data",
+    "text": "Split Data\nThe independent variables (UVs) are stored in X, dropping the column “sales” and the unnamed column “Unnamed: 0”. The dependent variable (AV) we want to predict is stored in y. The data is split into training and testing data, with 20% of the data used for testing. This is done using the function train_test_split(). The argument random_state is used to control random number generation when splitting data into training and test sets. random_state is a number or numerical value used as a so-called”seed” for the random number generator. If you set a specific value for random_state, the division of the data will always be the same each time you run your code. This is useful to ensure that your results are reproducible.\n\nX = mark_data.drop(columns=[\"sales\",'Unnamed: 0'])  # UVs\ny = mark_data[\"sales\"]  # AV\n\nX_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)"
+  },
+  {
+    "objectID": "posts/lin_reg_python/index.html#fitting-the-linear-regression-model",
+    "href": "posts/lin_reg_python/index.html#fitting-the-linear-regression-model",
+    "title": "Linear Regression with Python",
+    "section": "Fitting the linear regression model",
+    "text": "Fitting the linear regression model\nA linear regression model is fitted using the package statsmodels (sm). sm.OLS() stands for Ordinary Least Squares, and fit() fits the model to the training data. Furthermore, the model summary is printed, which provides comprehensive information about the regression model. This includes statistics such as R-squared, F-statistics, and coefficients for each independent variable.\n\nmodel = sm.OLS(y_train, X_train).fit()\nprint(model.summary())\n\n                                 OLS Regression Results                                \n=======================================================================================\nDep. Variable:                  sales   R-squared (uncentered):                   0.982\nModel:                            OLS   Adj. R-squared (uncentered):              0.982\nMethod:                 Least Squares   F-statistic:                              2935.\nDate:                Tue, 10 Oct 2023   Prob (F-statistic):                   1.28e-137\nTime:                        12:13:34   Log-Likelihood:                         -365.83\nNo. Observations:                 160   AIC:                                      737.7\nDf Residuals:                     157   BIC:                                      746.9\nDf Model:                           3                                                  \nCovariance Type:            nonrobust                                                  \n==============================================================================\n                 coef    std err          t      P&gt;|t|      [0.025      0.975]\n------------------------------------------------------------------------------\nyoutube        0.0531      0.001     36.467      0.000       0.050       0.056\nfacebook       0.2188      0.011     20.138      0.000       0.197       0.240\nnewspaper      0.0239      0.008      3.011      0.003       0.008       0.040\n==============================================================================\nOmnibus:                       11.405   Durbin-Watson:                   1.895\nProb(Omnibus):                  0.003   Jarque-Bera (JB):               15.574\nSkew:                          -0.432   Prob(JB):                     0.000415\nKurtosis:                       4.261   Cond. No.                         13.5\n==============================================================================\n\nNotes:\n[1] R² is computed without centering (uncentered) since the model does not contain a constant.\n[2] Standard Errors assume that the covariance matrix of the errors is correctly specified.\n\n\n\nInterpreation of the coefficients\nThe YouTube coefficient indicates how a one unit increase in advertising spend in the context of YouTube affects turnover, holding constant the other variables in the model. In this case, the estimated increase in revenue is approximately 0.0531 units for each additional unit of spending on YouTube. This suggests that advertising spend on YouTube has a positive impact on sales.\nThe Facebook coefficient indicates how a one unit increase in ad spend on Facebook affects revenue, holding constant the other variables in the model. The estimated increase in turnover is approximately 0.2188 units for each additional unit of spending on Facebook. This shows that ad spend on Facebook has a stronger positive impact on revenue than ad spend on YouTube.\nThe Newspaper coefficient indicates the impact of a one unit increase in newspaper ad spend on sales, holding the other variables in the model constant. The estimated increase in turnover is about 0.0239 units for each additional unit of expenditure in newspapers. Note that this coefficient is smaller than the coefficients for YouTube and Facebook, suggesting that advertising spend in newspapers has the smallest impact on turnover.\n\n\nChecking the assumptions of linear regression\nA look at the section below the regression coefficients provides us with important information on the prerequisite tests of the regression. Thus, (1) the significant omnibus test indicates a first violation of the prerequisites of linear regression: The residuals of the regression model are not normally distributed.\nThe Durbin-Watson value of 1.895 indicates a slight positive autocorrelation between the residuals, which is normally not critical. However, the Jarque-Bera test and its low p-value indicate that the residuals are not normally distributed Finally, the condition number of 13.5 indicates possible multicollinearity between the independent variables in the model, which could indicate that some of these variables are highly correlated with each other.\nOverall, these metrics signal that some of the model assumptions are not met, so adjustments to the model or transformations of the data may be needed to improve model performance and ensure that the results are stable."
+  },
+  {
+    "objectID": "posts/lin_reg_python/index.html#predictions",
+    "href": "posts/lin_reg_python/index.html#predictions",
+    "title": "Linear Regression with Python",
+    "section": "Predictions",
+    "text": "Predictions\nIn order to assess the accuracy and quality of the regression model, (1) the explanatory power, (2) the fit of the predictions of the regression model to the actual data and (3) the average absolute error are calculated.\n\n# Vorhersagen\ny_pred = model.predict(X_test)\nfrom sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error\n\nr_squared = r2_score(y_test, y_pred)\nmse = mean_squared_error(y_test, y_pred)\nrmse = np.sqrt(mse)\nmae = mean_absolute_error(y_test, y_pred)\n\nprint(f'R-squared: {r_squared}')\n\nR-squared: 0.8542036745015231\n\nprint(f'Mean Squared Error (MSE): {mse}')\n\nMean Squared Error (MSE): 6.626672623118433\n\nprint(f'Root Mean Squared Error (RMSE): {rmse}')\n\nRoot Mean Squared Error (RMSE): 2.5742324337787434\n\nprint(f'Mean Absolute Error (MAE): {mae}')\n\nMean Absolute Error (MAE): 2.0801090639089828\n\n\nThe R-squared value indicates how well the model explains the variation in the dependent variable (turnover). An R² value of 0.8542 means that the model explains about 85.42% of the variance in turnover. This is a good explanatory power and shows that the model fits the turnover data quite well.\nThe MSE is a measure of the mean squared deviation between the observed and predicted values. An MSE of 6.6267 means that the mean squared error between the observed and predicted turnover values is about 6.6267 units. A low MSE is desirable as it indicates a more accurate prediction.\nThe RMSE is the square root of the MSE and has the same units as the dependent variable. An RMSE of 2.5742 means that the average deviation between the observed and predicted turnover values is about 2.5742 units. A lower RMSE indicates that the model’s predictions are more accurate.\nThe MAE is a measure of the average absolute deviation between the observed and predicted values. An MAE of 2.0801 means that the average absolute deviation between the observed and predicted turnover values is approximately 2.0801 units. The MAE is also a measure of the accuracy of the model, with lower values being better.\nIn summary, the results mean that the model performs well in predicting turnover. The R-squared value is high and the error metrics such as MSE, RMSE and MAE are relatively low, indicating that the model’s predictions match the actual data quite well. This indicates that the model is able to predict turnover fairly accurately."
   }
 ]

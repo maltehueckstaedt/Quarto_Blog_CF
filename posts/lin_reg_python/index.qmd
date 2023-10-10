@@ -1,0 +1,142 @@
+---
+title: "Linear Regression with Python"
+author: "Malte Hückstädt"
+date: "2023-10-09"
+categories: [Python, regression]
+format: 
+  html:
+    self-contained: true
+bibliography: Bibliothek.bib
+---
+
+# Introduction
+
+The basic assumption of linear regression is that there is a linear relationship between one or more independent variable(s) and a dependent variable. This means that a proportional change in the independent variables causes a proportional change in the dependent variable. This linear relationship is represented by a regression function, which is mathematically adjusted to minimise the deviation between the observed data points and the predicted values. Minimising the deviation between the observed data points and the predicted values is usually achieved using the Ordinary Least Squares (OLS) method. The aim of the OLS procedure is to estimate the parameters of the regression line so that they best fit the input data [@doringForschungsmethodenUndEvaluation2016].
+
+Once estimated, the regression function can be used to make predictions for the dependent variable based on the values of the independent variables. This makes linear regression a powerful tool for identifying and predicting relationships in quantitative data.
+
+# Data
+
+We use the marketing dataset from the R package [`datarium`](https://cran.r-project.org/web/packages/datarium/index.html). This dataset provides insight into the impact of three different advertising media (YouTube, Facebook and newspapers) on companies' sales. It is used to predict sales units based on the budgets spent on the three advertising media. In the data, advertising budgets are recorded in thousands of dollars along with the sales figures achieved. The advertising experiment was conducted a total of 200 times, each time using different budget levels. The observed sales figures were carefully recorded.
+
+# Analysis
+
+Since I myself use RStudio as IDE (Integrated Development Environment) for Python, I load the R package `reticulate` in my R environment and turn off the notification function of the package. I use the function use_python() to tell R under which path my Python binary can be found. Users who work directly in Python can skip this step. Furthermore, the Python packages used below must be installed so that they can then be loaded into the workspace. To be able to install Python packages from within RStudio, the function `py_install()` can be used.
+
+```{r}
+library(reticulate)
+options(reticulate.repl.quiet = TRUE)
+use_python("~/Library/r-miniconda-arm64/bin/python")
+#py_install("numpy")
+#py_install("matplotlib")
+#py_install("scikit-learn")
+#py_install("statsmodels")
+#py_install("seaborn")
+
+```
+
+In a further step, the packages crucial for the analysis can now be loaded into the workspace.
+
+```{python}
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+The marketing data is loaded into the workspace, possible rows with missings are removed from the data frame by listwise case exclusion and the column names are printed.
+
+```{python}
+mark_data = pd.read_csv('marketing.csv')
+mark_data = mark_data.dropna()
+print(mark_data.columns)
+```
+
+## Split Data
+
+The independent variables (UVs) are stored in X, dropping the column "sales" and the unnamed column "Unnamed: 0". The dependent variable (AV) we want to predict is stored in y. The data is split into training and testing data, with 20% of the data used for testing. This is done using the function `train_test_split()`. The argument `random_state` is used to control random number generation when splitting data into training and test sets. `random_state` is a number or numerical value used as a so-called"seed" for the random number generator. If you set a specific value for `random_state`, the division of the data will always be the same each time you run your code. This is useful to ensure that your results are reproducible.
+
+```{python}
+X = mark_data.drop(columns=["sales",'Unnamed: 0'])  # UVs
+y = mark_data["sales"]  # AV
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+```
+
+## Fitting the linear regression model
+
+A linear regression model is fitted using the package `statsmodels` (sm). `sm.OLS()` stands for Ordinary Least Squares, and `fit()` fits the model to the training data. Furthermore, the model summary is printed, which provides comprehensive information about the regression model. This includes statistics such as R-squared, F-statistics, and coefficients for each independent variable.
+
+```{python}
+model = sm.OLS(y_train, X_train).fit()
+print(model.summary())
+```
+
+### Interpreation of the coefficients
+
+The YouTube coefficient indicates how a one unit increase in advertising spend in the context of YouTube affects turnover, holding constant the other variables in the model. In this case, the estimated increase in revenue is approximately 0.0531 units for each additional unit of spending on YouTube. This suggests that advertising spend on YouTube has a positive impact on sales.
+
+The Facebook coefficient indicates how a one unit increase in ad spend on Facebook affects revenue, holding constant the other variables in the model. The estimated increase in turnover is approximately 0.2188 units for each additional unit of spending on Facebook. This shows that ad spend on Facebook has a stronger positive impact on revenue than ad spend on YouTube.
+
+The Newspaper coefficient indicates the impact of a one unit increase in newspaper ad spend on sales, holding the other variables in the model constant. The estimated increase in turnover is about 0.0239 units for each additional unit of expenditure in newspapers. Note that this coefficient is smaller than the coefficients for YouTube and Facebook, suggesting that advertising spend in newspapers has the smallest impact on turnover.
+
+### Checking the assumptions of linear regression
+
+A look at the section below the regression coefficients provides us with important information on the prerequisite tests of the regression. Thus, (1) the significant omnibus test indicates a first violation of the prerequisites of linear regression: The residuals of the regression model are not normally distributed.
+
+The Durbin-Watson value of 1.895 indicates a slight positive autocorrelation between the residuals, which is normally not critical. However, the Jarque-Bera test and its low p-value indicate that the residuals are not normally distributed Finally, the condition number of 13.5 indicates possible multicollinearity between the independent variables in the model, which could indicate that some of these variables are highly correlated with each other.
+
+Overall, these metrics signal that some of the model assumptions are not met, so adjustments to the model or transformations of the data may be needed to improve model performance and ensure that the results are stable.
+
+## Predictions
+
+In order to assess the accuracy and quality of the regression model, (1) the explanatory power, (2) the fit of the predictions of the regression model to the actual data and (3) the average absolute error are calculated.
+
+```{python}
+# Vorhersagen
+y_pred = model.predict(X_test)
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+
+r_squared = r2_score(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+rmse = np.sqrt(mse)
+mae = mean_absolute_error(y_test, y_pred)
+
+print(f'R-squared: {r_squared}')
+print(f'Mean Squared Error (MSE): {mse}')
+print(f'Root Mean Squared Error (RMSE): {rmse}')
+print(f'Mean Absolute Error (MAE): {mae}')
+```
+
+The R-squared value indicates how well the model explains the variation in the dependent variable (turnover). An R² value of 0.8542 means that the model explains about 85.42% of the variance in turnover. This is a good explanatory power and shows that the model fits the turnover data quite well.
+
+The MSE is a measure of the mean squared deviation between the observed and predicted values. An MSE of 6.6267 means that the mean squared error between the observed and predicted turnover values is about 6.6267 units. A low MSE is desirable as it indicates a more accurate prediction.
+
+The RMSE is the square root of the MSE and has the same units as the dependent variable. An RMSE of 2.5742 means that the average deviation between the observed and predicted turnover values is about 2.5742 units. A lower RMSE indicates that the model's predictions are more accurate.
+
+The MAE is a measure of the average absolute deviation between the observed and predicted values. An MAE of 2.0801 means that the average absolute deviation between the observed and predicted turnover values is approximately 2.0801 units. The MAE is also a measure of the accuracy of the model, with lower values being better.
+
+In summary, the results mean that the model performs well in predicting turnover. The R-squared value is high and the error metrics such as MSE, RMSE and MAE are relatively low, indicating that the model's predictions match the actual data quite well. This indicates that the model is able to predict turnover fairly accurately.
+
+# Conclusion
+
+The basics of linear regression were explained in brief and practical examples were given in Python to illustrate the calculation of a multiple linear regression model. It also explained how the quality and performance of the model could be specified for predictions.
+
+In summary, the regression analysis shows that advertising spend on YouTube, Facebook and in newspapers has a significant impact on sales, with Facebook having the strongest impact (see above/@fig-polar). Since the assumptions of the linerar regression are violated to a large extent, it is essential to modify the model in the further course. For possible modifications and assumption violations in the context of linerar regressions, see Berry [-@berryUnderstandingRegressionAssumptions1993].
+
+```{python}
+#| label: fig-polar
+#| fig-cap: "Bivariate relationships of the input variables of linerar regression"
+
+fig, ax = plt.subplots(1, 3, figsize=(8, 4))  # Reduced the width of the image
+for i, col in enumerate(X.columns[0:]):
+     sns.regplot(x=X[col], y=y, ax=ax[i], scatter_kws={'alpha': 0.2})
+fig.tight_layout()
+fig.subplots_adjust(top=0.95)
+plt.show()
+```
+
+
+# References
