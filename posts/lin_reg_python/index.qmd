@@ -138,5 +138,4 @@ fig.subplots_adjust(top=0.95)
 plt.show()
 ```
 
-
 # References
