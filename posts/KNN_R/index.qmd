@@ -8,11 +8,11 @@ bibliography: Bibliothek.bib
 
 # Introduction
 
-K-Nearest Neighbours (K-NN) [@kramerKNearestNeighbors2013]is a widely used algorithm in the field of machine learning and data analysis. It is often used for tasks such as classification and regression. The basic approach of the K-NN algorithm is to identify the K nearest neighbours of a given data point in a dataset and make a prediction for the given point based on the classifications or values of these neighbours.
+K-Nearest Neighbours (K-NN) [@kramerKNearestNeighbors2013] is a widely used algorithm in the field of machine learning and data analysis. It is often used for tasks such as classification and regression. The basic approach of the K-NN algorithm is to identify the $K$ *nearest neighbours* of a given data point in a dataset and make a prediction for the given point based on the classifications or values of these neighbours.
 
 Here is a basic description of the K-NN algorithm:
 
-Dataset: First, a dataset is required, which consists of a collection of data points. Each data point has features that define its position in space.
+Dataset: First, a dataset is required, which consists of a collection of data points. Each data point has features that define its position in a geometric space.
 
 1.  **Distance calculation:** To find the nearest neighbours for a given data point, a distance metric is used, often the Euclidean distance. This metric measures the distance between the feature vectors of the data points.
 
@@ -20,15 +20,13 @@ Dataset: First, a dataset is required, which consists of a collection of data po
 
 3.  **Identification of K nearest neighbours:** For a given data point, the K data points are selected from the data set that have the shortest distance to the given point.
 
-4.  **Prediction:** In a classification task, the class membership of the data point is predicted based on the majority of the K nearest neighbours. This means that the class that occurs most frequently in the K nearest neighbours is selected. In a regression task, the value of the data point is estimated based on the average or weighted averages of the K nearest neighbours (@fig-knn).
+4.  **Prediction:** In a classification task, the class membership of the data point is predicted based on the majority of the K nearest neighbours. This means that the class that occurs most frequently in the K nearest neighbours is selected. In a regression task, the value of the data point is estimated based on the average or weighted averages of the K nearest neighbours.
 
 5.  **Evaluation and fitting:** The algorithm can be applied to test data to evaluate its performance. Choosing the right K value can have a significant impact on the results, so it is important to choose K carefully.
 
 K-NN is a simple, non-parametric algorithm that does not require explicit model fitting. However, it is sensitive to the choice of K and can be computationally expensive in large datasets or with many features. Nevertheless, it is a useful algorithm for various use cases, especially when the data distribution is non-linear or complex.
 
 In order to apply the K-NN method in an exemplary way, the following question will be examined to find out which influences lead to research teams creating a climate of cooperation characterised by trust to the highest degree. This is a relevant question because it has been repeatedly shown that a climate of cooperation characterised by trust is an important factor for the success of research teams [e.g. @hückstädt2023].
-
-![Illustration of the procedure of the K-NN algorithm. **Source:** [Diego Inácio](https://diegoinacio.github.io/projects.html)](KNN.gif){#fig-knn fig-align="center" width="800"}
 
 # Data
 
@@ -38,7 +36,7 @@ The sample collected consisted of $n = 5306$ participants from $n = 948$ RC, of 
 
 ## Recoding
 
-We load the DEKiF-data into the workspace and recode the Trust-Variable (`problm_9`).[^1] We code as "high trust" those cases that indicate that the collaboration within their research team is characterised by trust to a high extent, and as "no high trust" those cases where this is not the case.
+We load the DEKiF-data into the workspace and recode the Trust-Variable (`problm_9`).[^1] We code as `high trust` those cases that indicate that the collaboration within their research team is characterised by trust to a high extent, and as `no high trust` those cases where this is not the case.
 
 [^1]: See for an overview of the measuring instruments: https://metadata.fdz.dzhw.eu/public/files/instruments/ins-decquant-ins1\$-1.0.0/attachments/Codebuch_Questionnaire_Final.EN.pdf
 
@@ -62,19 +60,19 @@ Which variables could be responsible for the fact that the cooperation climate i
 
 ### Disciplinary heterogeneity
 
-1.  Communication barriers: Different disciplines have different disciplinary cultures. If team members have difficulty communicating in an understandable way, this can affect trust as misunderstandings and miscommunication can occur.
+1.  **Communication barriers:** Different disciplines have different disciplinary cultures. If team members have difficulty communicating in an understandable way, this can affect trust as misunderstandings and miscommunication can occur.
 
-2.  Differences in working methods: Team members from different disciplines may have different ways of working and methods. This can lead to conflict and reduce trust if team members have doubts about the effectiveness or quality of others' work.
+2.  **Differences in working methods:** Team members from different disciplines may have different ways of working and methods. This can lead to conflict and reduce trust if team members have doubts about the effectiveness or quality of others' work.
 
-3.  Prejudices and stereotypes: In interdisciplinary teams, prejudices and stereotypes about certain disciplines might occur, which can affect the trust of team members. If members of a discipline are mistakenly seen as less competent, this can reduce confidence in their abilities [@shrumTrustConflictPerformance2001; @hückstädt2023].
+3.  **Prejudices and stereotypes:** In interdisciplinary teams, prejudices and stereotypes about certain disciplines might occur, which can affect the trust of team members. If members of a discipline are mistakenly seen as less competent, this can reduce confidence in their abilities [@shrumTrustConflictPerformance2001; @hückstädt2023].
 
 ### Number of members
 
-1.  Coordination and decision-making: As the number of team members in a team increases, coordination and decision-making can become increasingly complex. Each member may have different ideas, priorities and ways of working, which can lead to conflicts or delays, which in turn reduce the trust relationships among members.
+1.  **Coordination and decision-making:** As the number of team members in a team increases, coordination and decision-making can become increasingly complex. Each member may have different ideas, priorities and ways of working, which can lead to conflicts or delays, which in turn reduce the trust relationships among members.
 
-2.  Responsibilities: Each member has responsibility for certain aspects of the project. However, if the number of members in a team is too high, it can be difficult to establish clear responsibilities and ensure that each team member is performing their tasks effectively. Diffusion of responsibility can induce free-rider behaviour, which can also negatively affect trust relationships between members.
+2.  **Responsibilities:** Each member has responsibility for certain aspects of the project. However, if the number of members in a team is too high, it can be difficult to establish clear responsibilities and ensure that each team member is performing their tasks effectively. Diffusion of responsibility can induce free-rider behaviour, which can also negatively affect trust relationships between members.
 
-3.  Resource allocation: The number of members can also influence the allocation of resources such as research funds, laboratory resources and research staff. If there are too many members, the limited resources risk being shared inefficiently, which can lead to friction and eventually to a loss of trust [@defila2006].
+3.  **Resource allocation:** The number of members can also influence the allocation of resources such as research funds, laboratory resources and research staff. If there are too many members, the limited resources risk being shared inefficiently, which can lead to friction and eventually to a loss of trust [@defila2006].
 
 ### Frictions
 

@@ -131,11 +131,15 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 <link rel="stylesheet" href="academicons.css">
 <meta property="og:title" content="Quarto - K-Nearest Neighbors with R">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/KNN_R/KNN.gif">
+<meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/KNN_R/index_files/figure-html/unnamed-chunk-3-1.png">
 <meta property="og:site-name" content="Quarto">
+<meta property="og:image:height" content="960">
+<meta property="og:image:width" content="1344">
 <meta name="twitter:title" content="Quarto - K-Nearest Neighbors with R">
 <meta name="twitter:description" content="">
-<meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/KNN_R/KNN.gif">
+<meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/KNN_R/index_files/figure-html/unnamed-chunk-3-1.png">
+<meta name="twitter:image-height" content="960">
+<meta name="twitter:image-width" content="1344">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -292,32 +296,26 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>K-Nearest Neighbours (K-NN) <span class="citation" data-cites="kramerKNearestNeighbors2013">(<a href="#ref-kramerKNearestNeighbors2013" role="doc-biblioref">Kramer 2013</a>)</span>is a widely used algorithm in the field of machine learning and data analysis. It is often used for tasks such as classification and regression. The basic approach of the K-NN algorithm is to identify the K nearest neighbours of a given data point in a dataset and make a prediction for the given point based on the classifications or values of these neighbours.</p>
+<p>K-Nearest Neighbours (K-NN) <span class="citation" data-cites="kramerKNearestNeighbors2013">(<a href="#ref-kramerKNearestNeighbors2013" role="doc-biblioref">Kramer 2013</a>)</span> is a widely used algorithm in the field of machine learning and data analysis. It is often used for tasks such as classification and regression. The basic approach of the K-NN algorithm is to identify the <span class="math inline">\(K\)</span> <em>nearest neighbours</em> of a given data point in a dataset and make a prediction for the given point based on the classifications or values of these neighbours.</p>
 <p>Here is a basic description of the K-NN algorithm:</p>
-<p>Dataset: First, a dataset is required, which consists of a collection of data points. Each data point has features that define its position in space.</p>
+<p>Dataset: First, a dataset is required, which consists of a collection of data points. Each data point has features that define its position in a geometric space.</p>
 <ol type="1">
 <li><p><strong>Distance calculation:</strong> To find the nearest neighbours for a given data point, a distance metric is used, often the Euclidean distance. This metric measures the distance between the feature vectors of the data points.</p></li>
 <li><p><strong>Selection of K:</strong> The user must specify a number K, which indicates how many nearest neighbours should be considered. K is a positive integer.</p></li>
 <li><p><strong>Identification of K nearest neighbours:</strong> For a given data point, the K data points are selected from the data set that have the shortest distance to the given point.</p></li>
-<li><p><strong>Prediction:</strong> In a classification task, the class membership of the data point is predicted based on the majority of the K nearest neighbours. This means that the class that occurs most frequently in the K nearest neighbours is selected. In a regression task, the value of the data point is estimated based on the average or weighted averages of the K nearest neighbours (<a href="#fig-knn">Figure&nbsp;1</a>).</p></li>
+<li><p><strong>Prediction:</strong> In a classification task, the class membership of the data point is predicted based on the majority of the K nearest neighbours. This means that the class that occurs most frequently in the K nearest neighbours is selected. In a regression task, the value of the data point is estimated based on the average or weighted averages of the K nearest neighbours.</p></li>
 <li><p><strong>Evaluation and fitting:</strong> The algorithm can be applied to test data to evaluate its performance. Choosing the right K value can have a significant impact on the results, so it is important to choose K carefully.</p></li>
 </ol>
 <p>K-NN is a simple, non-parametric algorithm that does not require explicit model fitting. However, it is sensitive to the choice of K and can be computationally expensive in large datasets or with many features. Nevertheless, it is a useful algorithm for various use cases, especially when the data distribution is non-linear or complex.</p>
 <p>In order to apply the K-NN method in an exemplary way, the following question will be examined to find out which influences lead to research teams creating a climate of cooperation characterised by trust to the highest degree. This is a relevant question because it has been repeatedly shown that a climate of cooperation characterised by trust is an important factor for the success of research teams <span class="citation" data-cites="hückstädt2023">(e.g. <a href="#ref-hückstädt2023" role="doc-biblioref">Hückstädt 2023</a>)</span>.</p>
-<div id="fig-knn" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="KNN.gif" class="img-fluid figure-img" width="800"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Illustration of the procedure of the K-NN algorithm. <strong>Source:</strong> <a href="https://diegoinacio.github.io/projects.html">Diego Inácio</a></figcaption>
-</figure>
-</div>
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>In the following, the KNN method is tested with cross-sectional data from a large-scale web survey conducted in 2020 as part of the joint project <em>Determinants and Effects of Cooperation in Homogeneous and Heterogeneous Research Clusters</em> (DEKiF) <span class="citation" data-cites="kleimannQuantitativePartialSurvey2023">(<a href="#ref-kleimannQuantitativePartialSurvey2023" role="doc-biblioref">Kleimann et al. 2023</a>)</span>. The survey focused on the internal cooperation processes of research clusters, on cooperation problems that arise in the course of joint work, and on possible solutions to internal cooperation problems. The target population of the survey was N = 15,595 PIs and spokespersons who have participated in Research Clusters (RC) funded by the German Research Foundation since 2015. The target population included disciplinary and interdisciplinary, large and small (in terms of staff), disciplinary homo- and heterogeneous as well as multi-local RC. The database <a href="https://gepris.dfg.de/gepris/OCTOPUS">GEPRIS</a>, which contains information on projects (and project members) funded by the German Research Foundation (DFG), was used to determine the population as well as to collect contact information.</p>
+<p>In the following, the KNN method is tested with cross-sectional data from a large-scale web survey conducted in 2020 as part of the joint project <em>Determinants and Effects of Cooperation in Homogeneous and Heterogeneous Research Clusters</em> (DEKiF) <span class="citation" data-cites="kleimannQuantitativePartialSurvey2023">(<a href="#ref-kleimannQuantitativePartialSurvey2023" role="doc-biblioref">Hückstädt et al. 2023</a>)</span>. The survey focused on the internal cooperation processes of research clusters, on cooperation problems that arise in the course of joint work, and on possible solutions to internal cooperation problems. The target population of the survey was N = 15,595 PIs and spokespersons who have participated in Research Clusters (RC) funded by the German Research Foundation since 2015. The target population included disciplinary and interdisciplinary, large and small (in terms of staff), disciplinary homo- and heterogeneous as well as multi-local RC. The database <a href="https://gepris.dfg.de/gepris/OCTOPUS">GEPRIS</a>, which contains information on projects (and project members) funded by the German Research Foundation (DFG), was used to determine the population as well as to collect contact information.</p>
 <p>The sample collected consisted of <span class="math inline">\(n = 5306\)</span> participants from <span class="math inline">\(n = 948\)</span> RC, of which <span class="math inline">\(n = 4971\)</span> were PIs and <span class="math inline">\(n = 335\)</span> were speakers. This corresponds to a response rate of 34 per cent. The sample consisted of 26 per cent female and 74 per cent male participants. The average age of the respondents was <span class="math inline">\(x = 52.67\)</span> years with a standard deviation of <span class="math inline">\(SD = 9.52\)</span>.</p>
 <section id="recoding" class="level2">
 <h2 class="anchored" data-anchor-id="recoding">Recoding</h2>
-<p>We load the DEKiF-data into the workspace and recode the Trust-Variable (<code>problm_9</code>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We code as “high trust” those cases that indicate that the collaboration within their research team is characterised by trust to a high extent, and as “no high trust” those cases where this is not the case.</p>
+<p>We load the DEKiF-data into the workspace and recode the Trust-Variable (<code>problm_9</code>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> We code as <code>high trust</code> those cases that indicate that the collaboration within their research team is characterised by trust to a high extent, and as <code>no high trust</code> those cases where this is not the case.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(<span class="st">"/Volumes/MALTE_USB/dekif_df.rds"</span>)</span>
@@ -343,17 +341,17 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 <section id="disciplinary-heterogeneity" class="level3">
 <h3 class="anchored" data-anchor-id="disciplinary-heterogeneity">Disciplinary heterogeneity</h3>
 <ol type="1">
-<li><p>Communication barriers: Different disciplines have different disciplinary cultures. If team members have difficulty communicating in an understandable way, this can affect trust as misunderstandings and miscommunication can occur.</p></li>
-<li><p>Differences in working methods: Team members from different disciplines may have different ways of working and methods. This can lead to conflict and reduce trust if team members have doubts about the effectiveness or quality of others’ work.</p></li>
-<li><p>Prejudices and stereotypes: In interdisciplinary teams, prejudices and stereotypes about certain disciplines might occur, which can affect the trust of team members. If members of a discipline are mistakenly seen as less competent, this can reduce confidence in their abilities <span class="citation" data-cites="shrumTrustConflictPerformance2001 hückstädt2023">(<a href="#ref-shrumTrustConflictPerformance2001" role="doc-biblioref">Shrum, Chompalov, and Genuth 2001</a>; <a href="#ref-hückstädt2023" role="doc-biblioref">Hückstädt 2023</a>)</span>.</p></li>
+<li><p><strong>Communication barriers:</strong> Different disciplines have different disciplinary cultures. If team members have difficulty communicating in an understandable way, this can affect trust as misunderstandings and miscommunication can occur.</p></li>
+<li><p><strong>Differences in working methods:</strong> Team members from different disciplines may have different ways of working and methods. This can lead to conflict and reduce trust if team members have doubts about the effectiveness or quality of others’ work.</p></li>
+<li><p><strong>Prejudices and stereotypes:</strong> In interdisciplinary teams, prejudices and stereotypes about certain disciplines might occur, which can affect the trust of team members. If members of a discipline are mistakenly seen as less competent, this can reduce confidence in their abilities <span class="citation" data-cites="shrumTrustConflictPerformance2001 hückstädt2023">(<a href="#ref-shrumTrustConflictPerformance2001" role="doc-biblioref">Shrum, Chompalov, and Genuth 2001</a>; <a href="#ref-hückstädt2023" role="doc-biblioref">Hückstädt 2023</a>)</span>.</p></li>
 </ol>
 </section>
 <section id="number-of-members" class="level3">
 <h3 class="anchored" data-anchor-id="number-of-members">Number of members</h3>
 <ol type="1">
-<li><p>Coordination and decision-making: As the number of team members in a team increases, coordination and decision-making can become increasingly complex. Each member may have different ideas, priorities and ways of working, which can lead to conflicts or delays, which in turn reduce the trust relationships among members.</p></li>
-<li><p>Responsibilities: Each member has responsibility for certain aspects of the project. However, if the number of members in a team is too high, it can be difficult to establish clear responsibilities and ensure that each team member is performing their tasks effectively. Diffusion of responsibility can induce free-rider behaviour, which can also negatively affect trust relationships between members.</p></li>
-<li><p>Resource allocation: The number of members can also influence the allocation of resources such as research funds, laboratory resources and research staff. If there are too many members, the limited resources risk being shared inefficiently, which can lead to friction and eventually to a loss of trust <span class="citation" data-cites="defila2006">(<a href="#ref-defila2006" role="doc-biblioref">Defila, Di Giulio, and Scheuermann 2006</a>)</span>.</p></li>
+<li><p><strong>Coordination and decision-making:</strong> As the number of team members in a team increases, coordination and decision-making can become increasingly complex. Each member may have different ideas, priorities and ways of working, which can lead to conflicts or delays, which in turn reduce the trust relationships among members.</p></li>
+<li><p><strong>Responsibilities:</strong> Each member has responsibility for certain aspects of the project. However, if the number of members in a team is too high, it can be difficult to establish clear responsibilities and ensure that each team member is performing their tasks effectively. Diffusion of responsibility can induce free-rider behaviour, which can also negatively affect trust relationships between members.</p></li>
+<li><p><strong>Resource allocation:</strong> The number of members can also influence the allocation of resources such as research funds, laboratory resources and research staff. If there are too many members, the limited resources risk being shared inefficiently, which can lead to friction and eventually to a loss of trust <span class="citation" data-cites="defila2006">(<a href="#ref-defila2006" role="doc-biblioref">Defila, Di Giulio, and Scheuermann 2006</a>)</span>.</p></li>
 </ol>
 </section>
 <section id="frictions" class="level3">
@@ -561,7 +559,7 @@ Defila, Rico, Antonietta Di Giulio, and Michael Scheuermann. 2006. <em>Forschung
 Hückstädt, Malte. 2023. <span>“Ten Reasons Why Research Collaborations Succeed<span></span>a Random Forest Approach.”</span> <em>Scientometrics</em> 128 (3): 1923–50. <a href="https://doi.org/10.1007/s11192-022-04629-7">https://doi.org/10.1007/s11192-022-04629-7</a>.
 </div>
 <div id="ref-kleimannQuantitativePartialSurvey2023" class="csl-entry" role="listitem">
-Kleimann, Bernd, Monika Jungbauer-Gans, Malte Hückstädt, Marten Wallis, and Deutsches Zentrum Für Hochschul- Und Wissenschaftsforschung (DZHW). 2023. <span>“Quantitative <span>Partial Survey</span> of the <span>Project</span> <span>DEKiF</span>.”</span> <span>German Centre for Higher Education Research and Science Studies (DZHW)</span>. <a href="https://doi.org/10.21249/DZHW:DECQUANT:1.0.0">https://doi.org/10.21249/DZHW:DECQUANT:1.0.0</a>.
+Hückstädt, Malte, Bernd Kleimann, Monika Jungbauer-Gans, and Deutsches Zentrum Für Hochschul- Und Wissenschaftsforschung (DZHW). 2023. <span>“Quantitative <span>Partial Survey</span> of the <span>Project</span> <span>DEKiF</span>.”</span> <span>German Centre for Higher Education Research and Science Studies (DZHW)</span>. <a href="https://doi.org/10.21249/DZHW:DECQUANT:1.0.0">https://doi.org/10.21249/DZHW:DECQUANT:1.0.0</a>.
 </div>
 <div id="ref-kramerKNearestNeighbors2013" class="csl-entry" role="listitem">
 Kramer, Oliver. 2013. <span>“K-<span>Nearest Neighbors</span>.”</span> In <em>Dimensionality <span>Reduction</span> with <span>Unsupervised Nearest Neighbors</span></em>, edited by Oliver Kramer, 13–23. <span>Berlin, Heidelberg</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-3-642-38652-7_2">https://doi.org/10.1007/978-3-642-38652-7_2</a>.
