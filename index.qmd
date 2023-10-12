@@ -25,24 +25,3 @@ My main research interests are programming with R and Python, computational soci
 ## GitHub
 
 In the context of my work as a research assistant at the [*German Centre for Science and Higher Education Research* (DZHW)](https://www.dzhw.eu/en/index_html), I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a [*reproducible analytical pipeline*](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/). I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a *reproducible analytical pipeline* is Git(Hub). If you would like to find out more about the progress of my projects, check out [my GitHub repositorys](https://github.com/maltehueckstaedt).
-
-
-## Twitter
-
-I'm still new to Twitter, but I really like the possibility of agile, scientific communication. The often polemical way of communicating on Twitter, on the other hand, is rather alien to me. I am a friend of fact-oriented, academic communication. With this in mind, check out my Twitter account, follow and retweet tweets that seem relevant to you!
-
-<center><a class="twitter-timeline" data-width="330" data-height="500" data-theme="light" href="https://twitter.com/chernofffaces?ref_src=twsrc%5Etfw">Tweets by chernofffaces</a></center>
-
-```{=html}
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-```
-
-## Running
-
-When I'm not working on my computer, I've been going running in my spare time for about 10 years. The winter asions are usually weak, but in spring, summer and autumn I usually do my rounds regularly. Here are details of one of my recent runs:
-
-<iframe src="https://connect.garmin.com/modern/activity/embed/10907837412" title="Schwerin - W05D7-Langer Lauf" width="465" height="500" frameborder="0">
-
-</iframe>
-
-For more information you can check my Garmin profile [here](https://connect.garmin.com/modern/profile/a7608bfb-2aaf-4eed-becd-6871567540c7).

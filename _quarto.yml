@@ -40,6 +40,8 @@ website:
       - experience.qmd
       - talks.qmd
     right:
+      - href: https://twitter.com/chernofffaces
+        text: "{{< iconify exploding-head >}} X"
       - href: https://github.com/MalteHueckstaedt?tab=repositories
         text: "{{< iconify exploding-head >}} GH"
       - href: https://orcid.org/0000-0002-0185-4230
