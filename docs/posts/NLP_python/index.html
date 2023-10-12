@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Malte Hückstädt">
-<meta name="dcterms.date" content="2023-03-30">
+<meta name="dcterms.date" content="2023-01-09">
 
-<title>Quarto - Webscraping with Python</title>
+<title>Quarto - NLP with Python</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -127,12 +127,18 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="../../styles.css">
 <link rel="stylesheet" href="academicons.css">
-<meta property="og:title" content="Quarto - Webscraping with Python">
+<meta property="og:title" content="Quarto - NLP with Python">
 <meta property="og:description" content="">
+<meta property="og:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/NLP_python/index_files/figure-html/unnamed-chunk-9-1.png">
 <meta property="og:site-name" content="Quarto">
-<meta name="twitter:title" content="Quarto - Webscraping with Python">
+<meta property="og:image:height" content="921">
+<meta property="og:image:width" content="1228">
+<meta name="twitter:title" content="Quarto - NLP with Python">
 <meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://maltehueckstaedt.github.io/Quarto_Blog_CF/posts/NLP_python/index_files/figure-html/unnamed-chunk-9-1.png">
+<meta name="twitter:image-height" content="921">
+<meta name="twitter:image-width" content="1228">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -225,10 +231,10 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Webscraping with Python</h1>
+      <h1 class="title">NLP with Python</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Python</div>
-                <div class="quarto-category">web-scraping</div>
+                <div class="quarto-category">NLP</div>
               </div>
                   </div>
   </div>
@@ -246,7 +252,7 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 30, 2023</p>
+        <p class="date">January 9, 2023</p>
       </div>
     </div>
     
@@ -263,7 +269,10 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#web-scraping-with-python" id="toc-web-scraping-with-python" class="nav-link" data-scroll-target="#web-scraping-with-python">Web scraping with Python</a></li>
+  <li><a href="#loading-libraries-and-data" id="toc-loading-libraries-and-data" class="nav-link" data-scroll-target="#loading-libraries-and-data">Loading libraries and data</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data preparation</a></li>
+  <li><a href="#counter-with-bag-of-words" id="toc-counter-with-bag-of-words" class="nav-link" data-scroll-target="#counter-with-bag-of-words">Counter with Bag of Words</a></li>
+  <li><a href="#limitations-of-bag-of-words" id="toc-limitations-of-bag-of-words" class="nav-link" data-scroll-target="#limitations-of-bag-of-words">Limitations of Bag-of-Words</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/maltehueckstaedt/Quarto_Blog_CF/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -276,112 +285,108 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Web scraping refers to the process of extracting, copying and storing web content or source code sections with the aim of analysing or otherwise exploiting them. With the help of web scraping procedures, many different types of information can be collected and analysed automatically: For example, contact, network or behavioural data. Web scraping is no longer a novelty in empirical research. There are numerous reasons why web scraping methods are used in empirical research: For example, repeated collection of cross-sectional web data, the desire for replicability of data collection processes or the desire for time-efficient and less error-prone collection of online data <span class="citation" data-cites="munzertNutzungWebdatenSozialwissenschaften2019">(<a href="#ref-munzertNutzungWebdatenSozialwissenschaften2019" role="doc-biblioref">Munzert and Nyhuis 2019</a>)</span>.</p>
+<p>A <em>Bag of Words</em> is a form of vectorized text representation that describes the multiplicity of words in a text corpus. Thereby, a <em>Bag of Words</em> only considers the number, but not the grammar or the order in which words are implemented in a text corpus. This is also the name-giving core property of the <em>Bag of Words</em>: `The model is only interested in whether and in which frequency specific words occur in a text corpus, but not where they are implemented in which grammatical way in a text corpus. Accordingly, the <em>Bag of Words</em> approach is often used to classify documents where the (frequency of) occurrence of specific words can be used as a classification criterion e.g.&nbsp;of documents <span class="citation" data-cites="albrechtBlueprintsTextAnalysis2020">(<a href="#ref-albrechtBlueprintsTextAnalysis2020" role="doc-biblioref">Albrecht, Ramachandran, and Winkler 2020</a>)</span>.</p>
 </section>
-<section id="web-scraping-with-python" class="level1">
-<h1>Web scraping with Python</h1>
-<p>As a low-threshold introduction to webscraping, we want to use <a href="https://www.python.org/">Python</a> to collect various online-accessible articles from the art magazine <a href="https://www.monopol-magazin.de/"><em>Monopol</em></a> from the section <em>Art Market</em>. For this we need the Pythons libaries <code>BeautifulSoup</code>, <code>requests</code>, <code>pandas</code> and for the later backup of our collected data the library <code>openpyxl</code>. Since I myself use <a href="https://www.rstudio.com/">RStudio</a> as IDE ((Integrated Development Environment)) for Python, I load the R package <code>reticulate</code> in an R environment and turn off the (to me annoying) notification function of the package. Finally, I use the function <code>use_python()</code> to tell R under which path my Python binary can be found. Users who work directly in Python can skip this step.</p>
+<section id="loading-libraries-and-data" class="level1">
+<h1>Loading libraries and data</h1>
+<p>As a simple introduction to natural language processing (NLP) we want to use <a href="https://www.python.org/">Python</a> to analyze various online accessible articles from the art magazine <a href="https://www.monopol-magazin.de/"><em>Monopol</em></a> from the section <em>Art Market</em> (<a href="../../_posts/2022-03-29-webscraping_python.md">see</a>). For this we need the Pythons libraries <code>pandas</code>, <code>nltk</code>, <code>string</code>, <code>re</code> and for the later backup of our collected data the library <code>openpyxl</code>. Since I myself use <a href="https://www.rstudio.com/">RStudio</a> as an IDE (Integrated Development Environment) for Python, I load the R package <code>reticulate</code> into an R environment and turn off the package (for me annoying) notification function. Finally, I use the <code>use_python()</code> function to tell R under which path my Python binary can be found. Users working directly in Python can omit this step.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">reticulate.repl.quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">"~/Library/r-miniconda/bin/python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">"~/Library/r-miniconda-arm64/bin/python"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In a further step, the Python libaries mentioned above are loaded into the working environment. If the libraries have not yet been installed, this can be done from R with the <code>reticulate</code> function <code>py_install()</code>. In Python, libraries can be installed directly with the function <code>pip install</code>.</p>
+<p>In a further step, the above-mentioned Python libraries are loaded into the working environment. If the libraries have not yet been installed, this can be done from R with the function <code>py_install()</code>. In Python the libraries can be installed directly with the function <code>pip install</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#py_install("pandas")</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#py_install("bs4")</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#py_install("openpyxl")</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openpyxl</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nltk</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> string</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Once this is done, we define the URL where the links to the ten newest articles of the section “Art Market” are stored. The defined URL are fed to the function <code>requests.get()</code>, which should display the status code 200: HTTP status code 200 indicates that the request was successfully processed. All requested data has been located on the web server and is being transferred to the client</p>
+<p>Next, we load the data obtained in <em>Lesson 1</em> on web scraping (<a href="../../_posts/2022-03-29-webscraping_python.md">see</a>) into our workspace with the help of the function <code>read_excel()</code>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> To avoid the creation of a new column with the row indices the argument <code>index_col</code> is set to <code>0</code>. As <code>engine</code> to be used <code>openpyxl</code> is further specified.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load url</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://www.monopol-magazin.de/ressort/kunstmarkt"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> requests.get(url)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="vs">r'output.xlsx'</span>, index_col<span class="op">=</span><span class="dv">0</span>, engine<span class="op">=</span><span class="st">'openpyxl'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-preparation" class="level1">
+<h1>Data preparation</h1>
+<p>To create a <em>bag of words</em>, a list named <code>texts</code> with ten elements is generated from the column vector <code>texts</code> of the data frame <code>df</code>. Each element contains an article i.e.&nbsp;a body of text. A shorter example represents the article with the name “<em>Venice painting of Monet should bring in millions</em>”, which is deposited in the second element (<code>texts[1]</code>) of the list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> df[<span class="st">'texts'</span>].tolist()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#texts[1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We specify a for-loop that transforms all words of the ten text corpora into lowercase. To check the effectiveness of the for-loop, we again output the 2nd element of the list <code>texts</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(texts)):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    texts[i] <span class="op">=</span> texts[i].lower()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#texts[1]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In a further step, <em>stopwords</em> (such as “<em>and</em>”, “<em>or</em>”, “<em>the</em>” or “<em>that</em>”) are removed from the text corpora using a function it can find on <a href="https://stackoverflow.com/questions/52361543/how-do-i-remove-stop-words-from-an-arraylist-of-strings-in-python">Stack Overflow</a>. <em>stopwords</em> are those words that are ignored in full-text indexing such as that of the <em>word of bags</em>. This is to be done because <em>stopwords</em> occur very frequently on the one hand and on the other hand usually have no relevance for capturing the document content.</p>
+<p>Since the text corpora originate from a German-language art magazine, we write into the object <code>stop_words</code> all those German stopwords, which the library <code>nltk</code> supplies.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> In the case that further stopwords are to be defined, this can be done further with the function <code>append()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> stopwords.words(<span class="st">'german'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>new_stop_words <span class="op">=</span> [<span class="st">'de'</span>,<span class="st">'wurde'</span>,<span class="st">'etwa'</span>,<span class="st">'mai'</span>,<span class="st">'gab'</span>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>stop_words.extend(new_stop_words)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> remove_stopwords(texts):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    output_array<span class="op">=</span>[]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> sentence <span class="kw">in</span> texts:</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        temp_list<span class="op">=</span>[]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> word <span class="kw">in</span> sentence.split():</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> word.lower() <span class="kw">not</span> <span class="kw">in</span> stop_words:</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>                temp_list.append(word)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        output_array.append(<span class="st">' '</span>.join(temp_list))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output_array</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>texts<span class="op">=</span>remove_stopwords(texts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In order to ignore the punctuation and numbers of the text corpora in the context of our analysis, two further for-loops are specified: The former removes all punctuation marks using the <code>sub()</code> function of the <code>re</code> library, the latter splits the text corpora into their individual tokens and filters those that are alphabetic but not numeric.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remove punctuation</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [re.sub(<span class="st">'[</span><span class="sc">{}</span><span class="st">]'</span>.<span class="bu">format</span>(string.punctuation), <span class="st">''</span>, i) <span class="cf">for</span> i <span class="kw">in</span> texts]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#remove numbers</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>texts <span class="op">=</span> [[word <span class="cf">for</span> word <span class="kw">in</span> texts.split() <span class="cf">if</span> word.isalpha()] <span class="cf">for</span> texts <span class="kw">in</span> texts]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="counter-with-bag-of-words" class="level1">
+<h1>Counter with Bag of Words</h1>
+<p>Now the actual <em>bag of words</em> can be created. We import the function <code>Counter()</code> of the <code>collection</code>-library and add the tokens of the ten articles in a single list called <code>texts</code> with the <code>sum()</code>-function. We then pass this list to the <code>counter()</code> function of the <code>collections</code> library and store the results in the object <code>bow</code> (bag of words). In it we find the counts of the tokens of our ten text corpora.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> Counter</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>texts<span class="op">=</span> <span class="bu">sum</span>(texts, [])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>bow <span class="op">=</span> Counter(texts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As we are mainly interested in the most frequently occurring words in the ten articles, we specify a bar plot with the help of the <code>matplotlib</code>-library. To do this, we extract the number and names of the ten most frequent terms.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [count <span class="cf">for</span> tag, count <span class="kw">in</span> bow.most_common(<span class="dv">10</span>)]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [tag <span class="cf">for</span> tag, count <span class="kw">in</span> bow.most_common(<span class="dv">10</span>)]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.clf()</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.bar(x, y, color<span class="op">=</span><span class="st">'crimson'</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Term frequencies in ten monopol-magazin articles"</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Frequency"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;Response [200]&gt;</code></pre>
+<pre><code>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [Text(0, 0, 'euro'), Text(1, 0, 'besitzer'), Text(2, 0, 'art'), Text(3, 0, 'galerie'), Text(4, 0, 'new'), Text(5, 0, 'york'), Text(6, 0, 'paris'), Text(7, 0, 'werke'), Text(8, 0, 'auktionshaus'), Text(9, 0, 'spark')])</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.tight_layout() <span class="co"># change the whitespace such that all labels fit nicely</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="614"></p>
 </div>
 </div>
-<p>If we pass the object <code>text</code> from the list <code>res</code> generated by the <code>requests.get()</code> function to the BeautifulSoup function, we get a BeautifulSoup object that transforms the HTML document into an easily readable nested data structure.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>soup <span class="op">=</span> BeautifulSoup(res.text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>With the help of the <a href="https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=de">selector gadget</a> we select the CSS selector that leads to the URLs of the first ten articles of the <em>art market</em> section. In this case it is: <code>#block-kf-bootstrap-content header</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>articles <span class="op">=</span> soup.select(<span class="st">"#block-kf-bootstrap-content header"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>From the list <code>articles</code> created in this way, all titles of the ten articles are now extracted as pure text elements with the help of a for-loop and the list <code>articles_titles</code> is written.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>articles_titles <span class="op">=</span> [i.text <span class="cf">for</span> i <span class="kw">in</span> articles]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Furthermore, another for-loop iterates over the <code>soup</code> object to extract the links to the full texts of the ten articles as simple text elements. An empty list called <code>articles_urls</code> is created in which all partial URLs are written that can be found in the HTML elements of the class <code>article__title</code> and there in the HTML element <code>a</code>. Since only the respective paths are stored in the <code>a</code> elements of the HTML code, but not the main domain of the URL, this is finally merged with the paths to form a single string.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>articles_urls <span class="op">=</span> []</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> article__title <span class="kw">in</span> soup.find_all(attrs<span class="op">=</span>{<span class="st">'class'</span>:<span class="st">'article__title'</span>}):</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> link <span class="kw">in</span> article__title.find_all(<span class="st">'a'</span>):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    url <span class="op">=</span> <span class="st">"https://www.monopol-magazin.de"</span><span class="op">+</span>link.get(<span class="st">'href'</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    articles_urls.append(url)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(articles_urls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;class 'list'&gt;</code></pre>
-</div>
-</div>
-<p>Now the text elements of the ten articles can be collected with a for-loop. Again, an empty list is created, this time with the name <code>data</code>. The for-loop iterates over the ten URLs extracted above that are in the list <code>articles_urls</code>. The <code>requests.get()</code> function is called first on each of the ten URLs. If the respective web page of the articles of the status code reflects 200, we create - as above - a soup object with the function <code>BeautifulSoup()</code>, which puts the HTML code of the respective page into a clear structure for us. Then, with the help of the <a href="https://chrome.google.com/webstore/detail/selectorgadget/mhjhnkcfbdhnjickkkdbjoemdmbfginb?hl=de">selector gadget</a>, we select the CSS selector that leads to the articles of each section of the <em>art market</em>. In this case it is: <code>.field--type-text-long.field--label-hidden</code>. Finally, the collected text elements are adapted to the unicode standard using the function <code>normalize</code> of the library <code>unicodedata</code> and a for-loop. This is done with the help of the <em>NFKD</em> algorithm.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> []</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> url <span class="kw">in</span> articles_urls:</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> requests.get(url)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> res.status_code <span class="op">==</span> <span class="dv">200</span>:</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        soup <span class="op">=</span> BeautifulSoup(res.text)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> element <span class="kw">in</span> soup.select(<span class="st">'.field--type-text-long.field--label-hidden'</span>):</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>            data.append((element.get_text()))</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#clean text</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> unicodedata</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [unicodedata.normalize(<span class="st">"NFKD"</span>,i) <span class="cf">for</span> i <span class="kw">in</span> data]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Voilà! As we could see, our code created <em>little spiders</em> that roam the URLs we specified and reliably collect all the information we instructed them to collect in our code. In this way, the <em>little spiders</em> that we brought to life with a few lines of Python code can do the work in seconds with an accuracy and speed that would take us humans a quarter of an hour.</p>
-<p>We now merge the three lists with the titles of the articles, the URLs and the actual text corpus first into a list called <code>d</code> and then into a data-frame called <code>df</code>. Furthermore, we use the <code>replace()</code> function and the <code>strip()</code> function to remove all line breaks and whitespace from all columns of the type <code>string</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data_sub <span class="op">=</span> data[<span class="dv">0</span>:<span class="dv">10</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {<span class="st">'titles'</span>:articles_titles,<span class="st">'urls'</span>:articles_urls,<span class="st">'texts'</span>:data_sub}</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(d)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df[df.columns] <span class="op">=</span> df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.<span class="bu">str</span>.replace(<span class="st">"</span><span class="ch">\n</span><span class="st">"</span>, <span class="st">""</span>))</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>df[df.columns] <span class="op">=</span> df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.<span class="bu">str</span>.strip())</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                                              titles  ...                                              texts
-0  Gallery Weekend Berlin      Wohin in der Potsd...  ...  Gallery Weekend Berlin, 28. bis 30. AprilWeite...
-1  Kunstmesse Paper Positions in Berlin      Stab...  ...  Parallel zum Gallery Weekend in Berlin zeigt d...
-2       Gallery Weekend Berlin      Wohin im Westen?  ...  Cave-Ayumi Gallery: Naoto Kumagai "Integrate",...
-3        Gallery Weekend Berlin      Wohin in Mitte?  ...  Kräftig und klar wirken dagegen die Siebdruck...
-4         Art Brussels      Eine Messe für Spürnasen  ...         Māksla XO: Helena Heinrihsone "Red", 2022
-5             Kunstmesse      20 Jahre Art Karlsruhe  ...  Auf der Messe werden mehrere Preise für die b...
-6  Auktionen im September      Privatsammlung von...  ...         Paper Positions, Berlin, 27. bis 30. April
-7  Sotheby's      Riesenspinne und Klimt-Premiere...  ...  Gallery Weekend Berlin, 28. bis 30. AprilWeite...
-8  Galeristin Xiaochan Hua      "Freiheit ist mir...  ...  Gallery Weekend Berlin, 28. bis 30. AprilWeite...
-9  Kunstmesse Art Brussels      Das nächste große...  ...  Die gut informierte lokale Sammlerszene liebt ...
-
-[10 rows x 3 columns]</code></pre>
-</div>
-</div>
-<p>Finally, we export the data-frame created in this way into the <code>.xlsx</code> format with the function <code>ExcelWriter()</code>. To do this, we define the desired output-format, write the object <code>df</code> into an Excel sheet and export this with the function <code>writer.save()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>writer <span class="op">=</span> pd.ExcelWriter(<span class="st">'output.xlsx'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.to_excel(writer)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>writer.save()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;string&gt;:1: FutureWarning: save is not part of the public API, usage can give unexpected results and will be removed in a future version</code></pre>
-</div>
-</div>
-<p>There are many possibilities for analysing the data obtained, some of which will be presented here in the medium term.</p>
+<p>As we can see, the most frequently represented words of the ten articles of the art magazine monopol-magazin are connoted both economically (“<em>euro</em>”, “<em>owner</em>”, “<em>auction house</em>”) and culturally (“<em>art</em>”,“<em>galerie</em>”,“<em>werke</em>”,“<em>auction house</em>”). In this way, for example, a classifier without knowledge of the rubric of the text corpora could assign them to the section <em>art market</em>.</p>
+</section>
+<section id="limitations-of-bag-of-words" class="level1">
+<h1>Limitations of Bag-of-Words</h1>
+<p>As we have seen, the bag of words approach is efficient and easy to implement, but it also has disadvantages: If the Bag of Words approach is used for the classification of large document sets, the increasing number of tokens and documents results, among other things, in very large data matrices that have a lot of zero values because specific words are rarely mentioned. This circumstance complicates the interpretation of the results of a Bag of Words considerably.</p>
+<p>Furthermore, the Bag of Words approach cannot interpret textual data in terms of meaning. For example, consider the two sentences “<em>I love watching series on Netflix and hate visiting art museums</em>” and conversely “<em>I love visiting art museums and hate watching series on Netflix</em>”. The bag of words approach leads to similar vectorized representations even though the two sentences have contrasting inhaptic meanings.</p>
+<p>Deep learning models such as BERT address these key weaknesses of the bag of words approach.</p>
 </section>
 <section id="references" class="level1">
 
@@ -390,11 +395,18 @@ gtag('config', 'G-RPNCKESW8M', { 'anonymize_ip': true});
 
 </section>
 
+
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-munzertNutzungWebdatenSozialwissenschaften2019" class="csl-entry" role="listitem">
-Munzert, Simon, and Dominic Nyhuis. 2019. <span>“<span>Die Nutzung von Webdaten in den Sozialwissenschaften</span>.”</span> In <em><span>Handbuch Methoden der Politikwissenschaft</span></em>, 373–97. <span>Wiesbaden</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-3-658-16937-4_22-1">https://doi.org/10.1007/978-3-658-16937-4_22-1</a>.
+<div id="ref-albrechtBlueprintsTextAnalysis2020" class="csl-entry" role="listitem">
+Albrecht, Jens, Sidharth Ramachandran, and Christian Winkler. 2020. <em>Blueprints for Text Analysis Using <span>Python</span>: Machine Learning-Based Solutions for Common Real World (<span>NLP</span>) Applications$<span>dJens Albrecht</span>, <span>Sidharth Ramachandran</span> and <span>Christian Winkler</span></em>. First edition, revision. <span>Bejing Boston Farnham Sebastopol Tokyo</span>: <span>O’Reilly</span>.
 </div>
-</div></section></div></main> <!-- /main -->
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The collected data can also be loaded <a href="https://github.com/MalteHueckstaedt/chernoff_faces/raw/master/analysis/03-2022-webscraping_python/output.xlsx">here</a> as <code>.xlsx</code>-file.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Diese müssen ggf. separat mit der Funktion <code>nltk.download('stopwords')</code> geladen werden.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
