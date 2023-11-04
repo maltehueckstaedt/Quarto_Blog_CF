@@ -1,0 +1,132 @@
+---
+title: "Neuronal Networks in R"
+author: "Malte Hückstädt"
+date: "2023-11-01"
+categories: [R, deep learning, neuronal networks]
+format: 
+  html:
+    self-contained: true
+bibliography: Bibliothek.bib
+---
+
+# Introduction
+
+Neural networks are the cornerstones of modern artificial intelligence and machine learning. Inspired by the biological structure of the human brain, they have evolved into powerful tools for recognising patterns and relationships in data, making decisions based on information and revolutionising a wide range of applications.
+
+## Das Konzept der Neuronalen Netzwerke
+
+Der Kern neuronaler Netzwerke sind ihre künstlichen Neuronen, die ähnlich wie Gehirnzellen funktionieren. Diese Neuronen bilden Schichten, beginnend mit der Eingabeschicht, die Daten aufnimmt, gefolgt von versteckten Schichten, die Daten verarbeiten, und schließlich der Ausgabeschicht, die endgültige Entscheidungen trifft. Ähnlich dem Gehirn von Menschen und Säugetieren, das verschiedene Regionen für unterschiedliche Aufgaben hat, verfügt auch ein neuronales Netzwerk über Schichten, die für bestimmte Funktionen vorgesehen sind. Dies können je nach Komplexität und Aufgabe eines NN convolutional layers, max-pooling layers oder dense layers sein. Tiefe neuronale Netze (DNN) weisen eine größere Tiefe auf, da sie im Vergleich zu einem herkömmlichen künstlichen neuronalen Netz (ANN) über mehr Schichten verfügen. Jede zusätzliche Schicht erhöht die Komplexität des Modells und ermöglicht es ihm, die Eingabedaten sorgfältig zu verarbeiten und so die vorteilhaftesten Lösungen zu finden.
+
+![ANN vs DNN](DNN-ANN.png){fig-align="center"}
+
+Der Trainingsprozess und Backpropagation
+
+Der Trainingsprozess ist von entscheidender Bedeutung. Während des Trainings wird das Netzwerk mit Daten gefüttert und macht Vorhersagen basierend auf seinem aktuellen Wissen. Diese Vorhersagen werden mit den tatsächlichen Ergebnissen verglichen, und ein Maß für die Abweichung, die sogenannte Verlustfunktion, wird berechnet. Das Hauptziel des Trainings besteht darin, diesen Verlust oder Fehler zu minimieren. Hier kommt Backpropagation ins Spiel: Es ermöglicht dem Netzwerk, die Gewichtungen und Schwellenwerte zu justieren, um den Fehler zu reduzieren. Dieser Mechanismus ähnelt einem Feedback-Prozess, bei dem das Netzwerk seine eigenen Schwachstellen erkennt und korrigiert.
+
+Anwendungen in der Realität
+
+Neuronale Netzwerke finden in der realen Welt vielfältige Anwendungen. Sie revolutionieren die Bilderkennung, ermöglichen virtuellen Assistenten wie Siri und Alexa, menschliche Sprache zu verstehen, verbessern die medizinische Diagnosegenauigkeit und helfen bei der Finanzprognose. Ihre Stärke liegt in der Bewältigung komplexer Aufgaben, die große Datenmengen und Mustererkennung erfordern.
+
+# Data
+
+-   `PassengerId`: ID
+
+-   `Survived`: Survival 0 = No, 1 = Yes
+
+-   `Pclass`: Ticket class 1 = 1st, 2 = 2nd, 3 = 3rd
+
+-   `Name`: Name des Passagiers
+
+-   `Sex`: Geschlecht des Passagiers
+
+-   `Age`: Alter des Passagiers
+
+-   `SipSP`, Anzahl der siblings / spouses aboard the Titanic
+
+-   `Parch`, Anzahl der parents / children aboard the Titanic
+
+-   `Ticket`:, Ticket number
+
+-   `Fare`: Fahrgasttarif
+
+-   `Cabin`: Cabin number
+
+-   `Embarked`: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+#install.packages("titanic") 
+library(titanic)
+library(tidyverse)
+library(kableExtra)
+train <- titanic_train
+test <- titanic_test
+
+head(train) %>% kable()
+```
+
+## Data Exploration
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+plot1 <- ggplot(train, aes(Sex, Age,fill=as.factor(Survived))) + 
+  geom_dotplot(binaxis = "y", 
+               stackdir = "centerwhole", 
+               method="dotdensity",
+               alpha=.4,
+               stackgroups = T,
+               binpositions="all",
+               binwidth = 2)+
+  theme(legend.position = "none")+
+  scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"),
+                    legend)+
+  guides(fill=guide_legend(title="Survived"))
+
+plot2 <- ggplot(train, aes(as.factor(Pclass), Age,fill=as.factor(Survived))) + 
+  geom_dotplot(binaxis = "y", 
+               alpha=.4,
+               stackdir = "centerwhole", 
+               method="dotdensity",
+               stackgroups = T,
+               binpositions="all",
+               binwidth = 2)+
+  theme(legend.position = "none")+
+  scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"),
+                    legend)+
+  guides(fill=guide_legend(title="Survived"))+ xlab("Pclass")
+
+Plot_3 <- ggplot(train, aes(x=Age)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.4, fill="#56B4E9") 
+
+Plot_4 <- ggplot(train, aes(x=Fare)) + 
+ geom_histogram(aes(y=..density..), colour="black", fill="white")+
+ geom_density(alpha=.4, fill="#E69F00",adjust = 3) 
+
+library(ggpubr)
+figure <- ggarrange(plot1, plot2, Plot_3,Plot_4,
+          labels = c("A", "B","C","D"),
+          ncol = 2, nrow = 2)
+
+annotate_figure(figure,
+               top = text_grob("Visualizing Titanic Data", color = "black", face = "bold", size = 14),
+               bottom = text_grob("A: Sex by ascending age (Organge:Survived, Grey: Not Survived) \n B: Pclass by ascending age (Organge:Survived, Grey: Not Survived) \n C: Histogram of the variable age", color = "black",
+                                  hjust = 1, x = 1, face = "italic", size = 10),
+               left = text_grob("Figure arranged using ggpubr", color = "black", rot = 90),
+               right = text_grob("Data source: Titanic Package", rot = 90),
+               fig.lab = "", fig.lab.face = "bold"
+)
+```
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(summarytools)
+print(dfSummary(train, 
+                varnumbers   = FALSE, 
+                valid.col    = FALSE, 
+                graph.magnif = 0.76),
+      method = 'render')
+```
+
+# Neuronal Network
+
+```{r}
+# install.packages(c('keras','tensorflow'),dependencies = T)
+```

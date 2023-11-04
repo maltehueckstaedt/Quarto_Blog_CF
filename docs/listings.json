@@ -18,6 +18,8 @@
   {
     "listing": "/recent.html",
     "items": [
+      "/posts/neuronal_nets_R/index.html",
+      "/posts/naive_bayes_R/index.html",
       "/posts/lin_reg_python/index.html",
       "/posts/KNN_R/index.html",
       "/posts/Instagram_R/index.html",

@@ -1,0 +1,102 @@
+---
+title: "Naive Bayes with R"
+author: "Malte Hückstädt"
+date: "2023-11-01"
+categories: [R, mashine learning]
+format: 
+  html:
+    self-contained: true
+bibliography: Bibliothek.bib
+---
+
+# Introduction
+
+The Naive Bayes classifier is a widely used and easy-to-understand machine learning algorithm that is primarily used for classification tasks. This method is based on Bayes' theorem. Bayes' theorem is a mathematical rule that is used to update the probability of an event based on existing information. It states:
+
+$$
+P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
+$$
+
+-   $P(A|B)$ is the conditional probability of event $A$ under the condition that event $B$ has occurred.
+-   $P(B|A)$ is the conditional probability of event $B$ under the condition that event $A$ has occurred.
+-   $P(A)$ is the probability of event $A$, independent of event $B$.
+-   $P(B)$ is the probability of event $B$, independent of event $A$.
+
+In simpler terms, Bayes' theorem states that we can calculate the probability of an event $A$, given the occurrence of an event $B$, by dividing the probability of $B$, given $A$, by the probability of $A$ itself and normalising by the probability of $B$.
+
+The *naive* in the name of the Naive Bayes classifier refers to the fact that the algorithm makes a very simplifying assumption: It assumes that the features (properties) of a data point are independent of each other, which is often not the case, especially in the context of social science. Nevertheless, the Naive Bayes algorithm works surprisingly well in many applications.
+
+How does the Naive Bayes algorithm work?
+
+Let's assume we have various pieces of information about the weather: these are the input variables (1) `sun`, (2) `rain` and (3) `temperature`. With these three input variables we want to predict the output variable `humid` with a Naive Bayes classifier. The probability that it will be `humid` is therefore based on the features `sun`, `rain` and `temperature` and their probabilities. The following applies:
+
+1.  we consider `Sun` as an independent event.
+
+2.  `Rain` and `temperature` depend on `sun`.
+
+3.  'Humidity' depends on all other weather events.
+
+In a simplified example, if $P(sun=yes)=1$, the probability that it is humid is 46%. The probability that it is not humid is 54% (see @fig-bayes)[^1]
+
+[^1]: The figure is based on the one from C.Thornton: <https://users.sussex.ac.uk/~christ/crs/kr-ist/lec09a.html>
+
+![Simplified representation of the Naive Bayes algorithm](naive_bayes.svg){#fig-bayes fig-align="center" width="772"}
+
+This is essentially the Naive Bayes algorithm in action. It relies on probabilities and assumptions about the dependencies between events to make predictions. It is important to note that the real Naive Bayes algorithm uses more complex models and works with more features, but the basic idea is the same: The probability of an event is calculated taking into account other events.
+
+# Anwendung
+
+Jetzt, wo wir die Grundlagen des Naive Bayes algorithmus dargestellt haben. Die Titanic-Daten sind ein häufig verwendeter Datensatz in der Datenanalyse und dem maschinellen Lernen, der Informationen über die Passagiere des Schiffes Titanic enthält, einschließlich deren Überlebensstatus. In diesem Beispiel werden wir den Naive-Bayes-Klassifikator verwenden, um vorherzusagen, ob ein Passagier auf der Titanic überlebt hat oder nicht. Wie geht der Naive-Bayes-Klassifikator dabei vor?
+
+# Datenvorbereitung
+
+Wir Laden die Titanic-Daten mithilfe des R-Packetes `titanic`. Dabei stellt das Paket bereits einen training und einen test-datensatz bereit, die jeweils die folgenden Variablen beinhalten:
+
+-   `PassengerId`: ID
+
+-   `Survived`: Survival 0 = No, 1 = Yes
+
+-   `Pclass`: Ticket class 1 = 1st, 2 = 2nd, 3 = 3rd
+
+-   `Name`: Name des Passagiers
+
+-   `Sex`: Geschlecht des Passagiers
+
+-   `Age`: Alter des Passagiers
+
+-   `SipSP`, Anzahl der siblings / spouses aboard the Titanic
+
+-   `Parch`, Anzahl der parents / children aboard the Titanic
+
+-   `Ticket`:, Ticket number
+
+-   `Fare`: Fahrgasttarif
+
+-   `Cabin`: Cabin number
+
+-   `Embarked`: Port of Embarkation C = Cherbourg, Q = Queenstown, S = Southampton
+
+```{r}
+library(titanic)
+train <- titanic_train
+test <- titanic_test
+```
+
+Der Trainingsdatensatz wird zum training des Naive Bayes-Klassifikator, und der Test-Datensatz wird zur Bewertung seiner Modellgenauigkeit verwendet.
+
+Wähle die relevanten Merkmale aus, die als Eingabe für den Naive-Bayes-Algorithmus dienen sollen. In diesem Fall könnten Merkmale wie Geschlecht, Alter, Ticketklasse, usw. relevant sein. Berechnung der Wahrscheinlichkeiten:
+
+Der Naive-Bayes-Algorithmus berechnet die Wahrscheinlichkeiten der Merkmale für jede Klasse, in diesem Fall "Überlebt" und "Nicht überlebt". Für jede Merkmalsklasse (Überlebt oder Nicht überlebt) wird die Wahrscheinlichkeit P(Klasse) berechnet. Anwendung des Naive Bayes-Algorithmus:
+
+Für einen neuen Passagier werden die Merkmalswahrscheinlichkeiten für jede Klasse berechnet. Der Algorithmus verwendet das Bayes'sche Theorem, um die bedingte Wahrscheinlichkeit P(Klasse \| Merkmale) für jede Klasse zu schätzen. Klassifikation:
+
+Der Passagier wird der Klasse zugeordnet, für die die bedingte Wahrscheinlichkeit am höchsten ist. Wenn P(Überlebt \| Merkmale) \> P(Nicht überlebt \| Merkmale), wird der Passagier als "Überlebt" klassifiziert, andernfalls als "Nicht überlebt". Evaluation des Modells:
+
+Verwende die Testdaten, um die Genauigkeit des Modells zu bewerten, indem du die vorhergesagten Klassifikationen mit den tatsächlichen Klassen vergleichst. Du kannst Metriken wie Genauigkeit, Präzision, Recall, F1-Score usw. verwenden.
+
+# Naive Bayes
+
+```{r}
+
+
+```
