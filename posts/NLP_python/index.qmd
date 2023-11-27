@@ -1,5 +1,5 @@
 ---
-title: "Webscraping with Python"
+title: "NLP with Python"
 author: "Malte Hückstädt"
 date: "2023-01-09"
 categories: [Python, NLP]
