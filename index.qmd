@@ -18,10 +18,9 @@ depth: 3
 
 ![](images/avatar_circle.png){fig-align="center" width="185"}
 
-Hi, I'm Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the [*German Centre for Science and Higher Education Research* (DZHW)](https://www.dzhw.eu/en/index_html) since 2018 in various research projects and contexts as a (Social) Data Scientist.
+Hi, I'm Malte. I was born in 1983 in Schwedt/Oder. I studied fine art in Hannover (FH Hannover) and Berlin (KH-Berlin) from 2004 to 2009 and sociology in Berlin (HU Berlin) and in Bielefeld (Bielefeld University) from 2014 to 2018. I have been working at the [*German Centre for Science and Higher Education Research* (DZHW)](https://www.dzhw.eu/en/index_html) since 2018 in various research projects and contexts as a (Social) Data Scientist. From March 2024, I will be working as a data scientist/data engineer at the [*Stifterverband für die Deutsche Wissenschaft* (DZHW)](https://www.stifterverband.org/)
 
 My main research interests are programming with R and Python, computational social science, machine learning, research collaborations, interdisciplinarity and sociology of art and culture.
 
-## GitHub
 
 In the context of my work as a research assistant at the [*German Centre for Science and Higher Education Research* (DZHW)](https://www.dzhw.eu/en/index_html), I have been able to significantly sharpen my profile as a (social) data scientist, which I had already developed during my studies: My everyday dealings with large amounts of data sensitised me early on to the great importance of a [*reproducible analytical pipeline*](https://analysisfunction.civilservice.gov.uk/support/reproducible-analytical-pipelines/). I therefore have an adept command of various version control tools, markup and scripting languages, which enables me to work with complex data structures in a reproducible, transparent and efficient manner at all times. For me, the most central tool for a *reproducible analytical pipeline* is Git(Hub). If you would like to find out more about the progress of my projects, check out [my GitHub repositorys](https://github.com/maltehueckstaedt).
